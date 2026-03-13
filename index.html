@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Introduction to Algebra — 30-Day Crash Course</title>
+<style>
+/* ── Reset & Base ───────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #f0f4f8;
+  color: #1a202c;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Top Header ─────────────────────────────────── */
+.top-header {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0d9488 100%);
+  color: #fff;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+.top-header h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.top-header .header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.top-header .progress-summary {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+.mindmap-header-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 6px;
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s;
+  white-space: nowrap;
+}
+.mindmap-header-btn:hover {
+  background: rgba(255,255,255,.3);
+}
+.mindmap-header-btn svg {
+  width: 14px; height: 14px;
+  fill: currentColor;
+}
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+/* ── Layout ─────────────────────────────────────── */
+.app-layout {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+/* ── Sidebar ────────────────────────────────────── */
+.sidebar {
+  width: 280px;
+  min-width: 280px;
+  background: #fff;
+  border-right: 1px solid #e2e8f0;
+  overflow-y: auto;
+  padding: 16px 0;
+  position: sticky;
+  top: 56px;
+  height: calc(100vh - 56px);
+}
+.sidebar h2 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #718096;
+  padding: 0 20px;
+  margin-bottom: 8px;
+}
+.day-list { list-style: none; }
+.day-list li { border-bottom: 1px solid #f7fafc; }
+.day-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background .15s;
+  text-decoration: none;
+  color: inherit;
+}
+.day-item:hover { background: #f7fafc; }
+.day-item.active { background: #ecfeff; border-left: 3px solid #0ea5e9; }
+.day-num {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.85rem;
+  background: #e2e8f0; color: #4a5568;
+  flex-shrink: 0;
+}
+.day-item.active .day-num { background: #0ea5e9; color: #fff; }
+.day-item.completed .day-num { background: #48bb78; color: #fff; }
+.day-info { min-width: 0; }
+.day-info .day-title {
+  font-size: 0.9rem; font-weight: 600;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.day-info .day-status {
+  font-size: 0.75rem; color: #a0aec0;
+}
+.day-item.completed .day-info .day-status { color: #48bb78; }
+
+/* ── Main Content ───────────────────────────────── */
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px 40px;
+  max-width: 860px;
+}
+
+/* ── Welcome Screen ─────────────────────────────── */
+.welcome {
+  text-align: center;
+  padding: 60px 20px;
+}
+.welcome h2 {
+  font-size: 2rem;
+  background: linear-gradient(135deg, #0ea5e9, #0d9488);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+}
+.welcome p { color: #718096; font-size: 1.05rem; max-width: 560px; margin: 0 auto 24px; }
+.btn-primary {
+  display: inline-block;
+  padding: 12px 32px;
+  background: linear-gradient(135deg, #0ea5e9, #0d9488);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s;
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(14,165,233,.4); }
+
+/* ── Tabs (Lesson / Quiz) ───────────────────────── */
+.tab-bar {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid #e2e8f0;
+  margin-bottom: 28px;
+}
+.tab-btn {
+  padding: 10px 24px;
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #a0aec0;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color .15s, border-color .15s;
+}
+.tab-btn:hover { color: #4a5568; }
+.tab-btn.active { color: #0ea5e9; border-bottom-color: #0ea5e9; }
+
+/* ── Lesson Styles ──────────────────────────────── */
+.lesson-header {
+  margin-bottom: 32px;
+}
+.lesson-header h2 {
+  font-size: 1.75rem;
+  color: #2d3748;
+  margin-bottom: 4px;
+}
+.lesson-header .subtitle {
+  font-size: 1rem;
+  color: #718096;
+}
+.section {
+  margin-bottom: 36px;
+}
+.section h3 {
+  font-size: 1.25rem;
+  color: #2d3748;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #e2e8f0;
+}
+.section p {
+  margin-bottom: 12px;
+  color: #4a5568;
+  font-size: 0.98rem;
+}
+.example-box {
+  background: linear-gradient(135deg, #ecfeff 0%, #e0f2fe 100%);
+  border-left: 4px solid #0ea5e9;
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin-top: 16px;
+}
+.example-box h4 {
+  font-size: 0.95rem;
+  color: #0ea5e9;
+  margin-bottom: 8px;
+}
+.example-box .problem {
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #2d3748;
+  font-size: 1rem;
+}
+.example-box ol {
+  padding-left: 20px;
+  color: #4a5568;
+}
+.example-box li {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+/* ── Quiz Styles ────────────────────────────────── */
+.quiz-header {
+  margin-bottom: 24px;
+}
+.quiz-header h2 { font-size: 1.5rem; color: #2d3748; }
+.quiz-header p { color: #718096; font-size: 0.95rem; margin-top: 4px; }
+
+.quiz-progress-bar {
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+.quiz-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #0ea5e9, #0d9488);
+  border-radius: 3px;
+  transition: width .3s ease;
+}
+
+.question-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px 32px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+  margin-bottom: 20px;
+}
+.question-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.q-number {
+  font-weight: 700;
+  color: #0ea5e9;
+  font-size: 0.85rem;
+}
+.q-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.q-badge.easy { background: #c6f6d5; color: #276749; }
+.q-badge.medium { background: #fefcbf; color: #975a16; }
+.q-badge.hard { background: #fed7d7; color: #9b2c2c; }
+.q-badge.review { background: #ccfbf1; color: #134e4a; }
+
+.question-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+.options-list { list-style: none; }
+.option-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 18px;
+  background: #f7fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #2d3748;
+  transition: border-color .15s, background .15s;
+  text-align: left;
+}
+.option-btn:hover:not(.disabled) { border-color: #0ea5e9; background: #ecfeff; }
+.option-btn .option-letter {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.8rem; color: #4a5568;
+  flex-shrink: 0;
+}
+.option-btn.selected { border-color: #0ea5e9; background: #ecfeff; }
+.option-btn.selected .option-letter { background: #0ea5e9; color: #fff; }
+.option-btn.correct { border-color: #48bb78; background: #f0fff4; }
+.option-btn.correct .option-letter { background: #48bb78; color: #fff; }
+.option-btn.incorrect { border-color: #f56565; background: #fff5f5; }
+.option-btn.incorrect .option-letter { background: #f56565; color: #fff; }
+.option-btn.disabled { cursor: default; opacity: 0.7; }
+.option-btn.show-correct { border-color: #48bb78; background: #f0fff4; }
+.option-btn.show-correct .option-letter { background: #48bb78; color: #fff; }
+
+.explanation {
+  margin-top: 16px;
+  padding: 16px 20px;
+  background: #f0fff4;
+  border-left: 4px solid #48bb78;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.92rem;
+  color: #276749;
+  display: none;
+}
+.explanation.wrong {
+  background: #fff5f5;
+  border-left-color: #f56565;
+  color: #9b2c2c;
+}
+.explanation.visible { display: block; }
+
+.quiz-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+}
+.btn-secondary {
+  padding: 10px 24px;
+  background: #e2e8f0;
+  color: #4a5568;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s;
+}
+.btn-secondary:hover { background: #cbd5e0; }
+.btn-secondary:disabled { opacity: 0.4; cursor: default; }
+
+/* ── Quiz Results ───────────────────────────────── */
+.results-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,.08);
+}
+.results-card .score-circle {
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 2rem; font-weight: 800; color: #fff;
+}
+.score-circle.excellent { background: linear-gradient(135deg, #48bb78, #38a169); }
+.score-circle.good { background: linear-gradient(135deg, #0ea5e9, #0d9488); }
+.score-circle.needs-work { background: linear-gradient(135deg, #ed8936, #dd6b20); }
+.score-circle.struggling { background: linear-gradient(135deg, #f56565, #e53e3e); }
+.results-card h3 { font-size: 1.4rem; margin-bottom: 8px; color: #2d3748; }
+.results-card p { color: #718096; margin-bottom: 24px; }
+.results-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* ── Day Navigation Footer ──────────────────────── */
+.day-nav-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* ── Mindmap Styles ─────────────────────────────── */
+.mindmap-container {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.mindmap-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #f7fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+.mindmap-toolbar button {
+  padding: 6px 14px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: #4a5568;
+  transition: background .15s;
+}
+.mindmap-toolbar button:hover { background: #ecfeff; }
+.mindmap-toolbar .zoom-display {
+  font-size: 0.8rem;
+  color: #a0aec0;
+  min-width: 50px;
+  text-align: center;
+}
+.mindmap-viewport {
+  width: 100%;
+  height: 600px;
+  overflow: auto;
+  cursor: grab;
+  position: relative;
+}
+.mindmap-viewport:active { cursor: grabbing; }
+.mindmap-viewport img,
+.mindmap-viewport object {
+  display: block;
+  transform-origin: 0 0;
+  transition: transform .2s ease;
+}
+.mindmap-header {
+  margin-bottom: 20px;
+}
+.mindmap-header h2 {
+  font-size: 1.5rem;
+  color: #2d3748;
+}
+.mindmap-header p {
+  color: #718096;
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+.cheatsheet {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+.cheat-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+  border-top: 4px solid #0ea5e9;
+}
+.cheat-card h3 {
+  font-size: 1rem;
+  color: #2d3748;
+  margin-bottom: 8px;
+}
+.cheat-card .cheat-day {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #0ea5e9;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.cheat-card ul {
+  padding-left: 18px;
+  font-size: 0.85rem;
+  color: #4a5568;
+}
+.cheat-card li { margin-bottom: 4px; }
+.cheat-card .formula {
+  display: inline-block;
+  background: #ecfeff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.83rem;
+  color: #0e7490;
+  font-weight: 600;
+}
+/* ── Graph / SVG Styles ───────────────────────────── */
+.graph-container {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+  padding: 16px;
+  margin: 18px 0;
+  text-align: center;
+  overflow-x: auto;
+}
+.graph-container svg {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+.graph-container .graph-caption {
+  font-size: 0.82rem;
+  color: #718096;
+  margin-top: 8px;
+  font-style: italic;
+}
+.graph-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin: 18px 0;
+}
+.graph-row .graph-container {
+  flex: 1 1 260px;
+  max-width: 360px;
+  margin: 0;
+}
+
+.cheat-card.blue { border-top-color: #3b82f6; }
+.cheat-card.teal { border-top-color: #0d9488; }
+.cheat-card.green { border-top-color: #22c55e; }
+.cheat-card.amber { border-top-color: #f59e0b; }
+.cheat-card.rose { border-top-color: #e11d48; }
+.mindmap-section-toggle {
+  display: flex;
+  gap: 0;
+  margin-bottom: 20px;
+  background: #e2e8f0;
+  border-radius: 8px;
+  padding: 3px;
+}
+.mindmap-section-toggle button {
+  flex: 1;
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #718096;
+  cursor: pointer;
+  transition: all .15s;
+}
+.mindmap-section-toggle button.active {
+  background: #fff;
+  color: #0ea5e9;
+  box-shadow: 0 1px 3px rgba(0,0,0,.1);
+}
+
+/* ── Mindmap Overlay (full-page) ────────────────── */
+.mindmap-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: #f7fafc;
+  overflow-y: auto;
+  animation: overlayFadeIn .25s ease;
+}
+.mindmap-overlay.open { display: block; }
+@keyframes overlayFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.mindmap-overlay-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #0ea5e9 0%, #0d9488 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+.mindmap-overlay-header h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+}
+.mindmap-overlay-header p {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  margin: 2px 0 0;
+}
+.mindmap-overlay-close {
+  background: rgba(255,255,255,.2);
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: background .15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.mindmap-overlay-close:hover { background: rgba(255,255,255,.35); }
+.mindmap-overlay-body {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 24px 48px;
+}
+
+/* ── Responsive ─────────────────────────────────── */
+@media (max-width: 768px) {
+  .menu-btn { display: block; }
+  .sidebar {
+    position: fixed;
+    left: -300px;
+    top: 56px;
+    height: calc(100vh - 56px);
+    z-index: 90;
+    transition: left .3s ease;
+    box-shadow: 2px 0 12px rgba(0,0,0,.15);
+  }
+  .sidebar.open { left: 0; }
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    top: 56px;
+    background: rgba(0,0,0,.3);
+    z-index: 89;
+  }
+  .sidebar-overlay.open { display: block; }
+  .main-content { padding: 24px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── Top Header ────────────────────────────────── -->
+<header class="top-header">
+  <div style="display:flex;align-items:center;gap:12px;">
+    <button class="menu-btn" onclick="toggleSidebar()" aria-label="Menu">&#9776;</button>
+    <h1>Intro to Algebra Crash Course</h1>
+  </div>
+  <div class="header-right">
+    <button class="mindmap-header-btn" onclick="openMindmapOverlay()">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+      Mindmap &amp; Cheatsheet
+    </button>
+    <div class="progress-summary" id="progressSummary">0 / 30 days completed</div>
+  </div>
+</header>
+
+<!-- ── Sidebar Overlay (mobile) ──────────────────── -->
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+<!-- ── Mindmap Full-Page Overlay ───────────────────── -->
+<div class="mindmap-overlay" id="mindmapOverlay">
+  <div class="mindmap-overlay-header">
+    <div>
+      <h2>Course Mindmap &amp; Cheatsheet</h2>
+      <p>Visual overview of all 30 days of algebra topics with key formulas and concepts.</p>
+    </div>
+    <button class="mindmap-overlay-close" onclick="closeMindmapOverlay()">&#10005; Close</button>
+  </div>
+  <div class="mindmap-overlay-body" id="mindmapOverlayBody"></div>
+</div>
+
+<!-- ── App Layout ────────────────────────────────── -->
+<div class="app-layout">
+
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <h2>Course Map</h2>
+    <ul class="day-list" id="dayList"></ul>
+  </nav>
+
+  <!-- Main -->
+  <main class="main-content" id="mainContent">
+    <div class="welcome" id="welcomeScreen">
+      <h2>Welcome to Introduction to Algebra!</h2>
+      <p>A 30-day crash course covering the complete AoPS Introduction to Algebra &mdash; from variables and expressions through quadratics, complex numbers, functions, logarithms, sequences, and beyond. Designed for grades 7&ndash;8 with step-up quizzes and progress tracking.</p>
+      <button class="btn-primary" onclick="goToDay(1)">Start Day 1</button>
+    </div>
+  </main>
+</div>
+
+<!-- ── Data Modules ──────────────────────────────── -->
+<script type="module">
+import { DAYS_1_6 } from './intro-algebra-days1-6.js';
+import { DAYS_7_12 } from './intro-algebra-days7-12.js';
+import { DAYS_13_20 } from './intro-algebra-days13-20.js';
+import { DAYS_21_26 } from './intro-algebra-days21-26.js';
+import { DAYS_27_30 } from './intro-algebra-days27-30.js';
+
+// ─── Merge all days into one object ───────────────
+const ALL_DAYS = {};
+for (let i = 1; i <= 6; i++)  ALL_DAYS[i] = DAYS_1_6[`day${i}`];
+for (let i = 7; i <= 12; i++) ALL_DAYS[i] = DAYS_7_12[`day${i}`];
+for (let i = 13; i <= 20; i++) ALL_DAYS[i] = DAYS_13_20[`day${i}`];
+for (let i = 21; i <= 26; i++) ALL_DAYS[i] = DAYS_21_26[`day${i}`];
+for (let i = 27; i <= 30; i++) ALL_DAYS[i] = DAYS_27_30[`day${i}`];
+
+const TOTAL_DAYS = 30;
+const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+// ═══════════════════════════════════════════════════
+// SVG Graph Helper Library
+// ═══════════════════════════════════════════════════
+
+const G = {}; // namespace for graph helpers
+
+// ── Number Line ────────────────────────────────────
+// Draws a horizontal number line with optional points, intervals, arrows.
+// opts: { min, max, step, width, height, points:[], intervals:[], label }
+// points: [{ x, open:bool, color, label }]
+// intervals: [{ from, to, fromOpen, toOpen, color, toInf, fromInf }]
+G.numberLine = function(opts = {}) {
+  const W = opts.width || 480, H = opts.height || 70;
+  const min = opts.min ?? -6, max = opts.max ?? 6, step = opts.step || 1;
+  const pad = 40, lineY = H / 2;
+  const usable = W - 2 * pad;
+  const scale = usable / (max - min);
+  const toX = v => pad + (v - min) * scale;
+
+  let svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" style="font-family:'Segoe UI',system-ui,sans-serif;">`;
+
+  // axis line with arrows
+  svg += `<line x1="${pad - 14}" y1="${lineY}" x2="${W - pad + 14}" y2="${lineY}" stroke="#4a5568" stroke-width="1.5"/>`;
+  svg += `<polygon points="${pad - 16},${lineY} ${pad - 8},${lineY - 4} ${pad - 8},${lineY + 4}" fill="#4a5568"/>`;
+  svg += `<polygon points="${W - pad + 16},${lineY} ${W - pad + 8},${lineY - 4} ${W - pad + 8},${lineY + 4}" fill="#4a5568"/>`;
+
+  // tick marks and labels
+  for (let v = min; v <= max; v += step) {
+    const x = toX(v);
+    svg += `<line x1="${x}" y1="${lineY - 5}" x2="${x}" y2="${lineY + 5}" stroke="#4a5568" stroke-width="1.2"/>`;
+    svg += `<text x="${x}" y="${lineY + 18}" text-anchor="middle" font-size="11" fill="#4a5568">${v}</text>`;
+  }
+
+  // intervals (shaded regions)
+  if (opts.intervals) {
+    opts.intervals.forEach(iv => {
+      const c = iv.color || '#0ea5e9';
+      const x1 = iv.fromInf ? pad - 14 : toX(iv.from);
+      const x2 = iv.toInf ? W - pad + 14 : toX(iv.to);
+      svg += `<rect x="${x1}" y="${lineY - 4}" width="${x2 - x1}" height="8" fill="${c}" opacity="0.25" rx="2"/>`;
+      svg += `<line x1="${x1}" y1="${lineY}" x2="${x2}" y2="${lineY}" stroke="${c}" stroke-width="3" opacity="0.6"/>`;
+      // endpoint circles
+      if (!iv.fromInf) {
+        svg += iv.fromOpen
+          ? `<circle cx="${x1}" cy="${lineY}" r="5" fill="#fff" stroke="${c}" stroke-width="2"/>`
+          : `<circle cx="${x1}" cy="${lineY}" r="5" fill="${c}"/>`;
+      }
+      if (!iv.toInf) {
+        svg += iv.toOpen
+          ? `<circle cx="${x2}" cy="${lineY}" r="5" fill="#fff" stroke="${c}" stroke-width="2"/>`
+          : `<circle cx="${x2}" cy="${lineY}" r="5" fill="${c}"/>`;
+      }
+    });
+  }
+
+  // discrete points
+  if (opts.points) {
+    opts.points.forEach(p => {
+      const x = toX(p.x);
+      const c = p.color || '#e53e3e';
+      svg += p.open
+        ? `<circle cx="${x}" cy="${lineY}" r="5" fill="#fff" stroke="${c}" stroke-width="2"/>`
+        : `<circle cx="${x}" cy="${lineY}" r="5" fill="${c}"/>`;
+      if (p.label) {
+        svg += `<text x="${x}" y="${lineY - 10}" text-anchor="middle" font-size="10" font-weight="600" fill="${c}">${p.label}</text>`;
+      }
+    });
+  }
+
+  svg += `</svg>`;
+  return svg;
+};
+
+// ── Coordinate Plane ──────────────────────────────
+// Returns SVG of a coordinate grid with axes.
+// opts: { xMin, xMax, yMin, yMax, width, height, gridStep, lines:[], points:[], parabolas:[], shading:[] }
+// lines: [{ m, b, color, label, dashed, xMin, xMax }]  — y = mx + b
+// points: [{ x, y, color, label, labelPos }]
+// parabolas: [{ a, b, c, color, label, dashed }]  — y = ax^2 + bx + c
+G._clipId = 0; // counter for unique clipPath IDs
+G.coordPlane = function(opts = {}) {
+  const W = opts.width || 360, H = opts.height || 360;
+  const xMin = opts.xMin ?? -6, xMax = opts.xMax ?? 6;
+  const yMin = opts.yMin ?? -6, yMax = opts.yMax ?? 6;
+  const gs = opts.gridStep || 1;
+  const pad = 30;
+  const plotW = W - 2 * pad, plotH = H - 2 * pad;
+  const sX = plotW / (xMax - xMin), sY = plotH / (yMax - yMin);
+  const toSX = v => pad + (v - xMin) * sX;
+  const toSY = v => pad + (yMax - v) * sY; // flipped Y
+  const clipId = `plotClip${G._clipId++}`; // unique per graph instance
+
+  let svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" style="font-family:'Segoe UI',system-ui,sans-serif;">`;
+  svg += `<defs><clipPath id="${clipId}"><rect x="${pad}" y="${pad}" width="${plotW}" height="${plotH}"/></clipPath></defs>`;
+
+  // grid lines
+  for (let v = Math.ceil(xMin); v <= Math.floor(xMax); v += gs) {
+    const x = toSX(v);
+    svg += `<line x1="${x}" y1="${pad}" x2="${x}" y2="${pad + plotH}" stroke="${v === 0 ? '#4a5568' : '#e2e8f0'}" stroke-width="${v === 0 ? 1.5 : 0.7}"/>`;
+    if (v !== 0) svg += `<text x="${x}" y="${toSY(0) + 14}" text-anchor="middle" font-size="9" fill="#a0aec0">${v}</text>`;
+  }
+  for (let v = Math.ceil(yMin); v <= Math.floor(yMax); v += gs) {
+    const y = toSY(v);
+    svg += `<line x1="${pad}" y1="${y}" x2="${pad + plotW}" y2="${y}" stroke="${v === 0 ? '#4a5568' : '#e2e8f0'}" stroke-width="${v === 0 ? 1.5 : 0.7}"/>`;
+    if (v !== 0) svg += `<text x="${toSX(0) - 8}" y="${y + 3}" text-anchor="end" font-size="9" fill="#a0aec0">${v}</text>`;
+  }
+
+  // axis arrows
+  const ox = toSX(0), oy = toSY(0);
+  svg += `<polygon points="${pad + plotW + 4},${oy} ${pad + plotW - 2},${oy - 3} ${pad + plotW - 2},${oy + 3}" fill="#4a5568"/>`;
+  svg += `<polygon points="${ox},${pad - 4} ${ox - 3},${pad + 2} ${ox + 3},${pad + 2}" fill="#4a5568"/>`;
+  svg += `<text x="${pad + plotW + 6}" y="${oy + 4}" font-size="11" fill="#4a5568">x</text>`;
+  svg += `<text x="${ox + 6}" y="${pad - 2}" font-size="11" fill="#4a5568">y</text>`;
+
+  // lines (y = mx + b) clipped to plot area
+  if (opts.lines) {
+    opts.lines.forEach(ln => {
+      const lxMin = ln.xMin ?? xMin - 1;
+      const lxMax = ln.xMax ?? xMax + 1;
+      if (ln.vertical) {
+        // vertical line x = ln.x
+        const x = toSX(ln.x);
+        svg += `<line x1="${x}" y1="${pad}" x2="${x}" y2="${pad + plotH}" stroke="${ln.color || '#e53e3e'}" stroke-width="2" ${ln.dashed ? 'stroke-dasharray="6,3"' : ''} clip-path="url(#${clipId})"/>`;
+      } else {
+        const y1 = ln.m * lxMin + ln.b;
+        const y2 = ln.m * lxMax + ln.b;
+        svg += `<line x1="${toSX(lxMin)}" y1="${toSY(y1)}" x2="${toSX(lxMax)}" y2="${toSY(y2)}" stroke="${ln.color || '#e53e3e'}" stroke-width="2" ${ln.dashed ? 'stroke-dasharray="6,3"' : ''} clip-path="url(#${clipId})"/>`;
+      }
+      if (ln.label) {
+        const lx = (lxMin + lxMax) / 2;
+        const ly = ln.vertical ? yMax - 0.5 : ln.m * lx + ln.b;
+        const sx = toSX(lx) + (ln.labelDx || 8);
+        const sy = toSY(ly) + (ln.labelDy || -8);
+        svg += `<text x="${sx}" y="${sy}" font-size="11" font-weight="600" fill="${ln.color || '#e53e3e'}">${ln.label}</text>`;
+      }
+    });
+  }
+
+  // parabolas (y = ax² + bx + c)
+  if (opts.parabolas) {
+    opts.parabolas.forEach(p => {
+      const c = p.color || '#7c3aed';
+      const steps = 200;
+      const dx = (xMax - xMin) / steps;
+      let pts = [];
+      for (let i = 0; i <= steps; i++) {
+        const x = xMin + i * dx;
+        const y = p.a * x * x + (p.b || 0) * x + (p.c || 0);
+        // No clamping — clip-path handles visual clipping cleanly.
+        pts.push(`${toSX(x).toFixed(1)},${toSY(y).toFixed(1)}`);
+      }
+      if (pts.length > 1) {
+        svg += `<polyline points="${pts.join(' ')}" fill="none" stroke="${c}" stroke-width="2" ${p.dashed ? 'stroke-dasharray="6,3"' : ''} clip-path="url(#${clipId})"/>`;
+      }
+      if (p.label) {
+        const vx = -(p.b || 0) / (2 * p.a);
+        const vy = p.a * vx * vx + (p.b || 0) * vx + (p.c || 0);
+        svg += `<text x="${toSX(vx) + (p.labelDx || 8)}" y="${toSY(vy) + (p.labelDy || -8)}" font-size="11" font-weight="600" fill="${c}">${p.label}</text>`;
+      }
+    });
+  }
+
+  // points
+  if (opts.points) {
+    opts.points.forEach(p => {
+      const c = p.color || '#e53e3e';
+      const sx = toSX(p.x), sy = toSY(p.y);
+      svg += `<circle cx="${sx}" cy="${sy}" r="4" fill="${c}"/>`;
+      if (p.label) {
+        const pos = p.labelPos || 'tr';
+        const dx = pos.includes('l') ? -8 : 8;
+        const dy = pos.includes('b') ? 16 : -8;
+        const anchor = pos.includes('l') ? 'end' : 'start';
+        svg += `<text x="${sx + dx}" y="${sy + dy}" text-anchor="${anchor}" font-size="10" font-weight="600" fill="${c}">${p.label}</text>`;
+      }
+    });
+  }
+
+  svg += `</svg>`;
+  return svg;
+};
+
+// ── Triangle ──────────────────────────────────────
+// Draws a labeled triangle with optional right-angle marker.
+// opts: { width, height, vertices:[[x,y]...], labels:[{text,pos}], sides:[{label}], rightAngle:idx, color }
+G.triangle = function(opts = {}) {
+  const W = opts.width || 220, H = opts.height || 200;
+  const verts = opts.vertices || [[30, H - 20], [W - 30, H - 20], [W / 2, 20]];
+  const c = opts.color || '#0ea5e9';
+
+  let svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" style="font-family:'Segoe UI',system-ui,sans-serif;">`;
+
+  // draw triangle
+  const pts = verts.map(v => v.join(',')).join(' ');
+  svg += `<polygon points="${pts}" fill="${c}" fill-opacity="0.08" stroke="${c}" stroke-width="2"/>`;
+
+  // right-angle marker
+  if (opts.rightAngle !== undefined) {
+    const ri = opts.rightAngle;
+    const [cx, cy] = verts[ri];
+    const [ax, ay] = verts[(ri + 1) % 3];
+    const [bx, by] = verts[(ri + 2) % 3];
+    const sz = 12;
+    const d1x = (ax - cx), d1y = (ay - cy);
+    const d2x = (bx - cx), d2y = (by - cy);
+    const l1 = Math.sqrt(d1x * d1x + d1y * d1y);
+    const l2 = Math.sqrt(d2x * d2x + d2y * d2y);
+    const u1x = d1x / l1 * sz, u1y = d1y / l1 * sz;
+    const u2x = d2x / l2 * sz, u2y = d2y / l2 * sz;
+    svg += `<polyline points="${cx + u1x},${cy + u1y} ${cx + u1x + u2x},${cy + u1y + u2y} ${cx + u2x},${cy + u2y}" fill="none" stroke="${c}" stroke-width="1.2"/>`;
+  }
+
+  // vertex labels
+  if (opts.labels) {
+    opts.labels.forEach((lb, i) => {
+      if (!lb) return;
+      const [x, y] = verts[i];
+      const dx = lb.dx || 0, dy = lb.dy || 0;
+      svg += `<text x="${x + dx}" y="${y + dy}" text-anchor="middle" font-size="12" font-weight="600" fill="#2d3748">${lb.text}</text>`;
+    });
+  }
+
+  // side labels
+  if (opts.sides) {
+    opts.sides.forEach((s, i) => {
+      if (!s || !s.label) return;
+      const [x1, y1] = verts[i];
+      const [x2, y2] = verts[(i + 1) % verts.length];
+      const mx = (x1 + x2) / 2 + (s.dx || 0);
+      const my = (y1 + y2) / 2 + (s.dy || 0);
+      svg += `<text x="${mx}" y="${my}" text-anchor="middle" font-size="11" font-weight="600" fill="${c}">${s.label}</text>`;
+    });
+  }
+
+  svg += `</svg>`;
+  return svg;
+};
+
+// ── Convenience wrappers for use in data strings ──
+// These return HTML strings that can be embedded in paragraphs.
+G.wrap = function(svgHtml, caption) {
+  let html = `<div class="graph-container">${svgHtml}`;
+  if (caption) html += `<div class="graph-caption">${caption}</div>`;
+  html += `</div>`;
+  return html;
+};
+
+G.wrapRow = function(...items) {
+  return `<div class="graph-row">${items.join('')}</div>`;
+};
+
+// Expose globally so data files can reference graph helper
+window.G = G;
+
+// ─── State ────────────────────────────────────────
+let state = {
+  currentDay: 0,
+  currentTab: 'lesson',
+  quizIndex: 0,
+  quizAnswers: {},
+  quizSubmitted: {},
+  progress: loadProgress()
+};
+
+function loadProgress() {
+  try {
+    const saved = localStorage.getItem('intro-algebra-progress');
+    if (!saved) return initProgress();
+    const p = JSON.parse(saved);
+    // Migrate: ensure all TOTAL_DAYS entries exist (handles expansion from fewer days)
+    for (let i = 1; i <= TOTAL_DAYS; i++) {
+      if (!p[`day${i}`]) p[`day${i}`] = { lessonRead: false, quizScore: null, quizCompleted: false };
+    }
+    return p;
+  } catch { return initProgress(); }
+}
+function initProgress() {
+  const p = {};
+  for (let i = 1; i <= TOTAL_DAYS; i++) p[`day${i}`] = { lessonRead: false, quizScore: null, quizCompleted: false };
+  return p;
+}
+function saveProgress() {
+  try { localStorage.setItem('intro-algebra-progress', JSON.stringify(state.progress)); } catch {}
+}
+
+// ─── Sidebar Rendering ────────────────────────────
+const dayTitles = {};
+for (let i = 1; i <= TOTAL_DAYS; i++) dayTitles[i] = ALL_DAYS[i].lesson.title;
+
+function renderSidebar() {
+  const list = document.getElementById('dayList');
+  list.innerHTML = '';
+  for (let i = 1; i <= TOTAL_DAYS; i++) {
+    const prog = state.progress[`day${i}`];
+    const isActive = state.currentDay === i;
+    const isCompleted = prog.quizCompleted;
+    const li = document.createElement('li');
+    const div = document.createElement('div');
+    div.className = 'day-item' + (isActive ? ' active' : '') + (isCompleted ? ' completed' : '');
+    div.onclick = () => goToDay(i);
+    div.innerHTML = `
+      <div class="day-num">${isCompleted ? '&#10003;' : i}</div>
+      <div class="day-info">
+        <div class="day-title">${dayTitles[i]}</div>
+        <div class="day-status">${
+          isCompleted ? `Score: ${prog.quizScore}/${ALL_DAYS[i].quiz.length}` :
+          prog.lessonRead ? 'Lesson read' :
+          'Not started'
+        }</div>
+      </div>`;
+    li.appendChild(div);
+    list.appendChild(li);
+  }
+  const completed = Object.values(state.progress).filter(p => p.quizCompleted).length;
+  document.getElementById('progressSummary').textContent = `${completed} / ${TOTAL_DAYS} days completed`;
+}
+
+// ─── Navigation ───────────────────────────────────
+window.goToDay = function(day) {
+  state.currentDay = day;
+  state.currentTab = 'lesson';
+  state.quizIndex = 0;
+  state.quizAnswers = {};
+  state.quizSubmitted = {};
+  state.progress[`day${day}`].lessonRead = true;
+  saveProgress();
+  renderSidebar();
+  renderMain();
+  closeSidebar();
+  window.scrollTo(0, 0);
+};
+
+window.switchTab = function(tab) {
+  state.currentTab = tab;
+  state.quizIndex = 0;
+  renderMain();
+  window.scrollTo(0, 0);
+};
+
+// ─── Main Content Rendering ───────────────────────
+function renderMain() {
+  const main = document.getElementById('mainContent');
+  if (state.currentDay === 0) {
+    main.innerHTML = `
+      <div class="welcome" id="welcomeScreen">
+        <h2>Welcome to Introduction to Algebra!</h2>
+        <p>A 30-day crash course covering the complete AoPS Introduction to Algebra &mdash; from variables and expressions through quadratics, complex numbers, functions, logarithms, sequences, and beyond. Designed for grades 7&ndash;8 with step-up quizzes and progress tracking.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+          <button class="btn-primary" onclick="goToDay(1)">Start Day 1</button>
+        </div>
+      </div>`;
+    return;
+  }
+  const day = ALL_DAYS[state.currentDay];
+  const prog = state.progress[`day${state.currentDay}`];
+
+  let html = `
+    <div class="tab-bar">
+      <button class="tab-btn ${state.currentTab === 'lesson' ? 'active' : ''}" onclick="switchTab('lesson')">Lesson</button>
+      <button class="tab-btn ${state.currentTab === 'quiz' ? 'active' : ''}" onclick="switchTab('quiz')">Quiz${prog.quizCompleted ? ' (' + prog.quizScore + '/' + day.quiz.length + ')' : ''}</button>
+    </div>`;
+
+  if (state.currentTab === 'lesson') {
+    html += renderLesson(day);
+  } else if (state.currentTab === 'quiz') {
+    html += renderQuiz(day);
+  }
+
+  const mainEl = document.getElementById('mainContent');
+  mainEl.style.maxWidth = '860px';
+
+  html += `
+    <div class="day-nav-footer">
+      ${state.currentDay > 1
+        ? `<button class="btn-secondary" onclick="goToDay(${state.currentDay - 1})">&larr; Day ${state.currentDay - 1}</button>`
+        : '<div></div>'}
+      ${state.currentDay < TOTAL_DAYS
+        ? `<button class="btn-primary" onclick="goToDay(${state.currentDay + 1})">Day ${state.currentDay + 1} &rarr;</button>`
+        : '<div></div>'}
+    </div>`;
+
+  main.innerHTML = html;
+  if (state.currentTab === 'quiz') attachQuizListeners(day);
+}
+
+// ─── Graph Renderer ───────────────────────────────
+// Processes a graph descriptor object and returns HTML.
+// Graph types: "numberLine", "coordPlane", "triangle", "row" (multiple side-by-side)
+function renderGraph(g) {
+  if (!g) return '';
+  if (g.type === 'numberLine') {
+    return G.wrap(G.numberLine(g), g.caption);
+  } else if (g.type === 'coordPlane') {
+    return G.wrap(G.coordPlane(g), g.caption);
+  } else if (g.type === 'triangle') {
+    return G.wrap(G.triangle(g), g.caption);
+  } else if (g.type === 'row') {
+    // Multiple graphs side by side
+    const items = (g.items || []).map(item => {
+      const inner = renderGraph(item);
+      return inner;
+    });
+    return G.wrapRow(...items);
+  }
+  return '';
+}
+
+// ─── Lesson Renderer ──────────────────────────────
+function renderLesson(day) {
+  const lesson = day.lesson;
+  let html = `
+    <div class="lesson-header">
+      <h2>Day ${state.currentDay}: ${lesson.title}</h2>
+      <p class="subtitle">${lesson.subtitle}</p>
+    </div>`;
+
+  lesson.sections.forEach(sec => {
+    html += `<div class="section"><h3>${sec.heading}</h3>`;
+    sec.paragraphs.forEach(p => { html += `<p>${p}</p>`; });
+    // Render graphs if present
+    if (sec.graphs) {
+      sec.graphs.forEach(g => { html += renderGraph(g); });
+    }
+    if (sec.example) {
+      html += `
+        <div class="example-box">
+          <h4>${sec.example.title}</h4>
+          <div class="problem">${sec.example.problem}</div>
+          <ol>${sec.example.steps.map(s => `<li>${s}</li>`).join('')}</ol>`;
+      // Graph inside an example box
+      if (sec.example.graphs) {
+        sec.example.graphs.forEach(g => { html += renderGraph(g); });
+      }
+      html += `</div>`;
+    }
+    html += `</div>`;
+  });
+
+  html += `
+    <div style="text-align:center;margin-top:32px;">
+      <button class="btn-primary" onclick="switchTab('quiz')">Take the Quiz &rarr;</button>
+    </div>`;
+  return html;
+}
+
+// ─── Quiz Renderer ────────────────────────────────
+function renderQuiz(day) {
+  const quiz = day.quiz;
+  const prog = state.progress[`day${state.currentDay}`];
+
+  if (prog.quizCompleted && Object.keys(state.quizAnswers).length === 0) {
+    return renderResults(prog.quizScore, quiz);
+  }
+
+  const allAnswered = quiz.every(q => state.quizSubmitted[q.id]);
+  if (allAnswered) {
+    let score = 0;
+    quiz.forEach(q => {
+      if (state.quizAnswers[q.id] === q.correct) score++;
+    });
+    state.progress[`day${state.currentDay}`].quizScore = score;
+    state.progress[`day${state.currentDay}`].quizCompleted = true;
+    saveProgress();
+    renderSidebar();
+    return renderResults(score, quiz);
+  }
+
+  const q = quiz[state.quizIndex];
+  const answered = state.quizSubmitted[q.id] === true;
+  const selected = state.quizAnswers[q.id];
+  const isCorrect = selected === q.correct;
+
+  let html = `
+    <div class="quiz-header">
+      <h2>Day ${state.currentDay} Quiz</h2>
+      <p>Question ${state.quizIndex + 1} of ${quiz.length}</p>
+    </div>
+    <div class="quiz-progress-bar">
+      <div class="quiz-progress-fill" style="width:${((state.quizIndex) / quiz.length) * 100}%"></div>
+    </div>
+    <div class="question-card">
+      <div class="question-meta">
+        <span class="q-number">Q${state.quizIndex + 1}</span>
+        <span class="q-badge ${q.difficulty}">${q.difficulty}</span>
+        ${q.category === 'review' ? '<span class="q-badge review">review</span>' : ''}
+      </div>
+      <div class="question-text">${q.question}</div>
+      ${q.graph ? renderGraph(q.graph) : ''}
+      <ul class="options-list">`;
+
+  q.options.forEach((opt, idx) => {
+    let cls = 'option-btn';
+    if (answered) {
+      cls += ' disabled';
+      if (idx === q.correct) cls += ' correct show-correct';
+      if (idx === selected && idx !== q.correct) cls += ' incorrect';
+    } else if (selected === idx) {
+      cls += ' selected';
+    }
+    html += `
+        <li><button class="${cls}" data-qid="${q.id}" data-idx="${idx}">
+          <span class="option-letter">${LETTERS[idx]}</span>
+          <span>${opt}</span>
+        </button></li>`;
+  });
+
+  html += `</ul>`;
+
+  if (answered) {
+    html += `<div class="explanation ${isCorrect ? '' : 'wrong'} visible">
+      <strong>${isCorrect ? 'Correct!' : 'Not quite.'}</strong> ${q.explanation}
+    </div>`;
+  }
+
+  html += `</div>`;
+
+  html += `<div class="quiz-nav">
+    <button class="btn-secondary" ${state.quizIndex === 0 ? 'disabled' : ''} onclick="quizPrev()">Previous</button>
+    <span style="font-size:0.85rem;color:#a0aec0;">${state.quizIndex + 1} / ${quiz.length}</span>`;
+
+  if (!answered && selected !== undefined) {
+    html += `<button class="btn-primary" onclick="submitAnswer()">Check Answer</button>`;
+  } else if (answered && state.quizIndex < quiz.length - 1) {
+    html += `<button class="btn-primary" onclick="quizNext()">Next &rarr;</button>`;
+  } else if (answered && state.quizIndex === quiz.length - 1) {
+    html += `<button class="btn-primary" onclick="finishQuiz()">See Results</button>`;
+  } else {
+    html += `<div></div>`;
+  }
+  html += `</div>`;
+
+  return html;
+}
+
+// ─── Results ──────────────────────────────────────
+function renderResults(score, quiz) {
+  const pct = Math.round((score / quiz.length) * 100);
+  let tier, msg;
+  if (pct >= 90) { tier = 'excellent'; msg = 'Outstanding work! You\'ve mastered this topic!'; }
+  else if (pct >= 70) { tier = 'good'; msg = 'Great job! You have a solid understanding.'; }
+  else if (pct >= 50) { tier = 'needs-work'; msg = 'Good effort! Review the lesson and try again.'; }
+  else { tier = 'struggling'; msg = 'Keep practicing! Re-read the lesson and try the quiz again.'; }
+
+  let html = `
+    <div class="results-card">
+      <div class="score-circle ${tier}">${score}/${quiz.length}</div>
+      <h3>${pct}% &mdash; ${tier === 'excellent' ? 'Excellent!' : tier === 'good' ? 'Well Done!' : tier === 'needs-work' ? 'Almost There!' : 'Keep Going!'}</h3>
+      <p>${msg}</p>
+      <div class="results-actions">
+        <button class="btn-secondary" onclick="retakeQuiz()">Retake Quiz</button>
+        <button class="btn-secondary" onclick="switchTab('lesson')">Review Lesson</button>
+        ${state.currentDay < TOTAL_DAYS
+          ? `<button class="btn-primary" onclick="goToDay(${state.currentDay + 1})">Next Day &rarr;</button>`
+          : `<button class="btn-primary" onclick="goToDay(0)">Back to Home</button>`}
+      </div>
+    </div>`;
+
+  html += `<div style="margin-top:32px;">
+    <h3 style="font-size:1.15rem;margin-bottom:16px;color:#2d3748;">Answer Review</h3>`;
+  quiz.forEach((q, i) => {
+    const userAns = state.quizAnswers[q.id];
+    const correct = userAns === q.correct;
+    html += `
+      <div class="question-card" style="margin-bottom:12px;padding:18px 22px;">
+        <div class="question-meta">
+          <span class="q-number">Q${i + 1}</span>
+          <span class="q-badge ${q.difficulty}">${q.difficulty}</span>
+          <span style="margin-left:auto;font-weight:700;color:${correct ? '#48bb78' : '#f56565'}">${correct ? 'Correct' : 'Incorrect'}</span>
+        </div>
+        <div class="question-text" style="font-size:0.98rem;margin-bottom:10px;">${q.question}</div>
+        <div style="font-size:0.9rem;color:#4a5568;">
+          ${userAns !== undefined
+            ? `Your answer: <strong>${LETTERS[userAns]}. ${q.options[userAns]}</strong>`
+            : '<em>Not answered</em>'}
+          ${!correct ? `<br>Correct answer: <strong>${LETTERS[q.correct]}. ${q.options[q.correct]}</strong>` : ''}
+        </div>
+        <div class="explanation visible" style="margin-top:10px;display:block;">
+          ${q.explanation}
+        </div>
+      </div>`;
+  });
+  html += `</div>`;
+  return html;
+}
+
+// ─── Mindmap Overlay (full-page, independent) ─────
+let overlayZoom = 1;
+
+function renderOverlayContent() {
+  const COLORS = ['blue','teal','green','amber','rose'];
+  let html = `
+    <div class="mindmap-section-toggle">
+      <button id="ovToggleMap" class="active" onclick="showOverlaySection('map')">Mindmap</button>
+      <button id="ovToggleCheat" onclick="showOverlaySection('cheat')">Cheatsheet</button>
+    </div>
+    <div id="ovMindmapSection">
+      <div class="mindmap-container">
+        <div class="mindmap-toolbar">
+          <button onclick="overlayZoomFn(-0.15)">&#8722; Zoom</button>
+          <span class="zoom-display" id="ovZoomDisplay">100%</span>
+          <button onclick="overlayZoomFn(0.15)">&#43; Zoom</button>
+          <button onclick="overlayFit()">Fit</button>
+          <button onclick="window.open('intro-algebra-mindmap.drawio.svg','_blank')">Open Full</button>
+        </div>
+        <div class="mindmap-viewport" id="ovViewport">
+          <img src="intro-algebra-mindmap.drawio.svg" id="ovMindmapImg" alt="Intro to Algebra Mindmap"
+               style="max-width:none;" draggable="false"
+               onload="overlayFit()"/>
+        </div>
+      </div>
+    </div>
+    <div id="ovCheatsheetSection" style="display:none;">
+      <div class="cheatsheet">`;
+
+  const cards = [
+    { day:1,  cls:'blue', title:'Variables, Expressions &amp; PEMDAS', items:['Variable = letter placeholder for unknown','Expression: no equals sign; Equation: has equals sign','<span class="formula">PEMDAS</span>: Parentheses, Exponents, Multiply/Divide, Add/Subtract','Combine like terms: same variable &amp; exponent'] },
+    { day:2,  cls:'teal', title:'Solving One-Step Equations', items:['Balance model: same operation on both sides','Addition &harr; Subtraction (inverses)','Multiplication &harr; Division (inverses)','Reciprocal trick for fraction coefficients'] },
+    { day:3,  cls:'green', title:'Multi-Step Equations', items:['Undo operations in reverse order','Distribute to clear parentheses','Variables on both sides: collect to one side','Special: no solution (false) or infinite (identity)'] },
+    { day:4,  cls:'amber', title:'Word Problems', items:['4 steps: Define variable &rarr; Write equation &rarr; Solve &rarr; Check','Consecutive integers: n, n+1, n+2, &hellip;','<span class="formula">d = rt</span> (Distance = Rate &times; Time)','Total = Rate &times; Quantity'] },
+    { day:5,  cls:'rose', title:'Inequalities', items:['&lt; &gt; &le; &ge; symbols','Solve like equations, BUT flip sign when &times; or &divide; by negative','Open circle = not included; Closed = included','Interval notation: ( ) for strict, [ ] for inclusive'] },
+    { day:6,  cls:'blue', title:'Compound &amp; Absolute Value', items:['AND compound: both conditions (overlap)','OR compound: at least one (union)','<span class="formula">|expr| = k</span> &rArr; two cases: expr = k or expr = &minus;k','Less thAND, greatOR (memory aid)'] },
+    { day:7,  cls:'teal', title:'Exponent Laws', items:['<span class="formula">x<sup>a</sup> &middot; x<sup>b</sup> = x<sup>a+b</sup></span> (Product rule)','<span class="formula">x<sup>a</sup>/x<sup>b</sup> = x<sup>a&minus;b</sup></span> (Quotient rule)','<span class="formula">(x<sup>a</sup>)<sup>b</sup> = x<sup>ab</sup></span> (Power rule)','<span class="formula">x<sup>0</sup> = 1</span> (x &ne; 0)'] },
+    { day:8,  cls:'green', title:'Negative Exponents &amp; Sci Notation', items:['<span class="formula">x<sup>&minus;n</sup> = 1/x<sup>n</sup></span>','Scientific notation: a &times; 10<sup>n</sup> (1 &le; a &lt; 10)','Multiply: multiply coefficients, add exponents','Divide: divide coefficients, subtract exponents'] },
+    { day:9,  cls:'amber', title:'Polynomials Intro', items:['Monomial (1 term), Binomial (2), Trinomial (3)','Degree = highest exponent sum','Add: combine like terms','Subtract: distribute the negative first'] },
+    { day:10, cls:'rose', title:'Multiplying Polynomials', items:['Monomial &times; polynomial: distribute','<span class="formula">FOIL</span>: First, Outer, Inner, Last','<span class="formula">(a+b)<sup>2</sup> = a<sup>2</sup> + 2ab + b<sup>2</sup></span>','<span class="formula">(a+b)(a&minus;b) = a<sup>2</sup> &minus; b<sup>2</sup></span>'] },
+    { day:11, cls:'blue', title:'Factoring: GCF &amp; Grouping', items:['GCF: largest factor common to all terms','Factor out GCF first, always','Grouping (4 terms): pair &rarr; factor each &rarr; common binomial','Check by expanding back'] },
+    { day:12, cls:'teal', title:'Factoring Trinomials', items:['x<sup>2</sup> + bx + c: find p,q where pq = c, p+q = b','Signs guide: c pos &rarr; same signs; c neg &rarr; different','AC method for ax<sup>2</sup> + bx + c (a &ne; 1)','Always factor GCF first'] },
+    { day:13, cls:'green', title:'Special Factoring', items:['<span class="formula">a<sup>2</sup> &minus; b<sup>2</sup> = (a+b)(a&minus;b)</span>','<span class="formula">a<sup>2</sup> &plusmn; 2ab + b<sup>2</sup> = (a &plusmn; b)<sup>2</sup></span>','Sum of cubes: <span class="formula">a<sup>3</sup>+b<sup>3</sup> = (a+b)(a<sup>2</sup>&minus;ab+b<sup>2</sup>)</span>','Diff of cubes: <span class="formula">a<sup>3</sup>&minus;b<sup>3</sup> = (a&minus;b)(a<sup>2</sup>+ab+b<sup>2</sup>)</span>'] },
+    { day:14, cls:'amber', title:'Quadratic Equations (Factoring)', items:['Standard form: ax<sup>2</sup> + bx + c = 0','Zero product property: if AB = 0 then A = 0 or B = 0','Factor &rarr; set each factor = 0 &rarr; solve','Always move everything to one side first'] },
+    { day:15, cls:'rose', title:'Completing the Square', items:['Half the b, square it, add &amp; subtract','<span class="formula">x<sup>2</sup>+bx+c &rarr; (x+b/2)<sup>2</sup> &minus; (b/2)<sup>2</sup>+c</span>','Vertex form: <span class="formula">a(x&minus;h)<sup>2</sup>+k</span>, vertex = (h,k)','If a &ne; 1, factor it out first, then complete'] },
+    { day:16, cls:'blue', title:'Quadratic Formula', items:['<span class="formula">x = (&minus;b &plusmn; &radic;(b<sup>2</sup>&minus;4ac)) / 2a</span>','Discriminant b<sup>2</sup>&minus;4ac: + &rarr; 2 real, 0 &rarr; 1 real, &minus; &rarr; no real','Derived from completing the square','Simplify the radical in your final answer'] },
+    { day:17, cls:'teal', title:'Complex Numbers', items:['<span class="formula">i = &radic;(&minus;1)</span>, so <span class="formula">i<sup>2</sup> = &minus;1</span>','Powers of i cycle: i, &minus;1, &minus;i, 1, i, &hellip;','Complex number: <span class="formula">a + bi</span> (a = real, b = imaginary)','Conjugate of a+bi is a&minus;bi; multiply to divide'] },
+    { day:18, cls:'green', title:'Graphing Linear Equations', items:['<span class="formula">slope = rise/run = (y<sub>2</sub>&minus;y<sub>1</sub>)/(x<sub>2</sub>&minus;x<sub>1</sub>)</span>','Slope-intercept: <span class="formula">y = mx + b</span>','x-intercept: set y = 0; y-intercept: set x = 0','Horizontal line: y = c; Vertical line: x = c'] },
+    { day:19, cls:'amber', title:'Equations of Lines', items:['Point-slope: <span class="formula">y &minus; y<sub>1</sub> = m(x &minus; x<sub>1</sub>)</span>','From two points: find slope, then use point-slope','Parallel lines: same slope','Perpendicular lines: negative reciprocal slopes'] },
+    { day:20, cls:'rose', title:'Systems of Equations', items:['Substitution: isolate one variable, plug into other','Elimination: multiply to match, add/subtract','No solution: parallel lines (same slope, diff intercept)','Infinite solutions: same line'] },
+    { day:21, cls:'blue', title:'Graphing Quadratics', items:['Parabola: <span class="formula">y = ax<sup>2</sup>+bx+c</span>','a &gt; 0 opens up (min); a &lt; 0 opens down (max)','Vertex form <span class="formula">y = a(x&minus;h)<sup>2</sup>+k</span>: vertex (h,k)','Axis of symmetry: <span class="formula">x = &minus;b/(2a)</span>'] },
+    { day:22, cls:'teal', title:'Quadratic Inequalities', items:['Factor &rarr; find roots &rarr; test intervals','Sign analysis on number line','Trivial inequality: <span class="formula">x<sup>2</sup> &ge; 0</span> for all real x','AM-GM: <span class="formula">(a<sup>2</sup>+b<sup>2</sup>)/2 &ge; ab</span>'] },
+    { day:23, cls:'green', title:'Ratios &amp; Variation', items:['Proportion: <span class="formula">a/b = c/d</span> &rArr; ad = bc','Direct variation: <span class="formula">y = kx</span>','Inverse variation: <span class="formula">y = k/x</span>','Scale factor for similar figures'] },
+    { day:24, cls:'amber', title:'Radicals &amp; Square Roots', items:['<span class="formula">&radic;(ab) = &radic;a &middot; &radic;b</span>','Simplify: factor out perfect squares','Like radicals: same radicand &rarr; combine','Rationalize: multiply by <span class="formula">&radic;n/&radic;n</span>'] },
+    { day:25, cls:'rose', title:'Rational Expressions', items:['Rational = polynomial / polynomial','Restricted values: denominator &ne; 0','Simplify: factor &amp; cancel common factors','Multiply: factor first, cancel, then multiply'] },
+    { day:26, cls:'blue', title:'Functions &amp; Relations', items:['Function: each input &rarr; exactly one output','Notation: <span class="formula">f(x)</span> means &ldquo;f of x&rdquo;','Domain: valid inputs; Range: possible outputs','Vertical line test: at most 1 intersection'] },
+    { day:27, cls:'teal', title:'Function Composition &amp; Inverses', items:['<span class="formula">(f&compfn;g)(x) = f(g(x))</span>: &ldquo;f of g of x&rdquo;','Order matters: f(g(x)) &ne; g(f(x)) in general','Inverse: swap x &amp; y, solve for y','<span class="formula">f(f<sup>&minus;1</sup>(x)) = x</span>; horizontal line test'] },
+    { day:28, cls:'green', title:'Exponentials &amp; Logarithms', items:['<span class="formula">log<sub>b</sub>(x) = y</span> means <span class="formula">b<sup>y</sup> = x</span>','<span class="formula">log(ab) = log a + log b</span>','<span class="formula">log(a<sup>n</sup>) = n &middot; log a</span>','Compound interest: <span class="formula">A = P(1+r/n)<sup>nt</sup></span>'] },
+    { day:29, cls:'amber', title:'Sequences &amp; Series', items:['Arithmetic: <span class="formula">a<sub>n</sub> = a<sub>1</sub>+(n&minus;1)d</span>','Arithmetic sum: <span class="formula">S = n(a<sub>1</sub>+a<sub>n</sub>)/2</span>','Geometric: <span class="formula">a<sub>n</sub> = a<sub>1</sub>&middot;r<sup>n&minus;1</sup></span>','Infinite geometric (|r|&lt;1): <span class="formula">S = a<sub>1</sub>/(1&minus;r)</span>'] },
+    { day:30, cls:'rose', title:'Graphing Functions &amp; Transformations', items:['Shift up/down: <span class="formula">f(x) &plusmn; k</span>','Shift left/right: <span class="formula">f(x &plusmn; h)</span>','Reflect: <span class="formula">&minus;f(x)</span> (over x-axis), <span class="formula">f(&minus;x)</span> (over y-axis)','Piecewise: different rules for different intervals'] }
+  ];
+  cards.forEach(c => {
+    html += `<div class="cheat-card ${c.cls}">
+      <div class="cheat-day">Day ${c.day}</div>
+      <h3>${c.title}</h3>
+      <ul>${c.items.map(i => `<li>${i}</li>`).join('')}</ul>
+    </div>`;
+  });
+  html += `</div></div>`;
+  return html;
+}
+
+window.openMindmapOverlay = function() {
+  const overlay = document.getElementById('mindmapOverlay');
+  const body = document.getElementById('mindmapOverlayBody');
+  body.innerHTML = renderOverlayContent();
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  overlayZoom = 1;
+};
+
+window.closeMindmapOverlay = function() {
+  const overlay = document.getElementById('mindmapOverlay');
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+};
+
+window.showOverlaySection = function(section) {
+  const mapEl = document.getElementById('ovMindmapSection');
+  const cheatEl = document.getElementById('ovCheatsheetSection');
+  const btnMap = document.getElementById('ovToggleMap');
+  const btnCheat = document.getElementById('ovToggleCheat');
+  if (section === 'map') {
+    mapEl.style.display = '';
+    cheatEl.style.display = 'none';
+    btnMap.classList.add('active');
+    btnCheat.classList.remove('active');
+  } else {
+    mapEl.style.display = 'none';
+    cheatEl.style.display = '';
+    btnMap.classList.remove('active');
+    btnCheat.classList.add('active');
+  }
+};
+
+window.overlayZoomFn = function(delta) {
+  overlayZoom = Math.max(0.2, Math.min(3, overlayZoom + delta));
+  applyOverlayZoom();
+};
+
+window.overlayFit = function() {
+  const viewport = document.getElementById('ovViewport');
+  const img = document.getElementById('ovMindmapImg');
+  if (!viewport || !img) return;
+  const scaleW = viewport.clientWidth / img.naturalWidth;
+  const scaleH = viewport.clientHeight / img.naturalHeight;
+  overlayZoom = Math.min(scaleW, scaleH, 1);
+  applyOverlayZoom();
+};
+
+function applyOverlayZoom() {
+  const img = document.getElementById('ovMindmapImg');
+  const display = document.getElementById('ovZoomDisplay');
+  if (!img) return;
+  img.style.transform = `scale(${overlayZoom})`;
+  if (display) display.textContent = Math.round(overlayZoom * 100) + '%';
+}
+
+// Close overlay on Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    const overlay = document.getElementById('mindmapOverlay');
+    if (overlay && overlay.classList.contains('open')) {
+      closeMindmapOverlay();
+    }
+  }
+});
+
+// ─── Quiz Actions ─────────────────────────────────
+window.submitAnswer = function() {
+  const q = ALL_DAYS[state.currentDay].quiz[state.quizIndex];
+  state.quizSubmitted[q.id] = true;
+  renderMain();
+};
+
+window.quizNext = function() {
+  const quiz = ALL_DAYS[state.currentDay].quiz;
+  if (state.quizIndex < quiz.length - 1) {
+    state.quizIndex++;
+    renderMain();
+    window.scrollTo(0, 0);
+  }
+};
+
+window.quizPrev = function() {
+  if (state.quizIndex > 0) {
+    state.quizIndex--;
+    renderMain();
+    window.scrollTo(0, 0);
+  }
+};
+
+window.finishQuiz = function() {
+  const quiz = ALL_DAYS[state.currentDay].quiz;
+  quiz.forEach(q => { state.quizSubmitted[q.id] = true; });
+  renderMain();
+  window.scrollTo(0, 0);
+};
+
+window.retakeQuiz = function() {
+  state.quizIndex = 0;
+  state.quizAnswers = {};
+  state.quizSubmitted = {};
+  state.progress[`day${state.currentDay}`].quizCompleted = false;
+  state.progress[`day${state.currentDay}`].quizScore = null;
+  saveProgress();
+  renderSidebar();
+  renderMain();
+  window.scrollTo(0, 0);
+};
+
+// ─── Quiz Event Listeners ─────────────────────────
+function attachQuizListeners(day) {
+  document.querySelectorAll('.option-btn:not(.disabled)').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const qid = btn.dataset.qid;
+      const idx = parseInt(btn.dataset.idx);
+      state.quizAnswers[qid] = idx;
+      renderMain();
+    });
+  });
+}
+
+// ─── Sidebar Toggle (mobile) ──────────────────────
+window.toggleSidebar = function() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('sidebarOverlay').classList.toggle('open');
+};
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebarOverlay').classList.remove('open');
+}
+
+// Also handle goToDay(0) for home
+const origGoToDay = window.goToDay;
+window.goToDay = function(day) {
+  if (day === 0) {
+    state.currentDay = 0;
+    state.currentTab = 'lesson';
+    renderSidebar();
+    renderMain();
+    closeSidebar();
+    return;
+  }
+  origGoToDay(day);
+};
+
+// ─── Initialize ───────────────────────────────────
+renderSidebar();
+renderMain();
+</script>
+</body>
+</html>
