@@ -85,7 +85,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["x<sup>10</sup>","x<sup>7</sup>","x<sup>25</sup>","5x<sup>2</sup>"],
         correct: 0,
         explanation: "Power rule: multiply exponents: 2 &times; 5 = 10. Answer: <strong>x<sup>10</sup></strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Remember the power rule: when raising a power to a power, multiply the exponents.", "What do you get when you multiply the exponents 2 and 5?"]
       },
       {
         id: "d7q5", question: "Simplify: (3a<sup>2</sup>)<sup>3</sup>.",
@@ -93,7 +94,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["27a<sup>6</sup>","9a<sup>6</sup>","27a<sup>5</sup>","3a<sup>6</sup>"],
         correct: 0,
         explanation: "3<sup>3</sup> = 27. (a<sup>2</sup>)<sup>3</sup> = a<sup>6</sup>. Result: <strong>27a<sup>6</sup></strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Apply the power to every factor inside the parentheses — both the coefficient and the variable.", "Start by cubing the coefficient: 3<sup>3</sup> = ?"]
       },
       {
         id: "d7q6", question: "Simplify: (x<sup>5</sup> &middot; x<sup>3</sup>) / x<sup>2</sup>.",
@@ -101,7 +103,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["x<sup>6</sup>","x<sup>10</sup>","x<sup>0</sup>","x<sup>8</sup>"],
         correct: 0,
         explanation: "Numerator: x<sup>5+3</sup> = x<sup>8</sup>. Then x<sup>8</sup>/x<sup>2</sup> = x<sup>6</sup>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Handle the numerator first using the product rule, then use the quotient rule to divide.", "Combine the top: x<sup>5</sup> &middot; x<sup>3</sup> = x<sup>?</sup>. Then subtract the denominator's exponent."]
       },
       {
         id: "d7q7", question: "Simplify: (2x<sup>2</sup>y)<sup>3</sup> &middot; x.",
@@ -109,15 +112,17 @@ export const DAYS_7_12 = {  day7: {
         options: ["8x<sup>7</sup>y<sup>3</sup>","6x<sup>7</sup>y<sup>3</sup>","8x<sup>6</sup>y<sup>3</sup>","2x<sup>7</sup>y<sup>3</sup>"],
         correct: 0,
         explanation: "(2x<sup>2</sup>y)<sup>3</sup> = 8x<sup>6</sup>y<sup>3</sup>. Then &middot; x = 8x<sup>7</sup>y<sup>3</sup>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["Apply the power of a product rule: distribute the exponent to the coefficient, x, and y separately.", "First expand (2x<sup>2</sup>y)<sup>3</sup> — what is 2<sup>3</sup>? Then use the power rule on x<sup>2</sup> and y."]
       },
       {
         id: "d7q8", question: "Which is equivalent to (&minus;2)<sup>4</sup>?",
-        type: "multiple-choice",
-        options: ["16","&minus;16","&minus;8","8"],
-        correct: 0,
+        type: "type-answer",
+        answer: "16",
+        accept: ["16"],
         explanation: "(&minus;2)<sup>4</sup> = (&minus;2)(&minus;2)(&minus;2)(&minus;2) = 4 &times; 4 = <strong>16</strong>. Even exponent makes a positive result.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["Think about what happens when you multiply a negative number by itself an even number of times.", "Start by multiplying the first two factors: (&minus;2) &times; (&minus;2) = ? Then multiply that result by itself."]
       },
       {
         id: "d7q9", question: "Solve: |x &minus; 5| = 8. (Review: Day 6)",
@@ -125,7 +130,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["x = 13 or x = &minus;3","x = 13","x = &minus;3","x = 3 or x = &minus;13"],
         correct: 0,
         explanation: "x &minus; 5 = 8 gives x = 13. x &minus; 5 = &minus;8 gives x = &minus;3. Both are solutions.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Absolute value equations give two cases: the expression inside equals +8 or &minus;8.", "Set up two equations: x &minus; 5 = 8 and x &minus; 5 = &minus;8. Solve each for x."]
       },
       {
         id: "d7q10", question: "Solve: 3 &minus; 5x &ge; 18. (Review: Day 5)",
@@ -133,7 +139,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["x &le; &minus;3","x &ge; &minus;3","x &le; 3","x &ge; 3"],
         correct: 0,
         explanation: "Subtract 3: &minus;5x &ge; 15. Divide by &minus;5 (flip!): x &le; <strong>&minus;3</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["When you divide or multiply both sides of an inequality by a negative number, you must flip the inequality sign.", "Start by subtracting 3 from both sides, then divide by &minus;5 — and remember to flip!"]
       }
     ]
   },
@@ -226,7 +233,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["4b<sup>2</sup> / a<sup>3</sup>","4 / (a<sup>3</sup>b<sup>2</sup>)","4a<sup>3</sup>b<sup>2</sup>","4a<sup>3</sup> / b<sup>2</sup>"],
         correct: 0,
         explanation: "a<sup>&minus;3</sup> moves to denominator. b<sup>2</sup> stays. Result: <strong>4b<sup>2</sup>/a<sup>3</sup></strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["A negative exponent means 'take the reciprocal.' Move the negative-exponent factor to the other side of the fraction.", "Move a<sup>&minus;3</sup> to the denominator to make it a<sup>3</sup>. What stays on top?"]
       },
       {
         id: "d8q5", question: "Compute: (4 &times; 10<sup>3</sup>) &times; (2 &times; 10<sup>5</sup>).",
@@ -234,7 +242,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["8 &times; 10<sup>8</sup>","8 &times; 10<sup>15</sup>","6 &times; 10<sup>8</sup>","8 &times; 10<sup>2</sup>"],
         correct: 0,
         explanation: "4 &times; 2 = 8. Add exponents: 3 + 5 = 8. Answer: <strong>8 &times; 10<sup>8</sup></strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["When multiplying in scientific notation, multiply the coefficients and add the exponents of 10.", "Start: 4 &times; 2 = ? Then add the exponents: 3 + 5 = ?"]
       },
       {
         id: "d8q6", question: "Write 0.00045 in scientific notation.",
@@ -242,15 +251,17 @@ export const DAYS_7_12 = {  day7: {
         options: ["4.5 &times; 10<sup>&minus;4</sup>","4.5 &times; 10<sup>4</sup>","45 &times; 10<sup>&minus;5</sup>","4.5 &times; 10<sup>&minus;3</sup>"],
         correct: 0,
         explanation: "Move decimal 4 places right: 4.5. Small number, so negative exponent: <strong>4.5 &times; 10<sup>&minus;4</sup></strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Move the decimal right until you get a number between 1 and 10, then count how many places you moved.", "Moving right means a negative exponent. How many places do you move the decimal to turn 0.00045 into 4.5?"]
       },
       {
         id: "d8q7", question: "Simplify: (2<sup>&minus;3</sup> &middot; 2<sup>5</sup>)<sup>2</sup>.",
-        type: "multiple-choice",
-        options: ["16","4","64","1/4"],
-        correct: 0,
+        type: "type-answer",
+        answer: "16",
+        accept: ["16"],
         explanation: "Inside: 2<sup>&minus;3+5</sup> = 2<sup>2</sup>. Then (2<sup>2</sup>)<sup>2</sup> = 2<sup>4</sup> = <strong>16</strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["Work inside the parentheses first — use the product rule to combine 2<sup>&minus;3</sup> &middot; 2<sup>5</sup>.", "Add the exponents inside: &minus;3 + 5 = ? Then raise that result to the power of 2."]
       },
       {
         id: "d8q8", question: "Simplify and write with positive exponents: (x<sup>2</sup>y<sup>&minus;1</sup>)<sup>&minus;3</sup>.",
@@ -258,7 +269,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["y<sup>3</sup> / x<sup>6</sup>","x<sup>6</sup>y<sup>3</sup>","x<sup>6</sup> / y<sup>3</sup>","1 / (x<sup>6</sup>y<sup>3</sup>)"],
         correct: 0,
         explanation: "Apply power: x<sup>2(&minus;3)</sup>y<sup>(&minus;1)(&minus;3)</sup> = x<sup>&minus;6</sup>y<sup>3</sup> = <strong>y<sup>3</sup>/x<sup>6</sup></strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["Distribute the outer exponent to each factor inside using the power rule: multiply exponents.", "Start by applying the &minus;3 power to x<sup>2</sup>: what is 2 &times; (&minus;3)? Then do the same for y<sup>&minus;1</sup>."]
       },
       {
         id: "d8q9", question: "Simplify: (x<sup>3</sup>)<sup>4</sup> / x<sup>5</sup>. (Review: Day 7)",
@@ -266,7 +278,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["x<sup>7</sup>","x<sup>12</sup>","x<sup>2</sup>","x<sup>17</sup>"],
         correct: 0,
         explanation: "Numerator: x<sup>12</sup>. Then x<sup>12</sup>/x<sup>5</sup> = x<sup>7</sup>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Use the power rule first on the numerator, then the quotient rule to divide.", "Numerator: (x<sup>3</sup>)<sup>4</sup> means multiply exponents: 3 &times; 4 = ? Then subtract 5."]
       },
       {
         id: "d8q10", question: "Solve: |2x + 1| &ge; 5. (Review: Day 6)",
@@ -274,7 +287,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["x &le; &minus;3 or x &ge; 2","&minus;3 &le; x &le; 2","x &ge; 2","x &le; &minus;3"],
         correct: 0,
         explanation: "OR compound: 2x + 1 &ge; 5 gives x &ge; 2. 2x + 1 &le; &minus;5 gives x &le; &minus;3. Solution: <strong>x &le; &minus;3 or x &ge; 2</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["For |expression| &ge; k, split into two cases: expression &ge; k OR expression &le; &minus;k.", "Set up: 2x + 1 &ge; 5 and 2x + 1 &le; &minus;5. Solve each inequality for x."]
       }
     ]
   },
@@ -329,9 +343,9 @@ export const DAYS_7_12 = {  day7: {
     quiz: [
       {
         id: "d9q1", question: "What is the degree of 7x<sup>4</sup> &minus; 3x<sup>2</sup> + x?",
-        type: "multiple-choice",
-        options: ["4","7","3","2"],
-        correct: 0,
+        type: "type-answer",
+        answer: "4",
+        accept: ["4"],
         explanation: "The highest exponent is 4 (from 7x<sup>4</sup>), so the degree is <strong>4</strong>.",
         difficulty: "easy", category: "topic"
       },
@@ -357,7 +371,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["3x<sup>2</sup> + 8x &minus; 2","3x<sup>2</sup> &minus; 2x + 2","5x<sup>2</sup> &minus; 2x &minus; 2","3x<sup>2</sup> + 8x + 2"],
         correct: 0,
         explanation: "Distribute negative: 4x<sup>2</sup> + 3x &minus; x<sup>2</sup> + 5x &minus; 2. Combine: <strong>3x<sup>2</sup> + 8x &minus; 2</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Subtracting a polynomial means distributing the negative sign to every term in the second polynomial.", "Rewrite as: 4x<sup>2</sup> + 3x &minus; x<sup>2</sup> + 5x &minus; 2. Now combine like terms."]
       },
       {
         id: "d9q5", question: "What is the degree of the polynomial 6x<sup>2</sup>y<sup>3</sup> + 2xy &minus; 9?",
@@ -365,7 +380,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["5","3","2","6"],
         correct: 0,
         explanation: "The term 6x<sup>2</sup>y<sup>3</sup> has degree 2 + 3 = 5. The other terms have lower degrees. Polynomial degree: <strong>5</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["For a multi-variable term, the degree is the sum of all the variable exponents in that term.", "Look at 6x<sup>2</sup>y<sup>3</sup>: add the exponents on x and y. Is that the highest degree among all terms?"]
       },
       {
         id: "d9q6", question: "Add: (x<sup>3</sup> &minus; 4x + 2) + (&minus;x<sup>3</sup> + 4x &minus; 7).",
@@ -373,7 +389,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["&minus;5","2x<sup>3</sup> + 9","2x<sup>3</sup> &minus; 5","&minus;8x &minus; 5"],
         correct: 0,
         explanation: "x<sup>3</sup> &minus; x<sup>3</sup> = 0. &minus;4x + 4x = 0. 2 &minus; 7 = &minus;5. Result: <strong>&minus;5</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Combine like terms: match up the x<sup>3</sup> terms, the x terms, and the constants.", "Notice that x<sup>3</sup> and &minus;x<sup>3</sup> cancel out. What about &minus;4x and 4x?"]
       },
       {
         id: "d9q7", question: "Simplify: 3(2x<sup>2</sup> &minus; x + 4) &minus; 2(x<sup>2</sup> + 3x &minus; 1).",
@@ -381,7 +398,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["4x<sup>2</sup> &minus; 9x + 14","4x<sup>2</sup> + 3x + 14","8x<sup>2</sup> &minus; 9x + 10","4x<sup>2</sup> &minus; 9x + 10"],
         correct: 0,
         explanation: "6x<sup>2</sup> &minus; 3x + 12 &minus; 2x<sup>2</sup> &minus; 6x + 2. Combine: 4x<sup>2</sup> &minus; 9x + 14.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["Distribute each coefficient to every term in its polynomial before combining like terms.", "First distribute: 3(2x<sup>2</sup>) = 6x<sup>2</sup>, 3(&minus;x) = &minus;3x, etc. Then do &minus;2 times each term in the second polynomial."]
       },
       {
         id: "d9q8", question: "If P = 2x<sup>2</sup> + 5 and Q = x<sup>2</sup> &minus; 3x + 1, find 2P &minus; Q.",
@@ -389,7 +407,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["3x<sup>2</sup> + 3x + 9","5x<sup>2</sup> + 3x + 9","3x<sup>2</sup> &minus; 3x + 9","3x<sup>2</sup> + 3x + 11"],
         correct: 0,
         explanation: "2P = 4x<sup>2</sup> + 10. Q = x<sup>2</sup> &minus; 3x + 1. 2P &minus; Q = 4x<sup>2</sup> + 10 &minus; x<sup>2</sup> + 3x &minus; 1 = <strong>3x<sup>2</sup> + 3x + 9</strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["Substitute first: write out what 2P and Q equal, then subtract.", "2P = 2(2x<sup>2</sup> + 5) = 4x<sup>2</sup> + 10. Now subtract Q — remember to distribute the negative to every term in Q."]
       },
       {
         id: "d9q9", question: "Simplify with positive exponents: (2x<sup>&minus;1</sup>)<sup>3</sup>. (Review: Day 8)",
@@ -397,7 +416,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["8/x<sup>3</sup>","6/x<sup>3</sup>","8x<sup>3</sup>","2/x<sup>3</sup>"],
         correct: 0,
         explanation: "2<sup>3</sup> = 8, (x<sup>&minus;1</sup>)<sup>3</sup> = x<sup>&minus;3</sup> = 1/x<sup>3</sup>. Result: <strong>8/x<sup>3</sup></strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Apply the power to both the coefficient and the variable part separately.", "Cube the 2: 2<sup>3</sup> = ? Then apply the power rule to x<sup>&minus;1</sup> and convert the negative exponent."]
       },
       {
         id: "d9q10", question: "Simplify: a<sup>5</sup> &middot; a<sup>&minus;2</sup> &middot; a<sup>3</sup>. (Review: Day 7)",
@@ -405,7 +425,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["a<sup>6</sup>","a<sup>10</sup>","a<sup>0</sup>","a<sup>&minus;6</sup>"],
         correct: 0,
         explanation: "Add exponents: 5 + (&minus;2) + 3 = 6. Result: <strong>a<sup>6</sup></strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["When multiplying powers with the same base, add all the exponents together.", "Add: 5 + (&minus;2) + 3 = ? That sum is the final exponent on a."]
       }
     ]
   },
@@ -437,12 +458,35 @@ export const DAYS_7_12 = {  day7: {
               "Outer: 2x &middot; (&minus;4) = &minus;8x.",
               "Inner: 1 &middot; 3x = 3x.",
               "Last: 1 &middot; (&minus;4) = &minus;4.",
-              "Combine: 6x<sup>2</sup> &minus; 8x + 3x &minus; 4 = <strong>6x<sup>2</sup> &minus; 5x &minus; 4</strong>."
-            ]
-          }
-        },
-        {
-          heading: "Special Products",
+               "Combine: 6x<sup>2</sup> &minus; 8x + 3x &minus; 4 = <strong>6x<sup>2</sup> &minus; 5x &minus; 4</strong>."
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Use FOIL to expand (x + 5)(x + 2). Write the result in standard form (e.g. x^2+7x+10).",
+               answer: "x^2+7x+10",
+               accept: ["x^2+7x+10", "x^2 + 7x + 10", "x² + 7x + 10", "x²+7x+10"],
+               explanation: "F: x&middot;x = x&sup2;. O: x&middot;2 = 2x. I: 5&middot;x = 5x. L: 5&middot;2 = 10. Combine: x&sup2; + 7x + 10."
+             },
+             {
+               type: "type-answer",
+               prompt: "Expand (x &minus; 3)(x + 4). Write the result in standard form.",
+               answer: "x^2+x-12",
+               accept: ["x^2+x-12", "x^2 + x - 12", "x² + x - 12", "x²+x-12", "x^2 + x − 12"],
+               explanation: "F: x&sup2;. O: 4x. I: &minus;3x. L: &minus;12. Combine: x&sup2; + x &minus; 12."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "What does the 'I' in FOIL stand for?",
+               options: ["Inner", "Integer", "Inverse"],
+               correct: 0,
+               explanation: "FOIL = First, Outer, Inner, Last. The 'I' stands for Inner — the product of the two inner terms."
+             }
+           ]
+         },
+         {
+           heading: "Special Products",
           paragraphs: [
             "Two patterns are worth memorizing because they appear frequently:",
             "<strong>Square of a binomial:</strong> (a + b)<sup>2</sup> = a<sup>2</sup> + 2ab + b<sup>2</sup> and (a &minus; b)<sup>2</sup> = a<sup>2</sup> &minus; 2ab + b<sup>2</sup>. Don&rsquo;t forget the middle term!",
@@ -500,7 +544,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["3x<sup>2</sup> + 13x &minus; 10","3x<sup>2</sup> + 17x &minus; 10","3x<sup>2</sup> &minus; 13x &minus; 10","3x<sup>2</sup> + 13x + 10"],
         correct: 0,
         explanation: "FOIL: 3x<sup>2</sup> + 15x &minus; 2x &minus; 10 = <strong>3x<sup>2</sup> + 13x &minus; 10</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Use FOIL: multiply First, Outer, Inner, Last terms and combine like terms.", "First: 3x &middot; x = 3x<sup>2</sup>. Outer: 3x &middot; 5 = 15x. Now find Inner and Last."]
       },
       {
         id: "d10q5", question: "Expand: (x + 3)<sup>2</sup>.",
@@ -508,7 +553,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["x<sup>2</sup> + 6x + 9","x<sup>2</sup> + 9","x<sup>2</sup> + 3x + 9","2x + 6"],
         correct: 0,
         explanation: "(x + 3)<sup>2</sup> = x<sup>2</sup> + 2(x)(3) + 9 = <strong>x<sup>2</sup> + 6x + 9</strong>. Don&rsquo;t forget the middle term!",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Squaring a binomial follows the pattern: (a + b)<sup>2</sup> = a<sup>2</sup> + 2ab + b<sup>2</sup>. Don't forget the middle term!", "Here a = x and b = 3. What is 2ab?"]
       },
       {
         id: "d10q6", question: "Expand: (2x &minus; 1)<sup>2</sup>.",
@@ -516,7 +562,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["4x<sup>2</sup> &minus; 4x + 1","4x<sup>2</sup> &minus; 1","4x<sup>2</sup> + 4x + 1","2x<sup>2</sup> &minus; 2x + 1"],
         correct: 0,
         explanation: "(2x)<sup>2</sup> &minus; 2(2x)(1) + 1<sup>2</sup> = <strong>4x<sup>2</sup> &minus; 4x + 1</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Use the pattern (a &minus; b)<sup>2</sup> = a<sup>2</sup> &minus; 2ab + b<sup>2</sup>. Here a = 2x and b = 1.", "Start with a<sup>2</sup>: (2x)<sup>2</sup> = ? Then compute the middle term: 2(2x)(1)."]
       },
       {
         id: "d10q7", question: "Expand: (x + 1)(x<sup>2</sup> &minus; x + 1).",
@@ -524,7 +571,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["x<sup>3</sup> + 1","x<sup>3</sup> &minus; 1","x<sup>3</sup> + x<sup>2</sup> + 1","x<sup>3</sup> + 2x<sup>2</sup> + 1"],
         correct: 0,
         explanation: "Distribute: x<sup>3</sup> &minus; x<sup>2</sup> + x + x<sup>2</sup> &minus; x + 1. Middle terms cancel: <strong>x<sup>3</sup> + 1</strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["Distribute each term of the first binomial across every term of the second trinomial.", "Start: x &middot; (x<sup>2</sup> &minus; x + 1) gives three terms. Then 1 &middot; (x<sup>2</sup> &minus; x + 1) gives three more. Combine like terms."]
       },
       {
         id: "d10q8", question: "If (x + a)(x + b) = x<sup>2</sup> &minus; x &minus; 12, what are a and b?",
@@ -532,7 +580,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["a = 3, b = &minus;4 (or vice versa)","a = &minus;3, b = &minus;4","a = 2, b = &minus;6","a = &minus;2, b = 6"],
         correct: 0,
         explanation: "We need a + b = &minus;1 and ab = &minus;12. The pair 3 and &minus;4 works: 3 + (&minus;4) = &minus;1, 3(&minus;4) = &minus;12.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["When (x + a)(x + b) is expanded, the x-coefficient is a + b and the constant is a &middot; b.", "You need a + b = &minus;1 and a &middot; b = &minus;12. Which pair of factors of &minus;12 adds to &minus;1?"]
       },
       {
         id: "d10q9", question: "What is the degree of 5x<sup>3</sup> &minus; 2x<sup>5</sup> + x? (Review: Day 9)",
@@ -540,7 +589,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["5","3","1","9"],
         correct: 0,
         explanation: "The highest exponent is 5 (from &minus;2x<sup>5</sup>). Degree: <strong>5</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["The degree is the highest exponent on x — don't be fooled by the order the terms are written in.", "Look at each term's exponent: 3, 5, and 1. Which is the largest?"]
       },
       {
         id: "d10q10", question: "Simplify: (3x<sup>2</sup> + 2x) &minus; (x<sup>2</sup> &minus; 4x + 3). (Review: Day 9)",
@@ -548,7 +598,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["2x<sup>2</sup> + 6x &minus; 3","4x<sup>2</sup> &minus; 2x &minus; 3","2x<sup>2</sup> + 6x + 3","2x<sup>2</sup> &minus; 2x &minus; 3"],
         correct: 0,
         explanation: "3x<sup>2</sup> + 2x &minus; x<sup>2</sup> + 4x &minus; 3 = <strong>2x<sup>2</sup> + 6x &minus; 3</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Distribute the negative sign to every term in the second polynomial before combining.", "Rewrite: 3x<sup>2</sup> + 2x &minus; x<sup>2</sup> + 4x &minus; 3. Now group the x<sup>2</sup> terms, x terms, and constants."]
       }
     ]
   },
@@ -642,7 +693,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["4a(a<sup>2</sup> + 2a &minus; 3)","4(a<sup>3</sup> + 2a<sup>2</sup> &minus; 3a)","2a(2a<sup>2</sup> + 4a &minus; 6)","4a<sup>2</sup>(a + 2 &minus; 3/a)"],
         correct: 0,
         explanation: "GCF = 4a. Divide: a<sup>2</sup> + 2a &minus; 3. Result: <strong>4a(a<sup>2</sup> + 2a &minus; 3)</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Find the GCF of the coefficients and the lowest power of each variable that appears in every term.", "GCF of 4, 8, and 12 is 4. The smallest power of a across all terms is a<sup>1</sup>. So the GCF is 4a."]
       },
       {
         id: "d11q5", question: "Factor by grouping: x<sup>3</sup> + 2x<sup>2</sup> + 3x + 6.",
@@ -650,7 +702,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["(x + 2)(x<sup>2</sup> + 3)","(x + 3)(x<sup>2</sup> + 2)","(x + 6)(x<sup>2</sup> + 1)","Cannot be factored"],
         correct: 0,
         explanation: "Group: x<sup>2</sup>(x + 2) + 3(x + 2). Common factor: (x + 2). Result: <strong>(x + 2)(x<sup>2</sup> + 3)</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Split the 4 terms into two pairs, factor the GCF from each pair, and look for a common binomial.", "Group: (x<sup>3</sup> + 2x<sup>2</sup>) + (3x + 6). Factor each group — what binomial do they share?"]
       },
       {
         id: "d11q6", question: "Factor by grouping: 3xy &minus; 6x + 5y &minus; 10.",
@@ -658,7 +711,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["(y &minus; 2)(3x + 5)","(y + 2)(3x &minus; 5)","(3x &minus; 2)(y + 5)","(3x + 10)(y &minus; 1)"],
         correct: 0,
         explanation: "Group: 3x(y &minus; 2) + 5(y &minus; 2). Factor: <strong>(y &minus; 2)(3x + 5)</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Group the first two terms and the last two terms, then factor the GCF from each pair.", "Factor: 3x(y &minus; 2) from the first pair. Now factor the second pair — do you see the same binomial?"]
       },
       {
         id: "d11q7", question: "Factor completely: &minus;3x<sup>3</sup> + 9x<sup>2</sup> &minus; 6x.",
@@ -666,7 +720,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["&minus;3x(x<sup>2</sup> &minus; 3x + 2)","3x(&minus;x<sup>2</sup> + 3x &minus; 2)","&minus;3(x<sup>3</sup> &minus; 3x<sup>2</sup> + 2x)","&minus;x(3x<sup>2</sup> &minus; 9x + 6)"],
         correct: 0,
         explanation: "Factor out &minus;3x: &minus;3x(x<sup>2</sup> &minus; 3x + 2). This is the most fully factored form with GCF extraction.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["When the leading coefficient is negative, factor out the negative GCF first to make the rest easier.", "The GCF of 3, 9, and 6 is 3, and all terms have x. Factor out &minus;3x first, then see what's left inside."]
       },
       {
         id: "d11q8", question: "Factor by grouping: 6x<sup>3</sup> &minus; 9x<sup>2</sup> &minus; 4x + 6.",
@@ -674,7 +729,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["(2x &minus; 3)(3x<sup>2</sup> &minus; 2)","(3x &minus; 2)(2x<sup>2</sup> &minus; 3)","(6x &minus; 9)(x<sup>2</sup> &minus; 2/3)","(2x + 3)(3x<sup>2</sup> + 2)"],
         correct: 0,
         explanation: "Group: 3x<sup>2</sup>(2x &minus; 3) &minus; 2(2x &minus; 3). Factor: <strong>(2x &minus; 3)(3x<sup>2</sup> &minus; 2)</strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["Group the first two terms and the last two terms. You may need to factor a negative from the second group.", "Group: (6x<sup>3</sup> &minus; 9x<sup>2</sup>) + (&minus;4x + 6). Factor each: 3x<sup>2</sup>(?) and &minus;2(?). Do the binomials match?"]
       },
       {
         id: "d11q9", question: "Expand: (x &minus; 5)(x + 5). (Review: Day 10)",
@@ -682,7 +738,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["x<sup>2</sup> &minus; 25","x<sup>2</sup> + 25","x<sup>2</sup> &minus; 10x + 25","x<sup>2</sup> + 10x &minus; 25"],
         correct: 0,
         explanation: "Difference of squares: (x &minus; 5)(x + 5) = <strong>x<sup>2</sup> &minus; 25</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["This matches the difference of squares pattern: (a + b)(a &minus; b) = a<sup>2</sup> &minus; b<sup>2</sup>.", "Here a = x and b = 5. Just square each and subtract: x<sup>2</sup> &minus; 5<sup>2</sup>."]
       },
       {
         id: "d11q10", question: "Expand: (x + 2)<sup>2</sup>. (Review: Day 10)",
@@ -690,7 +747,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["x<sup>2</sup> + 4x + 4","x<sup>2</sup> + 4","x<sup>2</sup> + 2x + 4","2x + 4"],
         correct: 0,
         explanation: "(x + 2)<sup>2</sup> = x<sup>2</sup> + 2(x)(2) + 4 = <strong>x<sup>2</sup> + 4x + 4</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Use the perfect square pattern: (a + b)<sup>2</sup> = a<sup>2</sup> + 2ab + b<sup>2</sup>. Don't forget the middle term!", "Here a = x and b = 2. Compute: a<sup>2</sup> = x<sup>2</sup>, 2ab = 2(x)(2) = ?, b<sup>2</sup> = 4."]
       }
     ]
   },
@@ -784,7 +842,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["(x &minus; 6)(x + 5)","(x + 6)(x &minus; 5)","(x &minus; 10)(x + 3)","(x + 10)(x &minus; 3)"],
         correct: 0,
         explanation: "Need: multiply to &minus;30, add to &minus;1. Pair: &minus;6 and 5. Factor: <strong>(x &minus; 6)(x + 5)</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Find two numbers that multiply to &minus;30 and add to &minus;1.", "Since c is negative, the two numbers have opposite signs. Which pair of factors of 30 is only 1 apart?"]
       },
       {
         id: "d12q5", question: "Factor: 2x<sup>2</sup> + 5x + 3.",
@@ -792,7 +851,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["(2x + 3)(x + 1)","(2x + 1)(x + 3)","(x + 3)(2x + 1)","Cannot be factored"],
         correct: 0,
         explanation: "AC = 6. Pair: 2 and 3 (add to 5). Rewrite: 2x<sup>2</sup> + 2x + 3x + 3. Group: 2x(x+1) + 3(x+1) = <strong>(2x + 3)(x + 1)</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["When a &ne; 1, use the AC method: multiply a &times; c, find two numbers that multiply to ac and add to b.", "AC = 2 &times; 3 = 6. Find two numbers that multiply to 6 and add to 5, then split the middle term."]
       },
       {
         id: "d12q6", question: "Factor completely: 3x<sup>2</sup> + 12x + 9.",
@@ -800,7 +860,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["3(x + 1)(x + 3)","(3x + 3)(x + 3)","3(x + 3)<sup>2</sup>","(x + 1)(3x + 9)"],
         correct: 0,
         explanation: "GCF first: 3(x<sup>2</sup> + 4x + 3). Factor trinomial: 3(x + 1)(x + 3).",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Always factor out the GCF first before trying to factor the trinomial.", "GCF of 3, 12, and 9 is 3. Pull it out: 3(x<sup>2</sup> + 4x + 3). Now factor the simpler trinomial inside."]
       },
       {
         id: "d12q7", question: "Factor: 6x<sup>2</sup> &minus; 7x &minus; 5.",
@@ -808,7 +869,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["(3x &minus; 5)(2x + 1)","(6x + 5)(x &minus; 1)","(3x + 5)(2x &minus; 1)","(6x &minus; 5)(x + 1)"],
         correct: 0,
         explanation: "AC = &minus;30. Pair: &minus;10 and 3. Rewrite: 6x<sup>2</sup> &minus; 10x + 3x &minus; 5. Group: 2x(3x &minus; 5) + 1(3x &minus; 5) = <strong>(3x &minus; 5)(2x + 1)</strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["Use the AC method: multiply 6 &times; (&minus;5) = &minus;30. Find two numbers that multiply to &minus;30 and add to &minus;7.", "The pair is &minus;10 and 3. Rewrite the middle term: 6x<sup>2</sup> &minus; 10x + 3x &minus; 5. Now factor by grouping."]
       },
       {
         id: "d12q8", question: "Factor completely: 4x<sup>3</sup> &minus; 16x<sup>2</sup> + 12x.",
@@ -816,7 +878,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["4x(x &minus; 1)(x &minus; 3)","4x(x<sup>2</sup> &minus; 4x + 3)","2x(2x &minus; 2)(x &minus; 3)","x(4x &minus; 4)(x &minus; 3)"],
         correct: 0,
         explanation: "GCF = 4x: 4x(x<sup>2</sup> &minus; 4x + 3). Factor trinomial: &minus;1 &times; &minus;3 = 3, &minus;1 + &minus;3 = &minus;4. Result: <strong>4x(x &minus; 1)(x &minus; 3)</strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["Factor out the GCF first, then factor the resulting trinomial.", "GCF = 4x. After factoring it out you get 4x(x<sup>2</sup> &minus; 4x + 3). Now find two numbers that multiply to 3 and add to &minus;4."]
       },
       {
         id: "d12q9", question: "Factor out the GCF: 15x<sup>4</sup> &minus; 10x<sup>3</sup> + 5x<sup>2</sup>. (Review: Day 11)",
@@ -824,7 +887,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["5x<sup>2</sup>(3x<sup>2</sup> &minus; 2x + 1)","5x(3x<sup>3</sup> &minus; 2x<sup>2</sup> + x)","x<sup>2</sup>(15x<sup>2</sup> &minus; 10x + 5)","5x<sup>2</sup>(3x<sup>2</sup> + 2x &minus; 1)"],
         correct: 0,
         explanation: "GCF = 5x<sup>2</sup>. Factor: <strong>5x<sup>2</sup>(3x<sup>2</sup> &minus; 2x + 1)</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Find the GCF of the coefficients and the smallest power of x that appears in every term.", "GCF of 15, 10, and 5 is 5. The smallest power of x is x<sup>2</sup>. Factor out 5x<sup>2</sup> and divide each term."]
       },
       {
         id: "d12q10", question: "Expand: (3x + 2)(x &minus; 4). (Review: Day 10)",
@@ -832,7 +896,8 @@ export const DAYS_7_12 = {  day7: {
         options: ["3x<sup>2</sup> &minus; 10x &minus; 8","3x<sup>2</sup> + 10x &minus; 8","3x<sup>2</sup> &minus; 14x &minus; 8","3x<sup>2</sup> &minus; 10x + 8"],
         correct: 0,
         explanation: "FOIL: 3x<sup>2</sup> &minus; 12x + 2x &minus; 8 = <strong>3x<sup>2</sup> &minus; 10x &minus; 8</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Use FOIL: multiply First, Outer, Inner, Last and combine like terms.", "First: 3x &middot; x = 3x<sup>2</sup>. Outer: 3x &middot; (&minus;4) = &minus;12x. Now find Inner and Last, then combine."]
       }
     ]
   }

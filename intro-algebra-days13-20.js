@@ -99,6 +99,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["(2x &minus; 3)<sup>2</sup>","(2x + 3)<sup>2</sup>","(4x &minus; 3)(x &minus; 3)","(2x &minus; 9)(2x &minus; 1)"],
         correct: 0,
         explanation: "Check: (2x)<sup>2</sup> = 4x<sup>2</sup>, (3)<sup>2</sup> = 9, 2(2x)(3) = 12x. Middle is negative, so <strong>(2x &minus; 3)<sup>2</sup></strong>.",
+        hints: ["This is a perfect square trinomial — check whether the first and last terms are perfect squares.", "Find the square roots of 4x<sup>2</sup> and 9, then verify the middle term matches the pattern 2ab."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -107,6 +108,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["(3a &minus; 4)(9a<sup>2</sup> + 12a + 16)","(3a + 4)(9a<sup>2</sup> &minus; 12a + 16)","(3a &minus; 4)(9a<sup>2</sup> &minus; 12a + 16)","(27a &minus; 64)(a<sup>2</sup> + 1)"],
         correct: 0,
         explanation: "Difference of cubes: (3a)<sup>3</sup> &minus; (4)<sup>3</sup>. SOAP gives <strong>(3a &minus; 4)(9a<sup>2</sup> + 12a + 16)</strong>.",
+        hints: ["This is a difference of cubes — rewrite each term as something cubed.", "Identify the cube roots: what cubed gives 27a<sup>3</sup>? What cubed gives 64? Then apply the SOAP pattern."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -115,6 +117,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["3(x + 5)(x &minus; 5)","(3x + 15)(x &minus; 5)","3(x<sup>2</sup> &minus; 25)","(x + 5)(3x &minus; 15)"],
         correct: 0,
         explanation: "GCF = 3: 3(x<sup>2</sup> &minus; 25). Then difference of squares: <strong>3(x + 5)(x &minus; 5)</strong>.",
+        hints: ["Always start by looking for a greatest common factor before checking for special patterns.", "After pulling out the GCF, look at what remains — does it fit the difference of squares pattern?"],
         difficulty: "medium", category: "topic"
       },
       {
@@ -123,6 +126,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["(x<sup>2</sup> + 9)(x + 3)(x &minus; 3)","(x<sup>2</sup> + 9)(x<sup>2</sup> &minus; 9)","(x + 3)<sup>2</sup>(x &minus; 3)<sup>2</sup>","(x<sup>2</sup> &minus; 9)<sup>2</sup>"],
         correct: 0,
         explanation: "Difference of squares: (x<sup>2</sup>)<sup>2</sup> &minus; (9)<sup>2</sup> = (x<sup>2</sup> + 9)(x<sup>2</sup> &minus; 9). Factor x<sup>2</sup> &minus; 9 again: <strong>(x<sup>2</sup> + 9)(x + 3)(x &minus; 3)</strong>.",
+        hints: ["Rewrite x<sup>4</sup> as (x<sup>2</sup>)<sup>2</sup> and 81 as 9<sup>2</sup> — now you have a difference of squares.", "After the first factoring, check each factor to see if it can be factored further."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -131,6 +135,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["2(x + 3)(x<sup>2</sup> &minus; 3x + 9)","2(x<sup>3</sup> + 27)","(2x + 6)(x<sup>2</sup> &minus; 3x + 9)","2(x &minus; 3)(x<sup>2</sup> + 3x + 9)"],
         correct: 0,
         explanation: "GCF = 2: 2(x<sup>3</sup> + 27). Sum of cubes: x<sup>3</sup> + 3<sup>3</sup> = (x + 3)(x<sup>2</sup> &minus; 3x + 9). Final: <strong>2(x + 3)(x<sup>2</sup> &minus; 3x + 9)</strong>.",
+        hints: ["Start by factoring out the GCF — once you do, the remaining expression should look like a familiar cube pattern.", "After removing the GCF, recognize the sum of cubes and recall the SOAP mnemonic for the signs."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -139,6 +144,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["(3x &minus; 4)(2x + 3)","(6x &minus; 4)(x + 3)","(3x + 4)(2x &minus; 3)","(2x &minus; 4)(3x + 3)"],
         correct: 0,
         explanation: "AC method: a &times; c = &minus;72. Find factors of &minus;72 that add to 1: 9 and &minus;8. Rewrite and group: 6x<sup>2</sup> + 9x &minus; 8x &minus; 12 = 3x(2x + 3) &minus; 4(2x + 3) = <strong>(3x &minus; 4)(2x + 3)</strong>.",
+        hints: ["Use the AC method: multiply the leading coefficient by the constant and find two numbers that multiply to that product and add to the middle coefficient.", "Compute a &times; c = 6 &times; (&minus;12). What two factors of that result add up to 1?"],
         difficulty: "medium", category: "review"
       },
       {
@@ -147,6 +153,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["6x(3x<sup>2</sup> + 2x &minus; 1)","6(3x<sup>3</sup> + 2x<sup>2</sup> &minus; x)","3x(6x<sup>2</sup> + 4x &minus; 2)","2x(9x<sup>2</sup> + 6x &minus; 3)"],
         correct: 0,
         explanation: "GCF of 18, 12, 6 is 6. Lowest x power is x<sup>1</sup>. GCF = 6x. Factor: <strong>6x(3x<sup>2</sup> + 2x &minus; 1)</strong>.",
+        hints: ["The GCF includes both a numeric part and a variable part — find the largest number that divides all three coefficients and the lowest power of x.", "What is the GCF of 18, 12, and 6? And what is the smallest exponent on x across all three terms?"],
         difficulty: "medium", category: "review"
       }
     ]
@@ -180,12 +187,35 @@ export const DAYS_13_20 = {  day13: {
               "Set each factor equal to zero: x &minus; 7 = 0 or x + 2 = 0.",
               "Solve: x = 7 or x = &minus;2.",
               "Check x = 7: (7)<sup>2</sup> &minus; 5(7) &minus; 14 = 49 &minus; 35 &minus; 14 = 0. ✓",
-              "Solutions: <strong>x = 7 or x = &minus;2</strong>."
-            ]
-          }
-        },
-        {
-          heading: "Solving Quadratics That Need Rearranging",
+               "Solutions: <strong>x = 7 or x = &minus;2</strong>."
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Solve x&sup2; + 3x &minus; 10 = 0. Write both solutions separated by a comma (smaller first).",
+               answer: "-5, 2",
+               accept: ["-5, 2", "-5,2", "x=-5, x=2", "-5 and 2", "x = -5, x = 2"],
+               explanation: "Factor: (x + 5)(x &minus; 2) = 0. So x = &minus;5 or x = 2."
+             },
+             {
+               type: "type-answer",
+               prompt: "Solve x&sup2; &minus; 9 = 0. Write both solutions separated by a comma (smaller first).",
+               answer: "-3, 3",
+               accept: ["-3, 3", "-3,3", "x=-3, x=3", "-3 and 3"],
+               explanation: "Factor as difference of squares: (x + 3)(x &minus; 3) = 0. So x = &minus;3 or x = 3."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "If (x &minus; 4)(x + 1) = 0, what are the solutions?",
+               options: ["x = 4 or x = &minus;1", "x = &minus;4 or x = 1", "x = 4 or x = 1"],
+               correct: 0,
+               explanation: "By the Zero Product Property, x &minus; 4 = 0 gives x = 4, and x + 1 = 0 gives x = &minus;1."
+             }
+           ]
+         },
+         {
+           heading: "Solving Quadratics That Need Rearranging",
           paragraphs: [
             "Not every quadratic equation arrives in standard form. Sometimes you need to move terms around, factor out a GCF, or recognize a special pattern before you can apply the zero product property. The general approach is always the same: get everything on one side, simplify, then factor.",
             "Watch out for equations like 3x<sup>2</sup> = 12x. Don't divide both sides by x — you'd lose the solution x = 0! Instead, move everything to one side: 3x<sup>2</sup> &minus; 12x = 0, then factor: 3x(x &minus; 4) = 0, giving x = 0 or x = 4.",
@@ -243,6 +273,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["x = 4 or x = &minus;3","x = &minus;4 or x = 3","x = 12 or x = 1","x = 6 or x = &minus;2"],
         correct: 0,
         explanation: "Rewrite: x<sup>2</sup> &minus; x &minus; 12 = 0. Factor: (x &minus; 4)(x + 3) = 0. So x = 4 or x = &minus;3.",
+        hints: ["Before factoring, you need to rearrange so one side equals zero.", "Move 12 to the left side to get standard form, then find two numbers that multiply to &minus;12 and add to &minus;1."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -251,6 +282,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["x = 0 or x = 4","x = 4","x = 0 or x = &minus;4","x = &minus;4"],
         correct: 0,
         explanation: "Factor: 3x(x &minus; 4) = 0. So 3x = 0 &rArr; x = 0, or x &minus; 4 = 0 &rArr; x = 4.",
+        hints: ["Don't divide both sides by x — you'd lose a solution! Factor out the GCF instead.", "Factor out the common factor of 3x, then use the zero product property on each factor."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -259,6 +291,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["x = &frac12; or x = &minus;3","x = &minus;&frac12; or x = 3","x = 3 or x = &minus;&frac12;","x = 1 or x = &minus;3"],
         correct: 0,
         explanation: "Factor: (2x &minus; 1)(x + 3) = 0. So 2x &minus; 1 = 0 &rArr; x = &frac12;, or x + 3 = 0 &rArr; x = &minus;3.",
+        hints: ["The leading coefficient is not 1, so you'll need the AC method or trial-and-error to factor.", "Multiply a &times; c = 2 &times; (&minus;3) = &minus;6. Find two numbers that multiply to &minus;6 and add to 5."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -267,6 +300,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["7 by 12","6 by 14","4 by 21","8 by 10"],
         correct: 0,
         explanation: "Let width = w. Then w(w + 5) = 84 &rArr; w<sup>2</sup> + 5w &minus; 84 = 0. Factor: (w + 12)(w &minus; 7) = 0. w = 7 (reject &minus;12). Dimensions: <strong>7 by 12</strong>.",
+        hints: ["Let the width be w, then express the length in terms of w. Use the area formula to set up a quadratic equation.", "Write the equation w(w + 5) = 84 and rearrange to standard form before factoring."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -275,6 +309,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["x = 4 or x = &minus;2","x = 5 or x = &minus;1","x = 3 or x = &minus;1","x = &minus;4 or x = 2"],
         correct: 0,
         explanation: "Expand: x<sup>2</sup> &minus; 2x &minus; 3 = 5. Rearrange: x<sup>2</sup> &minus; 2x &minus; 8 = 0. Factor: (x &minus; 4)(x + 2) = 0. So <strong>x = 4 or x = &minus;2</strong>.",
+        hints: ["You can't set each factor equal to 5 — the zero product property only works when the product equals zero.", "First expand the left side, then move the 5 over to get everything equal to zero before factoring."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -283,6 +318,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["(x &minus; 4)(x<sup>2</sup> + 4x + 16)","(x + 4)(x<sup>2</sup> &minus; 4x + 16)","(x &minus; 4)(x<sup>2</sup> &minus; 4x + 16)","(x &minus; 8)(x<sup>2</sup> + 8)"],
         correct: 0,
         explanation: "Difference of cubes: x<sup>3</sup> &minus; 4<sup>3</sup>. SOAP: <strong>(x &minus; 4)(x<sup>2</sup> + 4x + 16)</strong>.",
+        hints: ["Recognize this as a difference of cubes — what number cubed equals 64?", "Use SOAP (Same, Opposite, Always Positive) to determine the signs in each factor."],
         difficulty: "medium", category: "review"
       },
       {
@@ -291,6 +327,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["(2x + 1)(x + 3)","(2x + 3)(x + 1)","(x + 1)(2x + 3)","(2x &minus; 1)(x &minus; 3)"],
         correct: 0,
         explanation: "AC method: 2 &times; 3 = 6. Factors of 6 that add to 7: 6 and 1. Rewrite: 2x<sup>2</sup> + 6x + x + 3. Group: 2x(x + 3) + 1(x + 3) = <strong>(2x + 1)(x + 3)</strong>.",
+        hints: ["Use the AC method: multiply the leading coefficient by the constant term.", "Compute 2 &times; 3 = 6. Find two numbers that multiply to 6 and add to 7, then split the middle term."],
         difficulty: "medium", category: "review"
       }
     ]
@@ -322,12 +359,35 @@ export const DAYS_13_20 = {  day13: {
               "Focus on the x<sup>2</sup> + 8x part. Half of 8 is 4, and 4<sup>2</sup> = 16.",
               "Add and subtract 16: x<sup>2</sup> + 8x + 16 &minus; 16 + 5.",
               "Group the perfect square: (x + 4)<sup>2</sup> &minus; 16 + 5.",
-              "Simplify: <strong>(x + 4)<sup>2</sup> &minus; 11</strong>."
-            ]
-          }
-        },
-        {
-          heading: "Completing the Square with Leading Coefficient &ne; 1",
+               "Simplify: <strong>(x + 4)<sup>2</sup> &minus; 11</strong>."
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Complete the square: x&sup2; + 6x + ___. What number fills the blank?",
+               answer: "9",
+               accept: ["9"],
+               explanation: "Half of 6 is 3, and 3&sup2; = 9. So x&sup2; + 6x + 9 = (x + 3)&sup2;."
+             },
+             {
+               type: "type-answer",
+               prompt: "Rewrite x&sup2; + 10x + 21 as (x + a)&sup2; + b. What is b?",
+               answer: "-4",
+               accept: ["-4", "−4"],
+               explanation: "Half of 10 is 5, so (x + 5)&sup2; = x&sup2; + 10x + 25. Then x&sup2; + 10x + 21 = (x + 5)&sup2; &minus; 4. So b = &minus;4."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "To complete the square for x&sup2; + bx, you add (b/2)&sup2;. For x&sup2; &minus; 12x, what do you add?",
+               options: ["36", "144", "6"],
+               correct: 0,
+               explanation: "Half of &minus;12 is &minus;6, and (&minus;6)&sup2; = 36."
+             }
+           ]
+         },
+         {
+           heading: "Completing the Square with Leading Coefficient &ne; 1",
           paragraphs: [
             "When the coefficient of x<sup>2</sup> is not 1, you must <strong>factor it out</strong> from the first two terms before completing the square. This is the step most students forget, so pay close attention.",
             "For an expression like 2x<sup>2</sup> + 12x + 7, first factor 2 from the x-terms: 2(x<sup>2</sup> + 6x) + 7. Now complete the square inside the parentheses: half of 6 is 3, and 3<sup>2</sup> = 9. Add and subtract 9 <em>inside</em> the parentheses: 2(x<sup>2</sup> + 6x + 9 &minus; 9) + 7 = 2((x + 3)<sup>2</sup> &minus; 9) + 7.",
@@ -405,6 +465,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["x = 2 or x = 6","x = &minus;2 or x = &minus;6","x = 4 or x = &minus;4","x = 4 &pm; &radic;28"],
         correct: 0,
         explanation: "x<sup>2</sup> &minus; 8x = &minus;12. Add 16: (x &minus; 4)<sup>2</sup> = 4. Take square root: x &minus; 4 = &pm;2. So <strong>x = 6 or x = 2</strong>.",
+        hints: ["Move the constant to the other side first, then complete the square on the left.", "Take half of the coefficient of x (which is &minus;8), square it, and add that value to both sides."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -413,6 +474,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["(3, 7)","(&minus;3, 7)","(3, &minus;7)","(&minus;3, &minus;7)"],
         correct: 0,
         explanation: "Vertex form y = a(x &minus; h)<sup>2</sup> + k gives vertex (h, k). Here h = 3 and k = 7, so the vertex is <strong>(3, 7)</strong>.",
+        hints: ["Recall vertex form: y = a(x &minus; h)<sup>2</sup> + k, where the vertex is (h, k).", "Be careful with the sign — the formula has a minus sign built in, so (x &minus; 3) means h = 3, not &minus;3."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -421,6 +483,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["y = (x &minus; 3)<sup>2</sup> &minus; 8","y = (x &minus; 3)<sup>2</sup> + 1","y = (x + 3)<sup>2</sup> &minus; 8","y = (x &minus; 6)<sup>2</sup> &minus; 35"],
         correct: 0,
         explanation: "Half of &minus;6 is &minus;3, (&minus;3)<sup>2</sup> = 9. So y = (x<sup>2</sup> &minus; 6x + 9) &minus; 9 + 1 = <strong>(x &minus; 3)<sup>2</sup> &minus; 8</strong>.",
+        hints: ["To complete the square, focus on the x<sup>2</sup> &minus; 6x part and figure out what constant makes it a perfect square.", "Take half of &minus;6 and square it — add and subtract that value to keep the expression balanced."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -429,14 +492,16 @@ export const DAYS_13_20 = {  day13: {
         options: ["2(x + 3)<sup>2</sup> &minus; 11","2(x + 3)<sup>2</sup> + 7","2(x + 6)<sup>2</sup> &minus; 65","(2x + 3)<sup>2</sup> &minus; 2"],
         correct: 0,
         explanation: "Factor 2: 2(x<sup>2</sup> + 6x) + 7. Half of 6 is 3, 3<sup>2</sup> = 9. Add/subtract inside: 2(x<sup>2</sup> + 6x + 9 &minus; 9) + 7 = 2(x + 3)<sup>2</sup> &minus; 18 + 7 = <strong>2(x + 3)<sup>2</sup> &minus; 11</strong>.",
+        hints: ["When the leading coefficient isn't 1, you must factor it out from the x-terms first before completing the square.", "Factor 2 from the first two terms to get 2(x<sup>2</sup> + 6x) + 7, then complete the square inside the parentheses."],
         difficulty: "hard", category: "topic"
       },
       {
         id: "d15q8", question: "A ball is thrown upward. Its height is h = &minus;x<sup>2</sup> + 8x + 3, where x is the horizontal distance. What is the maximum height?",
-        type: "multiple-choice",
-        options: ["19","16","11","3"],
-        correct: 0,
+        type: "type-answer",
+        answer: "19",
+        accept: ["19","19 units","19.0"],
         explanation: "Complete the square: h = &minus;(x<sup>2</sup> &minus; 8x) + 3 = &minus;(x<sup>2</sup> &minus; 8x + 16 &minus; 16) + 3 = &minus;(x &minus; 4)<sup>2</sup> + 16 + 3 = &minus;(x &minus; 4)<sup>2</sup> + 19. The vertex is (4, 19), so the maximum height is <strong>19</strong>.",
+        hints: ["The maximum height occurs at the vertex of the parabola — complete the square to find vertex form.", "Factor out the negative sign first: h = &minus;(x<sup>2</sup> &minus; 8x) + 3, then complete the square inside the parentheses."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -445,6 +510,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["x = 2 or x = 5","x = &minus;2 or x = &minus;5","x = 1 or x = 10","x = &minus;1 or x = &minus;10"],
         correct: 0,
         explanation: "Factor: (x &minus; 2)(x &minus; 5) = 0. So x = 2 or x = 5.",
+        hints: ["Find two numbers that multiply to +10 and add to &minus;7.", "Both numbers must be negative (since their product is positive and sum is negative)."],
         difficulty: "medium", category: "review"
       },
       {
@@ -453,6 +519,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["(2x + 5)(2x &minus; 5)","(2x &minus; 5)<sup>2</sup>","(4x + 5)(x &minus; 5)","(4x + 25)(x &minus; 1)"],
         correct: 0,
         explanation: "Difference of squares: (2x)<sup>2</sup> &minus; (5)<sup>2</sup> = <strong>(2x + 5)(2x &minus; 5)</strong>.",
+        hints: ["This is a two-term expression with subtraction — check if both terms are perfect squares.", "Rewrite 4x<sup>2</sup> as (2x)<sup>2</sup> and 25 as 5<sup>2</sup>, then apply the difference of squares pattern."],
         difficulty: "medium", category: "review"
       },
       {
@@ -461,6 +528,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["(x &minus; 7)<sup>2</sup> + 4","(x &minus; 7)<sup>2</sup> &minus; 4","(x + 7)<sup>2</sup> + 4","(x &minus; 14)<sup>2</sup> + 53"],
         correct: 0,
         explanation: "Half of &minus;14 is &minus;7, and (&minus;7)<sup>2</sup> = 49. So x<sup>2</sup> &minus; 14x + 53 = (x<sup>2</sup> &minus; 14x + 49) + 53 &minus; 49 = <strong>(x &minus; 7)<sup>2</sup> + 4</strong>.",
+        hints: ["Focus on the x<sup>2</sup> &minus; 14x part — what constant turns it into a perfect square trinomial?", "Take half of &minus;14 and square the result, then adjust the constant term to compensate."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -469,6 +537,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["x = &minus;3 &pm; &radic;10","x = 3 &pm; &radic;10","x = &minus;3 &pm; &radic;8","x = &minus;6 &pm; &radic;10"],
         correct: 0,
         explanation: "x<sup>2</sup> + 6x = 1. Half of 6 is 3, 3<sup>2</sup> = 9. Add 9: (x + 3)<sup>2</sup> = 10. Take square root: x + 3 = &pm;&radic;10, so <strong>x = &minus;3 &pm; &radic;10</strong>.",
+        hints: ["Move the constant to the right side first, then complete the square on the left — remember to add the same value to both sides.", "After adding (6/2)<sup>2</sup> = 9 to both sides, write the left side as a perfect square and take the square root (don't forget &pm;)."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -477,6 +546,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["2(x + 3)<sup>2</sup> &minus; 4, vertex (&minus;3, &minus;4)","2(x + 3)<sup>2</sup> + 4, vertex (&minus;3, 4)","2(x &minus; 3)<sup>2</sup> &minus; 4, vertex (3, &minus;4)","(x + 3)<sup>2</sup> &minus; 4, vertex (&minus;3, &minus;4)"],
         correct: 0,
         explanation: "Factor out 2: 2(x<sup>2</sup> + 6x) + 14. Half of 6 is 3, 3<sup>2</sup> = 9. Add/subtract inside: 2(x<sup>2</sup> + 6x + 9 &minus; 9) + 14 = 2(x + 3)<sup>2</sup> &minus; 18 + 14 = <strong>2(x + 3)<sup>2</sup> &minus; 4</strong>. Vertex: <strong>(&minus;3, &minus;4)</strong>.",
+        hints: ["Factor out the leading coefficient from the x-terms before completing the square inside.", "After completing the square inside the parentheses, be careful when distributing — the subtracted constant gets multiplied by the leading coefficient."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -485,6 +555,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["23 feet","18 feet","41 feet","5 feet"],
         correct: 0,
         explanation: "Factor out &minus;2: h(t) = &minus;2(t<sup>2</sup> &minus; 6t) + 5. Half of &minus;6 is &minus;3, (&minus;3)<sup>2</sup> = 9. Add/subtract: &minus;2(t &minus; 3)<sup>2</sup> + 18 + 5 = &minus;2(t &minus; 3)<sup>2</sup> + 23. Maximum height is <strong>23 feet</strong> at t = 3.",
+        hints: ["The maximum height is the k-value in vertex form — complete the square to find it.", "Factor out &minus;2 from the t-terms first, then complete the square inside the parentheses."],
         difficulty: "medium", category: "topic",
         graph: {"type":"coordPlane","xMin":-1,"xMax":8,"yMin":-5,"yMax":28,"width":300,"height":280,"parabolas":[{"a":-2,"b":12,"c":5,"color":"#7c3aed","label":"h(t) = −2t² + 12t + 5"}],"points":[{"x":3,"y":23,"color":"#e53e3e","label":"vertex (3, 23)","labelPos":"tr"}]}
       }
@@ -596,6 +667,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["x = 2 or x = &minus;4","x = &minus;2 or x = 4","x = 8 or x = &minus;1","x = 1 or x = &minus;8"],
         correct: 0,
         explanation: "a = 1, b = 2, c = &minus;8. D = 4 + 32 = 36. x = (&minus;2 &pm; 6)/2. So x = 4/2 = 2 or x = &minus;8/2 = &minus;4.",
+        hints: ["Identify a, b, and c carefully — watch the sign on c.", "Start by computing the discriminant b<sup>2</sup> &minus; 4ac, then plug everything into the formula."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -604,6 +676,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["None (discriminant is negative)","One","Two","Cannot be determined"],
         correct: 0,
         explanation: "D = 9 &minus; 40 = &minus;31. Since &minus;31 &lt; 0, there are <strong>no real solutions</strong>.",
+        hints: ["You don't need to solve — just compute the discriminant to determine the number of solutions.", "Calculate b<sup>2</sup> &minus; 4ac and check whether it's positive, zero, or negative."],
         difficulty: "medium", category: "topic",
         graph: {"type":"coordPlane","xMin":-4,"xMax":3,"yMin":-1,"yMax":14,"width":260,"height":240,"parabolas":[{"a":2,"b":3,"c":5,"color":"#7c3aed","label":"y = 2x²+3x+5"}],"caption":"Entirely above x-axis — no real solutions"}
       },
@@ -613,6 +686,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["x = 1 or x = &minus;&#8531;","x = &minus;1 or x = &#8531;","x = 1 or x = &#8531;","x = &frac12; or x = &minus;1"],
         correct: 0,
         explanation: "a = 3, b = &minus;2, c = &minus;1. D = 4 + 12 = 16. x = (2 &pm; 4)/6. So x = 6/6 = 1 or x = &minus;2/6 = &minus;&#8531;.",
+        hints: ["Be careful identifying a, b, and c — remember b = &minus;2, not 2.", "Compute the discriminant first. Since it's a perfect square, the solutions will be rational numbers."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -621,6 +695,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["x = 2 &pm; &radic;5","x = 4 &pm; &radic;5","x = 2 &pm; &radic;20","x = &minus;2 &pm; &radic;5"],
         correct: 0,
         explanation: "a = 1, b = &minus;4, c = &minus;1. D = 16 + 4 = 20. &radic;20 = 2&radic;5. x = (4 &pm; 2&radic;5)/2 = <strong>2 &pm; &radic;5</strong>.",
+        hints: ["The discriminant won't be a perfect square — you'll need to simplify the radical in your final answer.", "After applying the formula, simplify &radic;20 by factoring out a perfect square, then reduce the fraction."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -629,6 +704,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["k = 6 or k = &minus;6","k = 3 or k = &minus;3","k = 9","k = 18"],
         correct: 0,
         explanation: "One real solution means D = 0: k<sup>2</sup> &minus; 4(1)(9) = 0 &rArr; k<sup>2</sup> = 36 &rArr; <strong>k = 6 or k = &minus;6</strong>.",
+        hints: ["Exactly one real solution means the discriminant equals zero.", "Set b<sup>2</sup> &minus; 4ac = 0 with b = k, a = 1, and c = 9, then solve for k."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -637,6 +713,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["(5x + 2)(5x &minus; 2)","(5x &minus; 2)<sup>2</sup>","(25x + 4)(x &minus; 1)","(5x + 4)(5x &minus; 1)"],
         correct: 0,
         explanation: "Difference of squares: (5x)<sup>2</sup> &minus; (2)<sup>2</sup> = <strong>(5x + 2)(5x &minus; 2)</strong>.",
+        hints: ["Two terms, subtraction — check for the difference of squares pattern.", "Identify the square root of each term: what squared gives 25x<sup>2</sup>? What squared gives 4?"],
         difficulty: "medium", category: "review"
       },
       {
@@ -645,6 +722,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["x = 3 or x = &minus;6","x = &minus;3 or x = 6","x = 9 or x = &minus;2","x = &minus;9 or x = 2"],
         correct: 0,
         explanation: "Factor: (x + 6)(x &minus; 3) = 0. So x = &minus;6 or x = 3. Solutions: <strong>x = 3 or x = &minus;6</strong>.",
+        hints: ["Find two numbers that multiply to &minus;18 and add to 3.", "One number must be positive and the other negative (since their product is negative). Which pair adds to 3?"],
         difficulty: "medium", category: "review"
       }
     ]
@@ -747,6 +825,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["6 &minus; 4i","6 + 10i","2 + 4i","6 &minus; 10i"],
         correct: 0,
         explanation: "Add real parts: 4 + 2 = 6. Add imaginary parts: 3 + (&minus;7) = &minus;4. Result: <strong>6 &minus; 4i</strong>.",
+        hints: ["Add complex numbers by combining like terms — real parts with real parts, imaginary parts with imaginary parts.", "Compute 4 + 2 for the real part, and 3i + (&minus;7i) for the imaginary part."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -755,6 +834,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["11 &minus; 10i","3 &minus; 8i","11 + 10i","&minus;5 &minus; 10i"],
         correct: 0,
         explanation: "FOIL: 3 &minus; 12i + 2i &minus; 8i<sup>2</sup> = 3 &minus; 10i &minus; 8(&minus;1) = 3 &minus; 10i + 8 = <strong>11 &minus; 10i</strong>.",
+        hints: ["Use FOIL to multiply, just like with binomials — but remember to replace i<sup>2</sup> with &minus;1.", "After FOILing, combine the real terms and the imaginary terms separately."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -763,6 +843,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["&minus;4 &minus; 6i","4 &minus; 6i","4 + 6i","&minus;4 + 6i"],
         correct: 0,
         explanation: "The conjugate flips the sign of the imaginary part: the conjugate of &minus;4 + 6i is <strong>&minus;4 &minus; 6i</strong>.",
+        hints: ["The conjugate only changes one thing about a complex number — which part gets its sign flipped?", "Keep the real part exactly the same and flip the sign of the imaginary part."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -771,6 +852,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["4 &minus; 2i","4 + 2i","3 &minus; i","3 + i"],
         correct: 0,
         explanation: "Multiply by conjugate: ((6 + 2i)(1 &minus; i)) / ((1 + i)(1 &minus; i)). Denominator: 1 + 1 = 2. Numerator: 6 &minus; 6i + 2i &minus; 2i<sup>2</sup> = 6 &minus; 4i + 2 = 8 &minus; 4i. Result: (8 &minus; 4i)/2 = <strong>4 &minus; 2i</strong>.",
+        hints: ["To divide complex numbers, multiply the numerator and denominator by the conjugate of the denominator.", "The conjugate of the denominator is 1 &minus; i — multiply both top and bottom by it."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -779,6 +861,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["x = 2i or x = &minus;2i","x = 2 or x = &minus;2","x = 4i or x = &minus;4i","No solution"],
         correct: 0,
         explanation: "x<sup>2</sup> = &minus;4. Take the square root: x = &pm;&radic;(&minus;4) = &pm;2i. So <strong>x = 2i or x = &minus;2i</strong>.",
+        hints: ["Isolate x<sup>2</sup> first — you'll get a negative number on the other side, which is where i comes in.", "Rewrite &radic;(&minus;4) as &radic;(&minus;1) &times; &radic;4, and remember that &radic;(&minus;1) = i."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -787,6 +870,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["x = 3 or x = 7","x = &minus;3 or x = &minus;7","x = 5 &pm; &radic;4","x = 5 &pm; &radic;46"],
         correct: 0,
         explanation: "x<sup>2</sup> &minus; 10x = &minus;21. Add 25: (x &minus; 5)<sup>2</sup> = 4. Take root: x &minus; 5 = &pm;2. So x = 7 or x = 3.",
+        hints: ["Move the constant to the right side, then add (half of &minus;10)<sup>2</sup> to both sides.", "After completing the square, you'll have (x &minus; 5)<sup>2</sup> equal to a positive number — take the square root of both sides."],
         difficulty: "medium", category: "review"
       },
       {
@@ -795,6 +879,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["x = 3 or x = &minus;5","x = &minus;3 or x = 5","x = 15 or x = &minus;1","x = 5 or x = 3"],
         correct: 0,
         explanation: "Factor: (x + 5)(x &minus; 3) = 0. So x = &minus;5 or x = 3. Solutions: <strong>x = 3 or x = &minus;5</strong>.",
+        hints: ["Find two numbers that multiply to &minus;15 and add to 2.", "Since the product is negative, one number is positive and one is negative. Which pair sums to 2?"],
         difficulty: "medium", category: "review"
       },
       {
@@ -803,6 +888,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["5i&radic;2","25i","5&radic;2","i&radic;25"],
         correct: 0,
         explanation: "&radic;(&minus;50) = i&radic;50. Since 50 = 25 &times; 2, we get &radic;50 = 5&radic;2. So &radic;(&minus;50) = <strong>5i&radic;2</strong>.",
+        hints: ["First separate the negative sign: &radic;(&minus;50) = &radic;(&minus;1) &times; &radic;50 = i&radic;50.", "Now simplify &radic;50 by finding the largest perfect square factor of 50."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -811,14 +897,16 @@ export const DAYS_13_20 = {  day13: {
         options: ["26 &minus; 7i","6 &minus; 20i","26 + 7i","&minus;14 &minus; 7i"],
         correct: 0,
         explanation: "FOIL: 6 &minus; 15i + 8i &minus; 20i<sup>2</sup> = 6 &minus; 7i &minus; 20(&minus;1) = 6 &minus; 7i + 20 = <strong>26 &minus; 7i</strong>.",
+        hints: ["FOIL the binomials, keeping track of all four products — the i<sup>2</sup> term becomes a real number.", "After FOILing, replace i<sup>2</sup> with &minus;1, then combine the real parts and the imaginary parts."],
         difficulty: "hard", category: "topic"
       },
       {
         id: "d17q13", question: "Find the modulus (absolute value) of the complex number 5 &minus; 12i.",
-        type: "multiple-choice",
-        options: ["13","17","&radic;119","7"],
-        correct: 0,
+        type: "type-answer",
+        answer: "13",
+        accept: ["13","13.0"],
         explanation: "|a + bi| = &radic;(a<sup>2</sup> + b<sup>2</sup>). |5 &minus; 12i| = &radic;(25 + 144) = &radic;169 = <strong>13</strong>. (A 5&ndash;12&ndash;13 Pythagorean triple!)",
+        hints: ["The modulus formula is |a + bi| = &radic;(a<sup>2</sup> + b<sup>2</sup>). Identify a and b from the complex number.", "Compute 5<sup>2</sup> + 12<sup>2</sup> under the radical — you may recognize a famous Pythagorean triple."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -827,6 +915,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["x = &minus;2 &pm; 3i","x = 2 &pm; 3i","x = &minus;4 &pm; 3i","x = &minus;2 &pm; 9i"],
         correct: 0,
         explanation: "Quadratic formula: a = 1, b = 4, c = 13. D = 16 &minus; 52 = &minus;36. x = (&minus;4 &pm; &radic;(&minus;36)) / 2 = (&minus;4 &pm; 6i) / 2 = <strong>&minus;2 &pm; 3i</strong>.",
+        hints: ["Use the quadratic formula — the discriminant will be negative, giving you complex solutions.", "Compute D = 16 &minus; 52. Then &radic; of a negative number introduces i — simplify &radic;(&minus;36) before dividing."],
         difficulty: "medium", category: "topic"
       }
     ]
@@ -928,6 +1017,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["(6, 0)","(0, 4)","(4, 0)","(0, 6)"],
         correct: 0,
         explanation: "Set y = 0: 2x = 12, so x = 6. The x-intercept is <strong>(6, 0)</strong>.",
+        hints: ["The x-intercept is where the line crosses the x-axis — what is y at that point?", "Set y = 0 in the equation and solve for x."],
         difficulty: "medium", category: "topic",
         graph: {"type":"coordPlane","xMin":-1,"xMax":8,"yMin":-1,"yMax":6,"width":280,"height":260,"lines":[{"m":-0.667,"b":4,"color":"#0ea5e9","label":"2x + 3y = 12"}],"points":[{"x":6,"y":0,"color":"#e53e3e","label":"(6, 0)","labelPos":"tr"},{"x":0,"y":4,"color":"#e53e3e","label":"(0, 4)","labelPos":"tl"}]}
       },
@@ -937,6 +1027,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["y = 3x &minus; 5","y = &minus;3x + 5","y = 3x + 5","y = &minus;3x &minus; 5"],
         correct: 0,
         explanation: "Solve for y: &minus;2y = &minus;6x + 10, so y = 3x &minus; 5. Slope is 3, y-intercept is &minus;5.",
+        hints: ["Slope-intercept form is y = mx + b — isolate y on one side of the equation.", "Move the 6x term to the right, then divide everything by the coefficient of y."],
         difficulty: "medium", category: "topic",
         graph: {"type":"coordPlane","xMin":-2,"xMax":5,"yMin":-7,"yMax":5,"width":280,"height":280,"lines":[{"m":3,"b":-5,"color":"#0ea5e9","label":"y = 3x − 5"}],"points":[{"x":0,"y":-5,"color":"#e53e3e","label":"(0, −5)","labelPos":"tr"}]}
       },
@@ -946,6 +1037,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["&minus;2","2","&minus;&frac12;","&frac12;"],
         correct: 0,
         explanation: "m = (&minus;5 &minus; 5) / (3 &minus; (&minus;2)) = &minus;10 / 5 = <strong>&minus;2</strong>.",
+        hints: ["Use the slope formula m = (y<sub>2</sub> &minus; y<sub>1</sub>) / (x<sub>2</sub> &minus; x<sub>1</sub>) — be careful subtracting negative numbers.", "Compute the rise: &minus;5 &minus; 5. Compute the run: 3 &minus; (&minus;2). Then divide."],
         difficulty: "medium", category: "topic",
         graph: {"type":"coordPlane","xMin":-4,"xMax":5,"yMin":-7,"yMax":7,"width":280,"height":280,"lines":[{"m":-2,"b":1,"color":"#0ea5e9"}],"points":[{"x":-2,"y":5,"color":"#e53e3e","label":"(−2, 5)","labelPos":"tr"},{"x":3,"y":-5,"color":"#e53e3e","label":"(3, −5)","labelPos":"br"}]}
       },
@@ -955,6 +1047,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["(3, 1)","(2, 1)","(3, &minus;3)","(&minus;3, 1)"],
         correct: 0,
         explanation: "From (0, &minus;1), rise 2 and run 3: (0 + 3, &minus;1 + 2) = <strong>(3, 1)</strong>.",
+        hints: ["Slope = rise/run. From the given point, move right by the run and up by the rise to find another point.", "Starting at (0, &minus;1), move right 3 (the run) and up 2 (the rise) — where do you land?"],
         difficulty: "hard", category: "topic",
         graph: {"type":"coordPlane","xMin":-2,"xMax":7,"yMin":-3,"yMax":5,"width":300,"height":280,"lines":[{"m":0.667,"b":-1,"color":"#0ea5e9","label":"y = ⅔x − 1"}],"points":[{"x":0,"y":-1,"color":"#e53e3e","label":"(0, −1)","labelPos":"bl"},{"x":3,"y":1,"color":"#e53e3e","label":"(3, 1)","labelPos":"tr"}]}
       },
@@ -964,6 +1057,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["&frac32;","&minus;&frac32;","&frac23;","&minus;&frac23;"],
         correct: 0,
         explanation: "m = (&minus;6 &minus; 0) / (0 &minus; 4) = &minus;6 / &minus;4 = <strong>&frac32;</strong>.",
+        hints: ["You have two points — the intercepts. Use the slope formula with (4, 0) and (0, &minus;6).", "Compute rise over run: (y<sub>2</sub> &minus; y<sub>1</sub>) / (x<sub>2</sub> &minus; x<sub>1</sub>). Be careful with the negatives — they may cancel."],
         difficulty: "hard", category: "topic",
         graph: {"type":"coordPlane","xMin":-2,"xMax":6,"yMin":-8,"yMax":3,"width":280,"height":280,"lines":[{"m":1.5,"b":-6,"color":"#0ea5e9"}],"points":[{"x":4,"y":0,"color":"#e53e3e","label":"(4, 0)","labelPos":"tr"},{"x":0,"y":-6,"color":"#e53e3e","label":"(0, −6)","labelPos":"tl"}]}
       },
@@ -973,6 +1067,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["x = 7 or x = &minus;3","x = &minus;7 or x = 3","x = 21 or x = &minus;1","x = &minus;21 or x = 1"],
         correct: 0,
         explanation: "Factor: (x &minus; 7)(x + 3) = 0. So x = 7 or x = &minus;3.",
+        hints: ["Find two numbers that multiply to &minus;21 and add to &minus;4.", "The product is negative, so one factor is positive and one is negative. Which pair sums to &minus;4?"],
         difficulty: "medium", category: "review"
       },
       {
@@ -981,6 +1076,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["0","36","&minus;36","72"],
         correct: 0,
         explanation: "D = (&minus;6)<sup>2</sup> &minus; 4(1)(9) = 36 &minus; 36 = <strong>0</strong>. One repeated real solution (x = 3).",
+        hints: ["The discriminant is b<sup>2</sup> &minus; 4ac. Identify a, b, and c from the equation.", "Compute (&minus;6)<sup>2</sup> &minus; 4(1)(9). Remember that squaring a negative number gives a positive result."],
         difficulty: "medium", category: "review"
       }
     ]
@@ -1094,6 +1190,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["y = 3x &minus; 2","y = 3x + 4","y = 3x + 2","y = 3x &minus; 10"],
         correct: 0,
         explanation: "Distribute: y &minus; 4 = 3x &minus; 6. Add 4: y = 3x &minus; 6 + 4 = <strong>3x &minus; 2</strong>.",
+        hints: ["Start by distributing the 3 on the right side, then isolate y.", "After distributing, add 4 to both sides to get y by itself."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -1102,6 +1199,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["y = 2x &minus; 3","y = 2x + 3","y = &frac12;x + 3","y = 4x &minus; 7"],
         correct: 0,
         explanation: "Slope: (9 &minus; 1)/(6 &minus; 2) = 8/4 = 2. Point-slope with (2, 1): y &minus; 1 = 2(x &minus; 2) &rArr; y = 2x &minus; 3.",
+        hints: ["Two points → two steps: first find the slope, then use point-slope form with either point.", "Calculate the slope using rise over run, then plug the slope and one point into y &minus; y<sub>1</sub> = m(x &minus; x<sub>1</sub>)."],
         difficulty: "medium", category: "topic",
         graph: {"type":"coordPlane","xMin":-1,"xMax":8,"yMin":-4,"yMax":11,"width":280,"height":280,"points":[{"x":2,"y":1,"color":"#e53e3e","label":"(2, 1)","labelPos":"bl"},{"x":6,"y":9,"color":"#e53e3e","label":"(6, 9)","labelPos":"tl"}],"lines":[{"m":2,"b":-3,"color":"#0ea5e9","dashed":true}]}
       },
@@ -1111,6 +1209,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["2x &minus; 5y = &minus;15","&minus;2x + 5y = 15","2x + 5y = 15","2x &minus; 5y = 15"],
         correct: 0,
         explanation: "Multiply by 5: 5y = 2x + 15. Rearrange: &minus;2x + 5y = 15. Multiply by &minus;1 to make A positive: <strong>2x &minus; 5y = &minus;15</strong>.",
+        hints: ["To clear the fraction, multiply every term by the denominator. Then move terms to get Ax + By = C.", "Multiply through by 5 to eliminate fractions, then rearrange so the x-term is on the left with a positive coefficient."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -1119,6 +1218,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["y = &minus;3x + 11","y = &minus;3x + 1","y = &frac13;x + 5","y = 3x &minus; 1"],
         correct: 0,
         explanation: "Parallel slope: &minus;3. Point-slope: y &minus; 5 = &minus;3(x &minus; 2) &rArr; y &minus; 5 = &minus;3x + 6 &rArr; <strong>y = &minus;3x + 11</strong>.",
+        hints: ["Parallel lines share the same slope — what is the slope of the given line?", "Use the slope &minus;3 with the point (2, 5) in point-slope form: y &minus; 5 = m(x &minus; 2)."],
         difficulty: "hard", category: "topic",
         graph: {"type":"coordPlane","xMin":-2,"xMax":6,"yMin":-4,"yMax":12,"width":280,"height":280,"lines":[{"m":-3,"b":4,"color":"#a0aec0","label":"y = −3x + 4","dashed":true},{"m":-3,"b":11,"color":"#e53e3e","label":"y = −3x + 11"}],"points":[{"x":2,"y":5,"color":"#e53e3e","label":"(2, 5)","labelPos":"tr"}]}
       },
@@ -1128,6 +1228,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["y = 3x &minus; 13","y = &minus;3x + 11","y = &frac13;x &minus; 1","y = &minus;&frac13;x + 1"],
         correct: 0,
         explanation: "Rewrite: 6y = &minus;2x + 12, so y = &minus;&frac13;x + 2. Slope = &minus;&frac13;. Perpendicular slope = 3. Point-slope with (4, &minus;1): y + 1 = 3(x &minus; 4) &rArr; y = 3x &minus; 12 &minus; 1 = <strong>3x &minus; 13</strong>.",
+        hints: ["First rewrite the given equation in slope-intercept form to find its slope, then take the negative reciprocal.", "The given slope is &minus;1/3. The perpendicular slope is the negative reciprocal — flip the fraction and change the sign."],
         difficulty: "hard", category: "topic",
         graph: {"type":"coordPlane","xMin":-1,"xMax":7,"yMin":-14,"yMax":4,"width":280,"height":280,"lines":[{"m":-0.333,"b":2,"color":"#a0aec0","label":"2x+6y=12","dashed":true},{"m":3,"b":-13,"color":"#e53e3e","label":"y = 3x − 13"}],"points":[{"x":4,"y":-1,"color":"#e53e3e","label":"(4, −1)","labelPos":"tr"}]}
       },
@@ -1137,6 +1238,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["x = 5 or x = &minus;3","x = &minus;5 or x = 3","x = 15 or x = &minus;1","x = &minus;15 or x = 1"],
         correct: 0,
         explanation: "a = 1, b = &minus;2, c = &minus;15. D = 4 + 60 = 64. x = (2 &pm; 8)/2. x = 10/2 = 5 or x = &minus;6/2 = &minus;3.",
+        hints: ["Identify a, b, c carefully — note that both b and c are negative.", "Compute the discriminant first: b<sup>2</sup> &minus; 4ac = 4 &minus; 4(1)(&minus;15). The double negative gives a positive term."],
         difficulty: "medium", category: "review"
       },
       {
@@ -1145,6 +1247,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["Slope 2, y-intercept &minus;4","Slope &minus;2, y-intercept 4","Slope 4, y-intercept &minus;2","Slope &minus;4, y-intercept 8"],
         correct: 0,
         explanation: "Solve for y: &minus;2y = &minus;4x + 8, so y = 2x &minus; 4. Slope = <strong>2</strong>, y-intercept = <strong>&minus;4</strong>.",
+        hints: ["Convert to slope-intercept form (y = mx + b) by isolating y.", "Move the 4x to the right side, then divide every term by the coefficient of y."],
         difficulty: "medium", category: "review"
       }
     ]
@@ -1182,11 +1285,34 @@ export const DAYS_13_20 = {  day13: {
               "Back-substitute: y = 2(2) + 1 = 5.",
               "Solution: <strong>(x, y) = (2, 5)</strong>. Check: 3(2) + 5 = 11. &#10003;"
             ],
-            graphs: [{"type":"coordPlane","xMin":-1,"xMax":6,"yMin":-1,"yMax":12,"width":320,"height":320,"lines":[{"m":2,"b":1,"color":"#0ea5e9","label":"y = 2x + 1"},{"m":-3,"b":11,"color":"#e53e3e","label":"3x + y = 11"}],"points":[{"x":2,"y":5,"color":"#7c3aed","label":"(2, 5)","labelPos":"tr"}],"caption":"The lines intersect at (2, 5)"}]
-          }
-        },
-        {
-          heading: "The Elimination (Addition) Method",
+             graphs: [{"type":"coordPlane","xMin":-1,"xMax":6,"yMin":-1,"yMax":12,"width":320,"height":320,"lines":[{"m":2,"b":1,"color":"#0ea5e9","label":"y = 2x + 1"},{"m":-3,"b":11,"color":"#e53e3e","label":"3x + y = 11"}],"points":[{"x":2,"y":5,"color":"#7c3aed","label":"(2, 5)","labelPos":"tr"}],"caption":"The lines intersect at (2, 5)"}],
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Solve by substitution: y = x + 1, and 2x + y = 7. What is x?",
+               answer: "2",
+               accept: ["2", "x=2", "x = 2"],
+               explanation: "Substitute y = x + 1 into the second equation: 2x + (x + 1) = 7 &rArr; 3x + 1 = 7 &rArr; 3x = 6 &rArr; x = 2."
+             },
+             {
+               type: "type-answer",
+               prompt: "Using the system y = 3x &minus; 1 and x + y = 7, what is y?",
+               answer: "5",
+               accept: ["5", "y=5", "y = 5"],
+               explanation: "Substitute: x + (3x &minus; 1) = 7 &rArr; 4x &minus; 1 = 7 &rArr; 4x = 8 &rArr; x = 2. Then y = 3(2) &minus; 1 = 5."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "In the substitution method, what is the first step?",
+               options: ["Solve one equation for one variable", "Add the two equations together", "Graph both equations"],
+               correct: 0,
+               explanation: "Substitution starts by isolating one variable in one equation, then substituting that expression into the other equation."
+             }
+           ]
+           }
+         },
+         {
+           heading: "The Elimination (Addition) Method",
           paragraphs: [
             "The <strong>elimination method</strong> (also called the addition method) works by adding or subtracting the two equations so that one variable cancels out. If the coefficients of a variable are already opposites, just add the equations. Otherwise, multiply one or both equations by a constant first.",
             "For example, if you have 2x + 3y = 12 and 2x &minus; y = 4, notice that both equations have 2x. Subtract the second from the first: (2x + 3y) &minus; (2x &minus; y) = 12 &minus; 4, which gives 4y = 8, so y = 2.",
@@ -1251,6 +1377,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["(3, 2)","(2, 3)","(6, 0)","(0, 4)"],
         correct: 0,
         explanation: "Add the equations: 6x = 18 &rArr; x = 3. Substitute: 2(3) + 3y = 12 &rArr; 3y = 6 &rArr; y = 2. Answer: <strong>(3, 2)</strong>.",
+        hints: ["Look at the y-coefficients: 3y and &minus;3y are already opposites — what happens when you add the equations?", "After one variable cancels, solve for the other, then substitute back to find the second variable."],
         difficulty: "medium", category: "topic",
         graph: {"type":"coordPlane","xMin":-1,"xMax":7,"yMin":-2,"yMax":6,"width":280,"height":280,"lines":[{"m":-0.667,"b":4,"color":"#0ea5e9","label":"2x+3y=12"},{"m":1.333,"b":-2,"color":"#e53e3e","label":"4x−3y=6"}],"points":[{"x":3,"y":2,"color":"#7c3aed","label":"?","labelPos":"tr"}]}
       },
@@ -1260,6 +1387,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["(2, 5)","(3, 8)","(1, 2)","(4, 11)"],
         correct: 0,
         explanation: "Substitute: 2x + (3x &minus; 1) = 9 &rArr; 5x = 10 &rArr; x = 2. Then y = 3(2) &minus; 1 = 5. Answer: <strong>(2, 5)</strong>.",
+        hints: ["One equation already has y isolated — substitute that expression into the other equation.", "Replace y with 3x &minus; 1 in the second equation, then solve for x."],
         difficulty: "medium", category: "topic",
         graph: {"type":"coordPlane","xMin":-1,"xMax":6,"yMin":-2,"yMax":10,"width":280,"height":280,"lines":[{"m":3,"b":-1,"color":"#0ea5e9","label":"y = 3x−1"},{"m":-2,"b":9,"color":"#e53e3e","label":"2x+y=9"}],"points":[{"x":2,"y":5,"color":"#7c3aed","label":"?","labelPos":"tr"}]}
       },
@@ -1269,6 +1397,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["No solution (the lines are parallel)","Infinitely many solutions","Exactly one solution","The system has an error"],
         correct: 0,
         explanation: "A false statement like 0 = 5 means the lines are <strong>parallel</strong> and never intersect &mdash; <strong>no solution</strong>.",
+        hints: ["Think about what 0 = 5 means logically — is that statement ever true?", "A false statement (contradiction) during solving means the system's equations describe lines that never meet."],
         difficulty: "medium", category: "topic",
         graph: {"type":"coordPlane","xMin":-4,"xMax":4,"yMin":-2,"yMax":6,"width":260,"height":220,"lines":[{"m":1,"b":1,"color":"#0ea5e9","label":"Line 1"},{"m":1,"b":3,"color":"#e53e3e","label":"Line 2"}],"caption":"Parallel lines — no intersection!"}
       },
@@ -1278,15 +1407,17 @@ export const DAYS_13_20 = {  day13: {
         options: ["(5, 2.5)","(3, 4)","(7, 1)","(4, 3.25)"],
         correct: 0,
         explanation: "Multiply the second equation by 2: 10x &minus; 4y = 40. Add to the first: 3x + 4y + 10x &minus; 4y = 25 + 40 &rArr; 13x = 65 &rArr; x = 5. Substitute back: 3(5) + 4y = 25 &rArr; 4y = 10 &rArr; y = 2.5. Check Eq2: 5(5) &minus; 2(2.5) = 25 &minus; 5 = 20 &#10003;. Answer: <strong>(5, 2.5)</strong>.",
+        hints: ["Use elimination — which variable is easiest to cancel? Look at the y-coefficients: 4y and &minus;2y.", "Multiply the second equation by 2 to make the y-coefficients opposites (4y and &minus;4y), then add the equations."],
         difficulty: "hard", category: "topic",
         graph: {"type":"coordPlane","xMin":-1,"xMax":8,"yMin":-2,"yMax":8,"width":280,"height":280,"lines":[{"m":-0.75,"b":6.25,"color":"#0ea5e9","label":"3x+4y=25"},{"m":2.5,"b":-10,"color":"#e53e3e","label":"5x−2y=20"}],"points":[{"x":5,"y":2.5,"color":"#7c3aed","label":"(5, 2.5)","labelPos":"tr"}]}
       },
       {
         id: "d20q8", question: "Adult tickets cost $10 and student tickets cost $6. A group buys 15 tickets for $118. How many adult tickets were purchased?",
-        type: "multiple-choice",
-        options: ["7","8","6","9"],
-        correct: 0,
+        type: "type-answer",
+        answer: "7",
+        accept: ["7","7 tickets","a=7","a = 7"],
         explanation: "Let a = adults, s = students. a + s = 15 and 10a + 6s = 118. From Eq1: s = 15 &minus; a. Substitute: 10a + 6(15 &minus; a) = 118 &rArr; 10a + 90 &minus; 6a = 118 &rArr; 4a = 28 &rArr; a = <strong>7</strong>.",
+        hints: ["Set up two equations: one for the total number of tickets and one for the total cost.", "Let a = adult tickets. From a + s = 15, express s in terms of a, then substitute into the cost equation."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -1295,6 +1426,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["2","&minus;2","4","&minus;5"],
         correct: 0,
         explanation: "Rewrite in slope-intercept form: &minus;2y = &minus;4x + 10 &rArr; y = 2x &minus; 5. Slope = <strong>2</strong>.",
+        hints: ["To find the slope from standard form, solve for y to get slope-intercept form.", "Isolate y: move 4x to the right side, then divide by &minus;2. The coefficient of x is the slope."],
         difficulty: "medium", category: "review"
       },
       {
@@ -1303,6 +1435,7 @@ export const DAYS_13_20 = {  day13: {
         options: ["y = &minus;2x + 3","y = 2x + 3","y = &minus;2x &minus; 3","y = 3x &minus; 2"],
         correct: 0,
         explanation: "Using slope-intercept form y = mx + b: m = &minus;2 and b = 3 (the y-intercept). So y = <strong>&minus;2x + 3</strong>.",
+        hints: ["The point (0, 3) is on the y-axis, so 3 is the y-intercept (b) directly.", "Plug the slope and y-intercept straight into y = mx + b."],
         difficulty: "medium", category: "review"
       }
     ]

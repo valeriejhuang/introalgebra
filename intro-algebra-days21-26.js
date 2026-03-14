@@ -91,6 +91,7 @@ export const DAYS_21_26 = {  day21: {
         correct: 0,
         explanation: "Complete the square: x<sup>2</sup> &minus; 2x + 1 &minus; 1 &minus; 3 = (x &minus; 1)<sup>2</sup> &minus; 4. Vertex: (1, &minus;4).",
         difficulty: "medium", category: "topic",
+        hints: ["Think about the technique that rewrites a quadratic by adding and subtracting the same constant inside the expression.", "Start by taking half of the coefficient of x, then square it — that gives you the number to complete the square."],
         graph: {"type":"coordPlane","xMin":-3,"xMax":5,"yMin":-5,"yMax":5,"width":260,"height":260,"parabolas":[{"a":1,"b":-2,"c":-3,"color":"#0ea5e9","label":"y = x²−2x−3"}],"points":[{"x":1,"y":-4,"color":"#e53e3e","label":"(1, −4)"}]}
       },
       {
@@ -99,7 +100,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["x = &minus;2","x = 2","x = &minus;4","x = 4"],
         correct: 0,
         explanation: "x = &minus;b/(2a) = &minus;12/(2 &times; 3) = &minus;12/6 = <strong>&minus;2</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["There's a quick formula using the coefficients a and b that gives the x-coordinate of the vertex — and the axis of symmetry passes through it.", "Identify a and b from the standard form, then compute −b divided by 2a."]
       },
       {
         id: "d21q6", question: "What is the y-intercept of y = 4x<sup>2</sup> &minus; 3x + 7?",
@@ -107,7 +109,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["(0, 7)","(0, 4)","(0, &minus;3)","(7, 0)"],
         correct: 0,
         explanation: "Set x = 0: y = 4(0)<sup>2</sup> &minus; 3(0) + 7 = 7. The y-intercept is <strong>(0, 7)</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["The y-intercept is where the graph crosses the y-axis — what x-value does every point on the y-axis share?", "Substitute x = 0 into the equation and see what y equals."]
       },
       {
         id: "d21q7", question: "Find the x-intercepts of y = x<sup>2</sup> &minus; 5x + 6.",
@@ -116,6 +119,7 @@ export const DAYS_21_26 = {  day21: {
         correct: 0,
         explanation: "Set y = 0: x<sup>2</sup> &minus; 5x + 6 = 0. Factor: (x &minus; 2)(x &minus; 3) = 0. So x = 2 or x = 3. X-intercepts: <strong>(2, 0) and (3, 0)</strong>.",
         difficulty: "hard", category: "topic",
+        hints: ["X-intercepts occur where y = 0 — so set the entire quadratic equal to zero and solve.", "Try factoring x² − 5x + 6 by finding two numbers that multiply to 6 and add to −5."],
         graph: {"type":"coordPlane","xMin":-1,"xMax":5,"yMin":-2,"yMax":8,"width":260,"height":260,"parabolas":[{"a":1,"b":-5,"c":6,"color":"#0ea5e9","label":"y = x²−5x+6"}],"points":[{"x":2,"y":0,"color":"#e53e3e","label":"(2, 0)"},{"x":3,"y":0,"color":"#e53e3e","label":"(3, 0)"}]}
       },
       {
@@ -124,7 +128,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["x<sup>2</sup> + y<sup>2</sup> = 36","x<sup>2</sup> + y<sup>2</sup> = 6","(x &minus; 6)<sup>2</sup> + y<sup>2</sup> = 36","x<sup>2</sup> &minus; y<sup>2</sup> = 36"],
         correct: 0,
         explanation: "A circle centered at the origin with radius r has equation x<sup>2</sup> + y<sup>2</sup> = r<sup>2</sup>. With r = 6: <strong>x<sup>2</sup> + y<sup>2</sup> = 36</strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["Recall the standard circle equation centered at the origin — it involves x² and y² on the left side.", "The right side of the equation isn't the radius itself; it's the radius squared."]
       },
       {
         id: "d21q9", question: "Solve by completing the square: x<sup>2</sup> + 4x &minus; 5 = 0. (Review: Day 15)",
@@ -132,15 +137,17 @@ export const DAYS_21_26 = {  day21: {
         options: ["x = 1 or x = &minus;5","x = &minus;1 or x = 5","x = 5 or x = &minus;1","x = &minus;2 &pm; 3"],
         correct: 0,
         explanation: "x<sup>2</sup> + 4x = 5. Add 4: (x + 2)<sup>2</sup> = 9. Take root: x + 2 = &pm;3. So x = 1 or x = &minus;5.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Move the constant to the other side first, then complete the square on the left.", "Half of 4 is 2, and 2² = 4 — add that to both sides to create a perfect square trinomial."]
       },
       {
         id: "d21q10", question: "Simplify: (2 &minus; 3i)(2 + 3i). (Review: Day 17)",
-        type: "multiple-choice",
-        options: ["13","4 &minus; 9i","&minus;5","4 + 9i<sup>2</sup>"],
-        correct: 0,
+        type: "type-answer",
+        answer: "13",
+        accept: ["13"],
         explanation: "This is a conjugate pair: (a &minus; bi)(a + bi) = a<sup>2</sup> + b<sup>2</sup>. So (2)<sup>2</sup> + (3)<sup>2</sup> = 4 + 9 = <strong>13</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["These two factors are complex conjugates — there's a shortcut formula for multiplying (a − bi)(a + bi).", "The conjugate product pattern gives a² + b² — identify a and b, then square and add."]
       }
     ]
   },
@@ -247,6 +254,7 @@ export const DAYS_21_26 = {  day21: {
         correct: 0,
         explanation: "Factor: (x &minus; 3)(x + 2) &lt; 0. Roots at x = &minus;2 and x = 3. Test: x = 0 gives (&minus;3)(2) = &minus;6 &lt; 0. Solution: <strong>&minus;2 &lt; x &lt; 3</strong>.",
         difficulty: "medium", category: "topic",
+        hints: ["First factor the quadratic to find the boundary points, then figure out which interval makes the expression negative.", "Factor into (x − 3)(x + 2) — the expression is negative between the two roots."],
         graph: {"type":"numberLine","min":-5,"max":6,"step":1,"width":400,"height":60,"points":[{"x":-2,"open":true,"color":"#e53e3e","label":"−2"},{"x":3,"open":true,"color":"#e53e3e","label":"3"}],"intervals":[{"from":-2,"to":3,"fromOpen":true,"toOpen":true,"color":"rgba(14,165,233,0.2)"}]}
       },
       {
@@ -256,6 +264,7 @@ export const DAYS_21_26 = {  day21: {
         correct: 0,
         explanation: "Factor: (x + 4)(x &minus; 3) &ge; 0. The product is non-negative outside the roots (including them): <strong>(&minus;&infin;, &minus;4] &cup; [3, &infin;)</strong>.",
         difficulty: "medium", category: "topic",
+        hints: ["For a ≥ inequality with an upward-opening parabola, the solution is outside the two roots.", "Factor x² + x − 12 to find the boundary points, then determine where the expression is non-negative."],
         graph: {"type":"numberLine","min":-7,"max":6,"step":1,"width":400,"height":60,"points":[{"x":-4,"open":false,"color":"#e53e3e","label":"−4"},{"x":3,"open":false,"color":"#e53e3e","label":"3"}],"intervals":[{"to":-4,"fromInf":true,"toOpen":false,"color":"rgba(14,165,233,0.2)"},{"from":3,"toInf":true,"fromOpen":false,"color":"rgba(14,165,233,0.2)"}]}
       },
       {
@@ -265,6 +274,7 @@ export const DAYS_21_26 = {  day21: {
         correct: 0,
         explanation: "Solve 2x<sup>2</sup> + 3x &minus; 5 = 0: factor (2x + 5)(x &minus; 1) = 0, so x = &minus;5/2 or x = 1. Since a = 2 &gt; 0 (opens up), the parabola is &le; 0 between the roots: <strong>&minus;5/2 &le; x &le; 1</strong>.",
         difficulty: "medium", category: "topic",
+        hints: ["Factor the quadratic — look for two numbers that multiply to 2 × (−5) = −10 and help you split the middle term.", "Once you find the roots, remember the parabola opens upward (a > 0), so the expression is ≤ 0 between the roots."],
         graph: {"type":"numberLine","min":-5,"max":4,"step":1,"width":400,"height":60,"points":[{"x":-2.5,"open":false,"color":"#e53e3e","label":"−5/2"},{"x":1,"open":false,"color":"#e53e3e","label":"1"}],"intervals":[{"from":-2.5,"to":1,"fromOpen":false,"toOpen":false,"color":"rgba(14,165,233,0.2)"}]}
       },
       {
@@ -274,15 +284,17 @@ export const DAYS_21_26 = {  day21: {
         correct: 0,
         explanation: "Critical points: x = 1 (numerator = 0) and x = &minus;3 (undefined). Test intervals: x = &minus;4 gives (&minus;5)/(&minus;1) = + ✓, x = 0 gives (&minus;1)/(3) = &minus; ✗, x = 2 gives (1)/(5) = + ✓. Solution: <strong>x &lt; &minus;3 or x &gt; 1</strong>.",
         difficulty: "hard", category: "topic",
+        hints: ["For a rational inequality, find where the numerator is zero and where the denominator is zero — these are your critical points.", "Mark x = 1 and x = −3 on a number line, then test a value in each of the three intervals to check the sign."],
         graph: {"type":"numberLine","min":-6,"max":4,"step":1,"width":400,"height":60,"points":[{"x":-3,"open":true,"color":"#e53e3e","label":"−3"},{"x":1,"open":true,"color":"#e53e3e","label":"1"}],"intervals":[{"to":-3,"fromInf":true,"toOpen":true,"color":"rgba(14,165,233,0.2)"},{"from":1,"toInf":true,"fromOpen":true,"color":"rgba(14,165,233,0.2)"}]}
       },
       {
         id: "d22q8", question: "A ball is thrown upward with height h(t) = &minus;16t<sup>2</sup> + 64t + 5. What is the maximum height?",
-        type: "multiple-choice",
-        options: ["69","64","53","5"],
-        correct: 0,
+        type: "type-answer",
+        answer: "69",
+        accept: ["69"],
         explanation: "Maximum at t = &minus;b/(2a) = &minus;64/(2(&minus;16)) = &minus;64/(&minus;32) = 2. Then h(2) = &minus;16(4) + 64(2) + 5 = &minus;64 + 128 + 5 = <strong>69</strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["Since a < 0 the parabola opens downward, so the vertex gives the maximum — use t = −b/(2a) to find the time.", "Once you find the time at the vertex, plug it back into h(t) to calculate the maximum height."]
       },
       {
         id: "d22q9", question: "What is the vertex of y = &minus;2x<sup>2</sup> + 8x &minus; 3? (Review: Day 21)",
@@ -290,7 +302,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["(2, 5)","(&minus;2, &minus;27)","(4, &minus;3)","(2, &minus;3)"],
         correct: 0,
         explanation: "x = &minus;b/(2a) = &minus;8/(2(&minus;2)) = &minus;8/(&minus;4) = 2. y = &minus;2(4) + 8(2) &minus; 3 = &minus;8 + 16 &minus; 3 = 5. Vertex: <strong>(2, 5)</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Use the vertex formula x = −b/(2a) to find the x-coordinate first.", "After finding x, substitute it back into the original equation to get the y-coordinate of the vertex."]
       },
       {
         id: "d22q10", question: "Solve using the quadratic formula: 2x<sup>2</sup> &minus; 5x &minus; 3 = 0. (Review: Day 16)",
@@ -298,7 +311,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["x = 3 or x = &minus;&frac12;","x = &minus;3 or x = &frac12;","x = 5 or x = &minus;3","x = 3/2 or x = &minus;1"],
         correct: 0,
         explanation: "a = 2, b = &minus;5, c = &minus;3. D = 25 + 24 = 49. x = (5 &pm; 7)/4. So x = 12/4 = 3 or x = &minus;2/4 = &minus;&frac12;.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Identify a, b, and c, then compute the discriminant b² − 4ac first.", "Plug into x = (−b ± √discriminant) / (2a) and simplify the two solutions."]
       }
     ]
   },
@@ -329,12 +343,35 @@ export const DAYS_21_26 = {  day21: {
               "Set up the proportion: 3/7.50 = 8/x.",
               "Cross-multiply: 3x = 7.50 &times; 8 = 60.",
               "Divide by 3: x = 20.",
-              "Answer: 8 notebooks cost <strong>$20.00</strong>."
-            ]
-          }
-        },
-        {
-          heading: "Direct Variation",
+               "Answer: 8 notebooks cost <strong>$20.00</strong>."
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Solve the proportion: x/6 = 5/3. What is x?",
+               answer: "10",
+               accept: ["10", "x=10", "x = 10"],
+               explanation: "Cross-multiply: 3x = 30. Divide by 3: x = 10."
+             },
+             {
+               type: "type-answer",
+               prompt: "If 4 pencils cost $2.80, how much do 10 pencils cost? (Just the number, e.g. 7.00)",
+               answer: "7.00",
+               accept: ["7.00", "7", "$7.00", "$7", "7.0"],
+               explanation: "Set up proportion: 4/2.80 = 10/x. Cross-multiply: 4x = 28. So x = $7.00."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "To solve a/b = c/d using cross-multiplication, which equation do you get?",
+               options: ["ad = bc", "ab = cd", "ac = bd"],
+               correct: 0,
+               explanation: "Cross-multiplication gives ad = bc (multiply each numerator by the opposite denominator)."
+             }
+           ]
+         },
+         {
+           heading: "Direct Variation",
           paragraphs: [
             "Two quantities are in <strong>direct variation</strong> if one is always a constant multiple of the other: <strong>y = kx</strong>, where k is called the <strong>constant of variation</strong> (or constant of proportionality). When x doubles, y doubles too.",
             "You see direct variation everywhere: the total cost of gas varies directly with the number of gallons (at a fixed price per gallon), the distance you travel varies directly with time (at a constant speed), and the weight of fruit varies directly with the number of pounds you buy.",
@@ -395,7 +432,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["8","6","18","9"],
         correct: 0,
         explanation: "Set up the proportion: 2/3 = x/12. Cross-multiply: 3x = 24 &rArr; x = <strong>8</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Set up a proportion with flour-to-sugar ratios on each side of the equation.", "Cross-multiply to solve: if 2/3 = x/12, multiply the diagonals."]
       },
       {
         id: "d23q5", question: "y varies inversely with x. If y = 10 when x = 3, find y when x = 6.",
@@ -404,6 +442,7 @@ export const DAYS_21_26 = {  day21: {
         correct: 0,
         explanation: "k = xy = 10 &times; 3 = 30. When x = 6: y = 30/6 = <strong>5</strong>.",
         difficulty: "medium", category: "topic",
+        hints: ["In inverse variation, the product of x and y is always the same constant k.", "Find k by multiplying the given x and y, then use y = k/x with the new x-value."],
         graph: {"type":"coordPlane","xMin":-1,"xMax":12,"yMin":-1,"yMax":14,"width":260,"height":240,"points":[{"x":2,"y":15,"color":"#a0aec0","label":"","labelPos":"tr"},{"x":3,"y":10,"color":"#e53e3e","label":"(3, 10)","labelPos":"tr"},{"x":5,"y":6,"color":"#a0aec0","label":"","labelPos":"tr"},{"x":6,"y":5,"color":"#e53e3e","label":"(6, ?)","labelPos":"tr"},{"x":10,"y":3,"color":"#a0aec0","label":"","labelPos":"tr"}],"caption":"Inverse variation: as x doubles, y halves (xy = 30)"}
       },
       {
@@ -412,7 +451,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["200 km","160 km","250 km","100 km"],
         correct: 0,
         explanation: "Scale: 1 cm = 40 km. So 5 cm = 5 &times; 40 = <strong>200 km</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["First figure out how many kilometers one centimeter represents.", "Divide 80 km by 2 cm to get the unit rate, then multiply by 5."]
       },
       {
         id: "d23q7", question: "Two similar triangles have corresponding sides in the ratio 3:5. If the shorter triangle has a side of length 9, what is the corresponding side of the larger triangle?",
@@ -421,6 +461,7 @@ export const DAYS_21_26 = {  day21: {
         correct: 0,
         explanation: "Set up the proportion: 3/5 = 9/x. Cross-multiply: 3x = 45 &rArr; x = <strong>15</strong>.",
         difficulty: "hard", category: "topic",
+        hints: ["Similar triangles have proportional sides — set up a proportion using the given ratio and the known side.", "Write 3/5 = 9/x and cross-multiply to solve for the unknown side."],
         graph: {"type":"row","items":[{"type":"triangle","width":130,"height":110,"vertices":[[15,95],[115,95],[65,15]],"labels":[null,null,null],"sides":[{"label":"9","dx":0,"dy":14},{"label":"?","dx":8,"dy":-3},{"label":"","dx":0,"dy":0}],"color":"#0ea5e9","caption":"Smaller (ratio 3)"},{"type":"triangle","width":180,"height":150,"vertices":[[15,135],[165,135],[90,15]],"labels":[null,null,null],"sides":[{"label":"15","dx":0,"dy":14},{"label":"?","dx":10,"dy":-3},{"label":"","dx":0,"dy":0}],"color":"#e53e3e","caption":"Larger (ratio 5)"}]}
       },
       {
@@ -430,6 +471,7 @@ export const DAYS_21_26 = {  day21: {
         correct: 0,
         explanation: "y = kx<sup>2</sup>. Find k: 50 = k(25) &rArr; k = 2. When x = 3: y = 2(9) = <strong>18</strong>.",
         difficulty: "hard", category: "topic",
+        hints: ["This is direct variation with x², so the equation is y = kx² — use the given pair to find k.", "Plug in x = 5 and y = 50 to get k, then substitute x = 3 into y = kx²."],
         graph: {"type":"coordPlane","xMin":-1,"xMax":7,"yMin":-5,"yMax":55,"width":260,"height":240,"parabolas":[{"a":2,"b":0,"c":0,"color":"#7c3aed","label":"y = 2x²"}],"points":[{"x":5,"y":50,"color":"#e53e3e","label":"(5, 50)","labelPos":"tl"},{"x":3,"y":18,"color":"#e53e3e","label":"(3, ?)","labelPos":"tl"}],"caption":"y = 2x²: a direct variation with x squared"}
       },
       {
@@ -438,7 +480,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["(3, 5)","(5, 3)","(4, 4)","(2, 6)"],
         correct: 0,
         explanation: "Add the equations: 3x = 9 &rArr; x = 3. Then y = 8 &minus; 3 = 5. Answer: <strong>(3, 5)</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Try the elimination method — look at what happens when you add the two equations together.", "Adding the equations eliminates y because y and −y cancel out."]
       },
       {
         id: "d23q10", question: "Write the equation of a line with slope 3 passing through (1, 7). (Review: Day 19)",
@@ -446,7 +489,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["y = 3x + 4","y = 3x + 7","y = 3x &minus; 4","y = 7x + 3"],
         correct: 0,
         explanation: "Using point-slope: y &minus; 7 = 3(x &minus; 1) &rArr; y = 3x &minus; 3 + 7 = <strong>3x + 4</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Use point-slope form: y − y₁ = m(x − x₁), with the given slope and point.", "Plug in m = 3, x₁ = 1, y₁ = 7, then distribute and simplify to slope-intercept form."]
       }
     ]
   },
@@ -539,7 +583,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["7&radic;3","7&radic;6","10&radic;3","7&radic;9"],
         correct: 0,
         explanation: "Like radicals: 2&radic;3 + 5&radic;3 = (2 + 5)&radic;3 = <strong>7&radic;3</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["These two terms have the same radicand — you can combine them just like combining like terms in algebra.", "Add the coefficients in front of √3, keeping the radical part unchanged."]
       },
       {
         id: "d24q5", question: "Simplify: &radic;3 &middot; &radic;12.",
@@ -547,7 +592,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["6","4&radic;3","&radic;36","3&radic;4"],
         correct: 0,
         explanation: "&radic;3 &middot; &radic;12 = &radic;(3 &times; 12) = &radic;36 = <strong>6</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["When multiplying radicals, you can combine them under one radical sign: √a · √b = √(ab).", "Multiply the radicands together: 3 × 12 = ? Then take the square root of the result."]
       },
       {
         id: "d24q6", question: "Rationalize the denominator: 4/&radic;2.",
@@ -555,7 +601,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["2&radic;2","4&radic;2","4/2","&radic;8"],
         correct: 0,
         explanation: "4/&radic;2 = (4&radic;2)/(&radic;2 &middot; &radic;2) = 4&radic;2/2 = <strong>2&radic;2</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["To clear a radical from the denominator, multiply top and bottom by that same radical.", "Multiply both numerator and denominator by √2, then simplify the resulting fraction."]
       },
       {
         id: "d24q7", question: "Simplify: &radic;75 &minus; &radic;27.",
@@ -563,15 +610,17 @@ export const DAYS_21_26 = {  day21: {
         options: ["2&radic;3","5&radic;3 &minus; 3&radic;3","&radic;48","8&radic;3"],
         correct: 0,
         explanation: "&radic;75 = 5&radic;3 and &radic;27 = 3&radic;3. So 5&radic;3 &minus; 3&radic;3 = <strong>2&radic;3</strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["You can't subtract radicals with different radicands directly — simplify each radical first to see if they become like terms.", "Find the largest perfect square factor in each: 75 = 25 × 3 and 27 = 9 × 3."]
       },
       {
         id: "d24q8", question: "A right triangle has legs of length 5 and 12. What is the length of the hypotenuse?",
-        type: "multiple-choice",
-        options: ["13","17","&radic;119","7"],
-        correct: 0,
+        type: "type-answer",
+        answer: "13",
+        accept: ["13"],
         explanation: "c<sup>2</sup> = 5<sup>2</sup> + 12<sup>2</sup> = 25 + 144 = 169. c = &radic;169 = <strong>13</strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["Use the Pythagorean theorem: a² + b² = c², where c is the hypotenuse.", "Square both legs and add: 5² + 12² = 25 + 144 — then take the square root of the sum."]
       },
       {
         id: "d24q9", question: "Solve the system: x &minus; y = 2 and 3x + y = 14. (Review: Day 20)",
@@ -579,7 +628,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["(4, 2)","(2, 4)","(3, 5)","(5, 3)"],
         correct: 0,
         explanation: "Add the equations: 4x = 16 &rArr; x = 4. Then y = 4 &minus; 2 = 2. Answer: <strong>(4, 2)</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Notice that one equation has −y and the other has +y — what happens if you add them?", "Adding the two equations eliminates y, leaving a simple equation in x alone."]
       },
       {
         id: "d24q10", question: "Solve the proportion: 5/8 = x/24. (Review: Day 23)",
@@ -587,7 +637,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["15","20","12","10"],
         correct: 0,
         explanation: "Cross-multiply: 8x = 120 &rArr; x = <strong>15</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Use cross-multiplication to solve a proportion: multiply the diagonals.", "Cross-multiply: 8 × x = 5 × 24, then solve for x."]
       }
     ]
   },
@@ -637,12 +688,35 @@ export const DAYS_21_26 = {  day21: {
               "Factor the denominator: 6x + 12 = 6(x + 2).",
               "Cancel the common factor (x + 2): 3(x &minus; 2)/6.",
               "Simplify the coefficient: 3/6 = 1/2.",
-              "Result: <strong>(x &minus; 2)/2</strong>, where x &ne; &minus;2."
-            ]
-          }
-        },
-        {
-          heading: "Multiplying, Dividing & Adding Rational Expressions",
+               "Result: <strong>(x &minus; 2)/2</strong>, where x &ne; &minus;2."
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Simplify: (x&sup2; &minus; 16)/(x + 4). What is the result?",
+               answer: "x-4",
+               accept: ["x-4", "x - 4", "x−4", "(x-4)", "(x − 4)"],
+               explanation: "Factor the numerator as a difference of squares: (x + 4)(x &minus; 4)/(x + 4). Cancel (x + 4): result is x &minus; 4, where x &ne; &minus;4."
+             },
+             {
+               type: "type-answer",
+               prompt: "What value of x is restricted (undefined) for the expression 5/(x &minus; 3)?",
+               answer: "3",
+               accept: ["3", "x=3", "x = 3"],
+               explanation: "The denominator x &minus; 3 = 0 when x = 3, so x = 3 is the restricted value."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "To simplify a rational expression, the first step is always to:",
+               options: ["Factor numerator and denominator", "Cross-multiply", "Find a common denominator"],
+               correct: 0,
+               explanation: "Factor both the numerator and denominator completely, then cancel common factors."
+             }
+           ]
+         },
+         {
+           heading: "Multiplying, Dividing & Adding Rational Expressions",
           paragraphs: [
             "To <strong>multiply</strong> rational expressions, multiply the numerators together and the denominators together &mdash; just like regular fractions. Factor everything first and cancel before multiplying to keep things simple: (a/b) &middot; (c/d) = (ac)/(bd).",
             "To <strong>divide</strong>, multiply by the reciprocal: (a/b) &divide; (c/d) = (a/b) &middot; (d/c). Flip the second fraction and multiply. Don&rsquo;t forget to factor and cancel where possible.",
@@ -682,7 +756,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["x &minus; 3","x + 3","x<sup>2</sup> &minus; 3","x &minus; 9"],
         correct: 0,
         explanation: "Factor the numerator: (x &minus; 3)(x + 3). Cancel (x + 3): <strong>x &minus; 3</strong> (x &ne; &minus;3).",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["The numerator is a difference of squares — try factoring it.", "Factor x² − 9 as (x − 3)(x + 3), then see what cancels with the denominator."]
       },
       {
         id: "d25q5", question: "Find the restricted values of (5x)/(x<sup>2</sup> &minus; 4).",
@@ -690,7 +765,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["x = 2 and x = &minus;2","x = 4 and x = &minus;4","x = 0","x = 2 only"],
         correct: 0,
         explanation: "x<sup>2</sup> &minus; 4 = (x &minus; 2)(x + 2) = 0 when x = 2 or x = &minus;2. <strong>Both are restricted</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Restricted values come from setting the denominator equal to zero.", "Factor x² − 4 as a difference of squares and set each factor equal to zero."]
       },
       {
         id: "d25q6", question: "Multiply: (x/3) &middot; (9/x<sup>2</sup>).",
@@ -698,7 +774,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["3/x","9/x","3x","x/3"],
         correct: 0,
         explanation: "Multiply numerators and denominators: (x &middot; 9)/(3 &middot; x<sup>2</sup>) = 9x/(3x<sup>2</sup>) = <strong>3/x</strong> (x &ne; 0).",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Multiply fractions by multiplying numerators together and denominators together.", "After multiplying, simplify by canceling common factors of x and numeric coefficients."]
       },
       {
         id: "d25q7", question: "Simplify: (2x<sup>2</sup> + 6x)/(x<sup>2</sup> + 6x + 9).",
@@ -706,7 +783,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["2x/(x + 3)","(2x + 6)/(x + 3)","2/(x + 3)","2x/(x + 9)"],
         correct: 0,
         explanation: "Factor numerator: 2x(x + 3). Factor denominator: (x + 3)<sup>2</sup>. Cancel one (x + 3): <strong>2x/(x + 3)</strong> (x &ne; &minus;3).",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["Factor both the numerator and denominator completely before trying to cancel anything.", "The numerator has a common factor of 2x, and the denominator is a perfect square trinomial."]
       },
       {
         id: "d25q8", question: "Divide: (x<sup>2</sup> &minus; 1)/4 &divide; (x + 1)/8.",
@@ -714,7 +792,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["2(x &minus; 1)","(x &minus; 1)/2","2(x + 1)","8(x<sup>2</sup> &minus; 1)/(4x + 4)"],
         correct: 0,
         explanation: "Flip and multiply: [(x &minus; 1)(x + 1)/4] &middot; [8/(x + 1)]. Cancel (x + 1) and simplify 8/4 = 2. Result: <strong>2(x &minus; 1)</strong> (x &ne; &minus;1).",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["To divide fractions, flip the second fraction and multiply instead.", "After flipping, factor x² − 1 as (x − 1)(x + 1) and cancel common factors before multiplying."]
       },
       {
         id: "d25q9", question: "y varies directly with x. If y = 21 when x = 7, find y when x = 10. (Review: Day 23)",
@@ -722,7 +801,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["30","21","70","3"],
         correct: 0,
         explanation: "k = y/x = 21/7 = 3. When x = 10: y = 3(10) = <strong>30</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["In direct variation y = kx, first find the constant k using the given values.", "Divide y by x to get k, then multiply k by the new x-value."]
       },
       {
         id: "d25q10", question: "Simplify: &radic;98. (Review: Day 24)",
@@ -730,7 +810,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["7&radic;2","2&radic;49","49&radic;2","14"],
         correct: 0,
         explanation: "&radic;98 = &radic;(49 &times; 2) = 7&radic;2. Answer: <strong>7&radic;2</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Look for the largest perfect square that divides evenly into 98.", "98 = 49 × 2, and 49 is a perfect square — use the product rule for radicals."]
       }
     ]
   },
@@ -823,7 +904,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["3","15","&minus;3","9"],
         correct: 0,
         explanation: "g(&minus;3) = (&minus;3)<sup>2</sup> + 2(&minus;3) = 9 &minus; 6 = <strong>3</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["To evaluate a function, replace every x in the formula with the given input value.", "Substitute −3 for x: be careful with the sign when squaring a negative number."]
       },
       {
         id: "d26q5", question: "Which graph would <em>fail</em> the vertical line test?",
@@ -831,7 +913,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["A circle","A parabola opening upward","A straight line with slope 2","A V-shaped graph (absolute value)"],
         correct: 0,
         explanation: "A <strong>circle</strong> has two y-values for most x-values, so it fails the vertical line test and is not a function.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["The vertical line test fails when a single x-value can produce more than one y-value.", "Think about which of these shapes has points directly above and below each other."]
       },
       {
         id: "d26q6", question: "If f(x) = 2x + 5, what is f(a + 2)?",
@@ -839,7 +922,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["2a + 9","2a + 7","2a + 5","a + 7"],
         correct: 0,
         explanation: "Replace x with (a + 2): f(a + 2) = 2(a + 2) + 5 = 2a + 4 + 5 = <strong>2a + 9</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Wherever you see x in the function formula, replace it with the entire expression (a + 2).", "After substituting, distribute the 2 across (a + 2) and then combine the constant terms."]
       },
       {
         id: "d26q7", question: "The relation {(1, 2), (2, 4), (1, 6), (3, 8)} is:",
@@ -847,7 +931,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["Not a function, because x = 1 maps to two outputs","A function, because all y-values are different","A function, because it has four ordered pairs","Not a function, because the y-values are even"],
         correct: 0,
         explanation: "x = 1 maps to both 2 and 6 &mdash; two different outputs. This <strong>is not a function</strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["A function requires that each input (x-value) maps to exactly one output — check if any x-value appears more than once.", "Look at the x-values in the ordered pairs: do any repeat with different y-values?"]
       },
       {
         id: "d26q8", question: "If h(x) = 3x<sup>2</sup> &minus; x + 4, find h(0) + h(1).",
@@ -855,7 +940,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["10","4","6","7"],
         correct: 0,
         explanation: "h(0) = 3(0) &minus; 0 + 4 = 4. h(1) = 3(1) &minus; 1 + 4 = 6. Sum: 4 + 6 = <strong>10</strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["Evaluate h(0) and h(1) separately, then add the two results together.", "Start with h(0) — substituting 0 for x simplifies things a lot since any term with x becomes zero."]
       },
       {
         id: "d26q9", question: "Simplify: (x<sup>2</sup> &minus; 16)/(x + 4). (Review: Day 25)",
@@ -863,7 +949,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["x &minus; 4","x + 4","x<sup>2</sup> &minus; 4","x &minus; 16"],
         correct: 0,
         explanation: "Factor numerator: (x &minus; 4)(x + 4). Cancel (x + 4): <strong>x &minus; 4</strong> (x &ne; &minus;4).",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["The numerator is a difference of squares — try factoring it into two binomials.", "Factor x² − 16 as (x − 4)(x + 4), then cancel the factor that matches the denominator."]
       },
       {
         id: "d26q10", question: "Solve: 3(2x &minus; 1) + 4 = 19. (Review: Day 4)",
@@ -871,7 +958,8 @@ export const DAYS_21_26 = {  day21: {
         options: ["x = 3","x = 4","x = 2","x = 5"],
         correct: 0,
         explanation: "Distribute: 6x &minus; 3 + 4 = 19 &rArr; 6x + 1 = 19 &rArr; 6x = 18 &rArr; x = <strong>3</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Start by distributing the 3 across the parentheses, then combine like terms.", "After distributing, you get 6x − 3 + 4 = 19 — simplify the left side and isolate x."]
       }
     ]
   }

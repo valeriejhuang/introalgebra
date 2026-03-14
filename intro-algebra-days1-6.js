@@ -44,11 +44,34 @@ export const DAYS_1_6 = {  day1: {
               "Exponent first: 4&sup2; = 16, so we have 2(16) + 3(4) &minus; 1.",
               "Multiply: 2 &times; 16 = 32 and 3 &times; 4 = 12.",
               "Add and subtract left to right: 32 + 12 &minus; 1 = <strong>43</strong>."
-            ]
-          }
-        },
-        {
-          heading: "Combining Like Terms",
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Evaluate 3x&sup2; &minus; 2x + 5 when x = 2.",
+               answer: "13",
+               accept: ["13"],
+               explanation: "Substitute: 3(2)&sup2; &minus; 2(2) + 5 = 3(4) &minus; 4 + 5 = 12 &minus; 4 + 5 = 13."
+             },
+             {
+               type: "type-answer",
+               prompt: "Evaluate (4 + 6) &divide; 2 + 3 &times; 5.",
+               answer: "20",
+               accept: ["20"],
+               explanation: "Parentheses first: 10 &divide; 2 + 3 &times; 5. Then left to right for same-precedence: 5 + 15 = 20."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "In the expression 8 &minus; 2 &times; 3 + 4, which operation do you perform first?",
+               options: ["Subtraction", "Multiplication", "Addition"],
+               correct: 1,
+               explanation: "PEMDAS says multiplication comes before addition and subtraction."
+             }
+           ]
+         },
+         {
+           heading: "Combining Like Terms",
           paragraphs: [
             "<strong>Like terms</strong> have the same variable raised to the same power. For instance, 5x and 3x are like terms (both have x&sup1;), but 5x and 5x&sup2; are <em>not</em>.",
             "To simplify, add or subtract the coefficients of like terms: <strong>5x + 3x = 8x</strong>. Constants combine too: <strong>7 &minus; 2 = 5</strong>.",
@@ -76,9 +99,9 @@ export const DAYS_1_6 = {  day1: {
       },
       {
         id: "d1q3", question: "Evaluate 4x &minus; 7 when x = 3.",
-        type: "multiple-choice",
-        options: ["5","12","19","4"],
-        correct: 0,
+        type: "type-answer",
+        answer: "5",
+        accept: ["5"],
         explanation: "Substitute x = 3: 4(3) &minus; 7 = 12 &minus; 7 = <strong>5</strong>.",
         difficulty: "easy", category: "topic"
       },
@@ -88,7 +111,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["8x + 13","4x + 13","4x + 5","8x + 5"],
         correct: 1,
         explanation: "Combine like terms: (6x &minus; 2x) + (4 + 9) = <strong>4x + 13</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Group the terms with x together and the plain numbers together.", "Combine 6x and &minus;2x first, then add 4 and 9."]
       },
       {
         id: "d1q5", question: "Evaluate 3a&sup2; &minus; 2a + 1 when a = &minus;2.",
@@ -96,7 +120,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["17","9","&minus;7","5"],
         correct: 0,
         explanation: "3(&minus;2)&sup2; &minus; 2(&minus;2) + 1 = 3(4) + 4 + 1 = 12 + 4 + 1 = <strong>17</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Remember: squaring a negative number gives a positive result.", "Start by computing (&minus;2)&sup2; = 4, then substitute that into 3(4)."]
       },
       {
         id: "d1q6", question: "What is the coefficient of <em>y</em> in the expression 8 &minus; 3y + y&sup2;?",
@@ -104,7 +129,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["8","&minus;3","1","3"],
         correct: 1,
         explanation: "The term with <em>y</em> (not y&sup2;) is &minus;3y, so the coefficient is <strong>&minus;3</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["The coefficient is the number multiplied by the variable &mdash; look only at the y term, not the y&sup2; term.", "Find the term with just y (not y&sup2;) and include the sign in front of it."]
       },
       {
         id: "d1q7", question: "Simplify: 2(3x + 4) &minus; 5x.",
@@ -112,7 +138,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["x + 8","11x + 8","x + 4","6x + 8 &minus; 5x"],
         correct: 0,
         explanation: "Distribute: 6x + 8 &minus; 5x. Combine like terms: <strong>x + 8</strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["Use the distributive property to remove the parentheses first.", "Multiply 2 by each term inside: 2 &times; 3x and 2 &times; 4, then combine like terms."]
       },
       {
         id: "d1q8", question: "Evaluate (2x + 1)&sup2; when x = 3.",
@@ -120,7 +147,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["49","37","13","25"],
         correct: 0,
         explanation: "First compute 2(3) + 1 = 7. Then 7&sup2; = <strong>49</strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["Follow order of operations: simplify inside the parentheses before squaring.", "Start by computing 2(3) + 1 inside the parentheses, then square that result."]
       },
       {
         id: "d1q9", question: "Which expression represents &ldquo;the product of a number and the sum of that number and 6&rdquo;?",
@@ -128,7 +156,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["n + 6n","n(n + 6)","6n + n","n &times; 6 + n"],
         correct: 1,
         explanation: "\"Sum of the number and 6\" is (n + 6). \"Product of a number and\" that sum is <strong>n(n + 6)</strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["Break the phrase into parts: first find &ldquo;the sum of the number and 6,&rdquo; then think about &ldquo;product.&rdquo;", "Write the sum as (n + 6) in parentheses, then multiply the number n by that group."]
       },
       {
         id: "d1q10", question: "Simplify: 5x &minus; 3(2x &minus; 4) + 7.",
@@ -136,7 +165,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["&minus;x + 19","11x &minus; 5","&minus;x + 5","11x + 19"],
         correct: 0,
         explanation: "Distribute: 5x &minus; 6x + 12 + 7. Combine: (5x &minus; 6x) + (12 + 7) = <strong>&minus;x + 19</strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["Distribute the &minus;3 carefully &mdash; remember to multiply &minus;3 by both terms inside the parentheses.", "Start with &minus;3 &times; 2x and &minus;3 &times; (&minus;4), being careful with the signs."]
       }
     ]
   },
@@ -212,9 +242,9 @@ export const DAYS_1_6 = {  day1: {
     quiz: [
       {
         id: "d2q1", question: "Solve: x + 14 = 23.",
-        type: "multiple-choice",
-        options: ["x = 9","x = 37","x = &minus;9","x = 14"],
-        correct: 0,
+        type: "type-answer",
+        answer: "9",
+        accept: ["9", "x=9", "x = 9"],
         explanation: "Subtract 14 from both sides: x = 23 &minus; 14 = <strong>9</strong>.",
         difficulty: "easy", category: "topic"
       },
@@ -240,7 +270,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["x = &minus;36","x = 36","x = &minus;13","x = &minus;5"],
         correct: 0,
         explanation: "Multiply both sides by 4: x = &minus;9 &times; 4 = <strong>&minus;36</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Think about what operation undoes division.", "Multiply both sides by 4 to isolate x."]
       },
       {
         id: "d2q5", question: "Solve: &minus;8m = 56.",
@@ -248,7 +279,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["m = &minus;7","m = 7","m = &minus;48","m = 64"],
         correct: 0,
         explanation: "Divide both sides by &minus;8: m = 56 &divide; (&minus;8) = <strong>&minus;7</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Think about what operation undoes multiplication.", "Divide both sides by &minus;8, and remember that positive &divide; negative = negative."]
       },
       {
         id: "d2q6", question: "Solve: (2/3)x = 18.",
@@ -256,7 +288,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["x = 12","x = 27","x = 6","x = 36"],
         correct: 1,
         explanation: "Multiply both sides by the reciprocal 3/2: x = 18 &times; 3/2 = <strong>27</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["To undo multiplying by a fraction, multiply by its reciprocal.", "The reciprocal of 2/3 is 3/2 &mdash; multiply both sides by 3/2."]
       },
       {
         id: "d2q7", question: "Solve: &minus;x = 13.",
@@ -264,7 +297,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["x = &minus;13","x = 13","x = 1/13","x = 0"],
         correct: 0,
         explanation: "&minus;x means &minus;1 &times; x. Divide both sides by &minus;1: x = <strong>&minus;13</strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["Remember that &minus;x is the same as &minus;1 times x.", "Divide both sides by &minus;1 to find x."]
       },
       {
         id: "d2q8", question: "Solve: x/(&minus;6) = 7.",
@@ -272,7 +306,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["x = &minus;42","x = 42","x = &minus;1","x = &minus;13"],
         correct: 0,
         explanation: "Multiply both sides by &minus;6: x = 7 &times; (&minus;6) = <strong>&minus;42</strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["To undo dividing by a number, multiply both sides by that same number.", "Multiply both sides by &minus;6, and pay attention to the sign."]
       },
       {
         id: "d2q9", question: "Evaluate 3x &minus; 2 when x = &minus;4. (Review: Day 1)",
@@ -280,7 +315,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["&minus;14","10","&minus;10","14"],
         correct: 0,
         explanation: "3(&minus;4) &minus; 2 = &minus;12 &minus; 2 = <strong>&minus;14</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Replace every x with &minus;4, then follow order of operations.", "Start by computing 3 &times; (&minus;4), remembering that positive &times; negative = negative."]
       },
       {
         id: "d2q10", question: "Simplify: 7a &minus; 3 + 2a &minus; 8. (Review: Day 1)",
@@ -288,7 +324,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["9a &minus; 11","5a &minus; 11","9a + 5","5a + 5"],
         correct: 0,
         explanation: "Combine like terms: (7a + 2a) + (&minus;3 &minus; 8) = <strong>9a &minus; 11</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Identify the like terms: which terms have the variable a and which are just numbers?", "Add 7a + 2a for the variable part, and add &minus;3 + (&minus;8) for the constants."]
       }
     ]
   },
@@ -310,12 +347,35 @@ export const DAYS_1_6 = {  day1: {
             steps: [
               "Add 7 to both sides: 3x = 14 + 7 = 21.",
               "Divide both sides by 3: x = 21 &divide; 3 = <strong>7</strong>.",
-              "Check: 3(7) &minus; 7 = 21 &minus; 7 = 14. &#10003;"
-            ]
-          }
-        },
-        {
-          heading: "Equations with the Distributive Property",
+               "Check: 3(7) &minus; 7 = 21 &minus; 7 = 14. &#10003;"
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Solve: 5x + 3 = 28.",
+               answer: "5",
+               accept: ["5", "x=5", "x = 5"],
+               explanation: "Subtract 3: 5x = 25. Divide by 5: x = 5."
+             },
+             {
+               type: "type-answer",
+               prompt: "Solve: 4x &minus; 9 = 15.",
+               answer: "6",
+               accept: ["6", "x=6", "x = 6"],
+               explanation: "Add 9: 4x = 24. Divide by 4: x = 6."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "To solve 2x + 7 = 19, what is the correct first step?",
+               options: ["Divide both sides by 2", "Subtract 7 from both sides", "Add 7 to both sides"],
+               correct: 1,
+               explanation: "Undo addition first: subtract 7 from both sides to get 2x = 12."
+             }
+           ]
+         },
+         {
+           heading: "Equations with the Distributive Property",
           paragraphs: [
             "The <strong>distributive property</strong> says a(b + c) = ab + ac. Use it to clear parentheses before combining like terms.",
             "Example: Solve <strong>2(x + 3) = 16</strong>. Distribute: 2x + 6 = 16. Subtract 6: 2x = 10. Divide by 2: x = 5.",
@@ -353,9 +413,9 @@ export const DAYS_1_6 = {  day1: {
     quiz: [
       {
         id: "d3q1", question: "Solve: 4x + 3 = 19.",
-        type: "multiple-choice",
-        options: ["x = 4","x = 5.5","x = 16","x = 3"],
-        correct: 0,
+        type: "type-answer",
+        answer: "4",
+        accept: ["4", "x=4", "x = 4"],
         explanation: "Subtract 3: 4x = 16. Divide by 4: x = <strong>4</strong>.",
         difficulty: "easy", category: "topic"
       },
@@ -381,7 +441,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["x = 4","x = 2","x = 7","x = &minus;4"],
         correct: 0,
         explanation: "Distribute: 6x + 3 = 4x + 11. Subtract 4x: 2x + 3 = 11. Subtract 3: 2x = 8. x = <strong>4</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Start by distributing the 3 on the left side to remove the parentheses.", "After distributing, get all x-terms on one side by subtracting the smaller x-term."]
       },
       {
         id: "d3q5", question: "Solve: 8 &minus; 2x = 3x + 18.",
@@ -389,7 +450,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["x = &minus;2","x = 2","x = 5.2","x = &minus;5.2"],
         correct: 0,
         explanation: "Add 2x to both sides: 8 = 5x + 18. Subtract 18: &minus;10 = 5x. Divide by 5: x = <strong>&minus;2</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Variables are on both sides &mdash; move all x-terms to one side first.", "Add 2x to both sides to collect the variable terms on the right."]
       },
       {
         id: "d3q6", question: "Which equation has <strong>no solution</strong>?",
@@ -397,7 +459,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["3(x + 2) = 3x + 8","2x + 4 = 2(x + 2)","x + 1 = 1 + x","5x = 25"],
         correct: 0,
         explanation: "3(x + 2) = 3x + 6, but the right side is 3x + 8. This gives 6 = 8, which is false &mdash; <strong>no solution</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["An equation has no solution when simplifying leads to a false statement like 5 = 8.", "Try distributing and simplifying each option &mdash; look for one where the variable cancels and you get a contradiction."]
       },
       {
         id: "d3q7", question: "Solve: 2(3x &minus; 5) &minus; 4x = 3(x + 1).",
@@ -405,7 +468,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["x = &minus;13","x = 13","x = 3","No solution"],
         correct: 0,
         explanation: "Distribute: 6x &minus; 10 &minus; 4x = 3x + 3. Simplify left: 2x &minus; 10 = 3x + 3. Subtract 2x: &minus;10 = x + 3. Subtract 3: x = <strong>&minus;13</strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["Distribute on both sides first, then combine like terms on each side.", "After distributing, simplify the left side to 2x &minus; 10, then move variable terms to one side."]
       },
       {
         id: "d3q8", question: "Solve: (x + 3)/4 = (2x &minus; 1)/3.",
@@ -413,7 +477,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["x = 13/5","x = 5","x = 2","x = &minus;1"],
         correct: 0,
         explanation: "Cross-multiply: 3(x + 3) = 4(2x &minus; 1). So 3x + 9 = 8x &minus; 4. Rearrange: 13 = 5x. x = <strong>13/5</strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["When you have a fraction equal to a fraction, you can cross-multiply to eliminate the denominators.", "Cross-multiply: multiply 3 by (x + 3) and 4 by (2x &minus; 1), then solve the resulting equation."]
       },
       {
         id: "d3q9", question: "Solve: n + 17 = &minus;5. (Review: Day 2)",
@@ -421,7 +486,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["n = &minus;22","n = 12","n = 22","n = &minus;12"],
         correct: 0,
         explanation: "Subtract 17: n = &minus;5 &minus; 17 = <strong>&minus;22</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Use the inverse operation to undo the addition of 17.", "Subtract 17 from both sides, and be careful with the negative number on the right."]
       },
       {
         id: "d3q10", question: "Evaluate 5(2a &minus; 3) when a = 4. (Review: Day 1)",
@@ -429,7 +495,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["25","35","17","37"],
         correct: 0,
         explanation: "2(4) &minus; 3 = 5. Then 5 &times; 5 = <strong>25</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Substitute a = 4 inside the parentheses first, then multiply by 5.", "Compute 2(4) &minus; 3 inside the parentheses before multiplying by the 5 outside."]
       }
     ]
   },
@@ -523,7 +590,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["12 cm","16 cm","14 cm","10 cm"],
         correct: 0,
         explanation: "Let w = width. Length = w + 4. Perimeter: 2(w + w + 4) = 56. So 2(2w + 4) = 56 &rArr; 4w + 8 = 56 &rArr; 4w = 48 &rArr; w = <strong>12</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Recall that the perimeter of a rectangle is 2 &times; (length + width).", "Let w be the width, so the length is w + 4. Plug both into the perimeter formula."]
       },
       {
         id: "d4q5", question: "Apples cost $2 each and oranges cost $3 each. Sam buys 10 fruits for $24. How many apples did he buy?",
@@ -531,7 +599,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["6","4","8","5"],
         correct: 0,
         explanation: "Let a = apples. Then oranges = 10 &minus; a. 2a + 3(10 &minus; a) = 24. So 2a + 30 &minus; 3a = 24 &rArr; &minus;a = &minus;6 &rArr; a = <strong>6</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["If he bought a apples, how many oranges did he buy out of 10 total?", "Write the total cost equation: 2a + 3(10 &minus; a) = 24, then solve for a."]
       },
       {
         id: "d4q6", question: "The sum of three consecutive <em>odd</em> integers is 93. What is the largest?",
@@ -539,7 +608,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["33","31","35","29"],
         correct: 0,
         explanation: "n + (n+2) + (n+4) = 93. So 3n + 6 = 93, 3n = 87, n = 29. The largest is 29 + 4 = <strong>33</strong>.",
-        difficulty: "medium", category: "topic"
+        difficulty: "medium", category: "topic",
+        hints: ["Consecutive odd integers differ by 2, so write them as n, n+2, n+4.", "After finding the smallest integer, add 4 to get the largest of the three."]
       },
       {
         id: "d4q7", question: "A car and a truck start from the same point driving in opposite directions. The car goes 55 mph and the truck goes 45 mph. After how many hours are they 300 miles apart?",
@@ -547,7 +617,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["3 hours","2.5 hours","6 hours","3.5 hours"],
         correct: 0,
         explanation: "55t + 45t = 300. So 100t = 300, t = <strong>3 hours</strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["When two objects travel in opposite directions, their distances add up.", "Use distance = rate &times; time for each vehicle and set the sum equal to 300."]
       },
       {
         id: "d4q8", question: "Maya has $5 and $10 bills totaling $95. She has 13 bills. How many $10 bills does she have?",
@@ -555,7 +626,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["8","5","9","6"],
         correct: 0,
         explanation: "Let t = number of $10 bills. Then $5 bills = 13 &minus; t. 5(13 &minus; t) + 10t = 95 &rArr; 65 &minus; 5t + 10t = 95 &rArr; 5t = 30 &rArr; t = <strong>8</strong> (so she has 8 ten-dollar bills and 5 five-dollar bills, totaling $80 + $15 = $95).",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["If t is the number of $10 bills, then the number of $5 bills is 13 &minus; t.", "Write the total value equation: 5(13 &minus; t) + 10t = 95, then solve for t."]
       },
       {
         id: "d4q9", question: "Solve: 2(x + 5) = 3x &minus; 1. (Review: Day 3)",
@@ -563,7 +635,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["x = 11","x = 9","x = &minus;11","x = 1"],
         correct: 0,
         explanation: "2x + 10 = 3x &minus; 1. Subtract 2x: 10 = x &minus; 1. Add 1: x = <strong>11</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Start by distributing the 2 on the left side.", "After distributing, move all x-terms to one side and constants to the other."]
       },
       {
         id: "d4q10", question: "Solve: &minus;6m = 42. (Review: Day 2)",
@@ -571,7 +644,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["m = &minus;7","m = 7","m = &minus;48","m = 48"],
         correct: 0,
         explanation: "Divide both sides by &minus;6: m = 42 &divide; (&minus;6) = <strong>&minus;7</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Think about what operation undoes multiplication by &minus;6.", "Divide both sides by &minus;6, remembering that positive &divide; negative gives a negative result."]
       }
     ]
   },
@@ -605,11 +679,34 @@ export const DAYS_1_6 = {  day1: {
               "x &ge; &minus;5.",
               "Solution set: all numbers greater than or equal to &minus;5. On a number line: filled circle at &minus;5 with arrow pointing right."
             ],
-            graphs: [{"type":"numberLine","min":-8,"max":4,"step":1,"width":480,"height":70,"intervals":[{"from":-5,"toInf":true,"fromOpen":false,"color":"#0d9488"}],"caption":"x ≥ −5: filled circle at −5, arrow pointing right"}]
-          }
-        },
-        {
-          heading: "Multi-Step Inequalities",
+             graphs: [{"type":"numberLine","min":-8,"max":4,"step":1,"width":480,"height":70,"intervals":[{"from":-5,"toInf":true,"fromOpen":false,"color":"#0d9488"}],"caption":"x ≥ −5: filled circle at −5, arrow pointing right"}],
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Solve: 3x + 4 &gt; 19. Write the solution (e.g. x>5).",
+               answer: "x>5",
+               accept: ["x>5", "x > 5", "x &gt; 5"],
+               explanation: "Subtract 4: 3x &gt; 15. Divide by 3: x &gt; 5."
+             },
+             {
+               type: "type-answer",
+               prompt: "Solve: &minus;2x &lt; 10. Write the solution (e.g. x>-5).",
+               answer: "x>-5",
+               accept: ["x>-5", "x > -5", "x &gt; -5", "x > −5"],
+               explanation: "Divide by &minus;2 and flip the sign: x &gt; &minus;5."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "When solving &minus;4x &ge; 12, what happens to the inequality sign?",
+               options: ["It stays the same", "It flips direction", "It becomes an equals sign"],
+               correct: 1,
+               explanation: "Dividing (or multiplying) both sides by a negative number flips the inequality sign."
+             }
+           ]
+           }
+         },
+         {
+           heading: "Multi-Step Inequalities",
           paragraphs: [
             "Multi-step inequalities work the same as multi-step equations. Distribute, combine like terms, then isolate the variable. Just remember the sign-flip rule.",
             "Example: 2(x + 3) &minus; 5 &lt; 9. Distribute: 2x + 6 &minus; 5 &lt; 9. Simplify: 2x + 1 &lt; 9. Subtract 1: 2x &lt; 8. Divide by 2: x &lt; 4.",
@@ -662,6 +759,7 @@ export const DAYS_1_6 = {  day1: {
         correct: 0,
         explanation: "Divide by &minus;4 and <strong>flip the sign</strong>: x &lt; &minus;5.",
         difficulty: "medium", category: "topic",
+        hints: ["When you divide or multiply both sides of an inequality by a negative number, something special happens to the sign.", "Divide both sides by &minus;4, and remember to flip the inequality sign."],
         graph: {"type":"numberLine","min":-9,"max":-1,"step":1,"width":400,"height":60,"intervals":[{"to":-5,"fromInf":true,"toOpen":true,"color":"#e53e3e"}],"caption":"x < −5"}
       },
       {
@@ -671,6 +769,7 @@ export const DAYS_1_6 = {  day1: {
         correct: 0,
         explanation: "Subtract 9: 2x &lt; &minus;6. Divide by 2: x &lt; <strong>&minus;3</strong>.",
         difficulty: "medium", category: "topic",
+        hints: ["Solve this like a two-step equation: undo the addition first, then the multiplication.", "Start by subtracting 9 from both sides."],
         graph: {"type":"numberLine","min":-7,"max":1,"step":1,"width":400,"height":60,"intervals":[{"to":-3,"fromInf":true,"toOpen":true,"color":"#e53e3e"}],"caption":"x < −3"}
       },
       {
@@ -680,6 +779,7 @@ export const DAYS_1_6 = {  day1: {
         correct: 0,
         explanation: "x &ge; &minus;4 includes &minus;4 (bracket) and goes to infinity (parenthesis): <strong>[&minus;4, &infin;)</strong>.",
         difficulty: "medium", category: "topic",
+        hints: ["Use a bracket [ when the endpoint IS included (&ge; or &le;) and a parenthesis ( when it is NOT.", "Since &minus;4 is included (&ge;), it gets a bracket. Infinity always gets a parenthesis."],
         graph: {"type":"numberLine","min":-8,"max":2,"step":1,"width":400,"height":60,"intervals":[{"from":-4,"toInf":true,"fromOpen":false,"color":"#0ea5e9"}],"caption":"x ≥ −4"}
       },
       {
@@ -689,6 +789,7 @@ export const DAYS_1_6 = {  day1: {
         correct: 0,
         explanation: "Distribute: 5 &minus; 3x + 6 &ge; 20. Simplify: 11 &minus; 3x &ge; 20. Subtract 11: &minus;3x &ge; 9. Divide by &minus;3 (flip!): x &le; <strong>&minus;3</strong>.",
         difficulty: "hard", category: "topic",
+        hints: ["Distribute the &minus;3 first, being careful with signs, then combine the constant terms.", "After simplifying to &minus;3x &ge; 9, remember to flip the inequality when dividing by a negative."],
         graph: {"type":"numberLine","min":-7,"max":3,"step":1,"width":400,"height":60,"intervals":[{"to":-3,"fromInf":true,"toOpen":false,"color":"#0d9488"}],"caption":"Solution: x ≤ −3"}
       },
       {
@@ -698,6 +799,7 @@ export const DAYS_1_6 = {  day1: {
         correct: 0,
         explanation: "Subtract 2x: 2x &minus; 1 &gt; 7. Add 1: 2x &gt; 8. Divide by 2: x &gt; <strong>4</strong>.",
         difficulty: "hard", category: "topic",
+        hints: ["Move all variable terms to one side, just like solving an equation with variables on both sides.", "Subtract 2x from both sides to get the x-terms on the left, then isolate x."],
         graph: {"type":"numberLine","min":0,"max":8,"step":1,"width":400,"height":60,"intervals":[{"from":4,"toInf":true,"fromOpen":true,"color":"#0ea5e9"}],"caption":"x > 4"}
       },
       {
@@ -706,7 +808,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["24","26","22","28"],
         correct: 0,
         explanation: "n + (n+2) + (n+4) = 78. 3n + 6 = 78. 3n = 72. n = <strong>24</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Consecutive even integers differ by 2: write them as n, n+2, and n+4.", "Set up the equation n + (n+2) + (n+4) = 78, then combine like terms."]
       },
       {
         id: "d5q10", question: "Solve: 4(x &minus; 1) = 2x + 6. (Review: Day 3)",
@@ -714,7 +817,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["x = 5","x = 3","x = 1","x = 10"],
         correct: 0,
         explanation: "4x &minus; 4 = 2x + 6. Subtract 2x: 2x &minus; 4 = 6. Add 4: 2x = 10. x = <strong>5</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Distribute the 4 on the left, then collect x-terms on one side.", "After distributing, subtract 2x from both sides to get the x-terms together."]
       }
     ]
   },
@@ -816,6 +920,7 @@ export const DAYS_1_6 = {  day1: {
         correct: 0,
         explanation: "x &minus; 4 = 6 gives x = 10. x &minus; 4 = &minus;6 gives x = &minus;2. Solutions: <strong>10 or &minus;2</strong>.",
         difficulty: "medium", category: "topic",
+        hints: ["Absolute value equations always produce two cases: the expression equals +k or &minus;k.", "Set up x &minus; 4 = 6 and x &minus; 4 = &minus;6, then solve each one-step equation."],
         graph: {"type":"numberLine","min":-5,"max":13,"step":2,"width":440,"height":60,"points":[{"x":-2,"open":false,"color":"#e53e3e","label":"−2"},{"x":10,"open":false,"color":"#e53e3e","label":"10"},{"x":4,"open":false,"color":"#0ea5e9","label":"4"}],"caption":"Both solutions are 6 units from 4"}
       },
       {
@@ -825,6 +930,7 @@ export const DAYS_1_6 = {  day1: {
         correct: 0,
         explanation: "Rewrite as AND: &minus;7 &lt; 3x + 1 &lt; 7. Subtract 1: &minus;8 &lt; 3x &lt; 6. Divide by 3: <strong>&minus;8/3 &lt; x &lt; 2</strong>.",
         difficulty: "medium", category: "topic",
+        hints: ["&ldquo;Less thAND&rdquo; &mdash; an absolute value less-than becomes a compound AND inequality.", "Rewrite as &minus;7 &lt; 3x + 1 &lt; 7, then solve by subtracting 1 from all three parts."],
         graph: {"type":"numberLine","min":-5,"max":5,"step":1,"width":400,"height":60,"intervals":[{"from":-2.67,"to":2,"fromOpen":true,"toOpen":true,"color":"#0ea5e9"}],"caption":"−8/3 < x < 2"}
       },
       {
@@ -834,6 +940,7 @@ export const DAYS_1_6 = {  day1: {
         correct: 0,
         explanation: "Greater than or equal &rarr; OR compound. 2x &minus; 3 &ge; 5 gives x &ge; 4. 2x &minus; 3 &le; &minus;5 gives x &le; &minus;1. Solution: <strong>x &le; &minus;1 or x &ge; 4</strong>.",
         difficulty: "medium", category: "topic",
+        hints: ["&ldquo;GreatOR&rdquo; &mdash; an absolute value greater-than becomes a compound OR inequality.", "Split into two cases: 2x &minus; 3 &ge; 5 OR 2x &minus; 3 &le; &minus;5, and solve each."],
         graph: {"type":"numberLine","min":-4,"max":7,"step":1,"width":400,"height":60,"intervals":[{"to":-1,"fromInf":true,"toOpen":false,"color":"#0d9488"},{"from":4,"toInf":true,"fromOpen":false,"color":"#0d9488"}],"caption":"x ≤ −1 or x ≥ 4"}
       },
       {
@@ -842,7 +949,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["No solution","x = &minus;1 or x = 1/5","x = &minus;1","x = 1/5"],
         correct: 0,
         explanation: "Absolute value can never be negative. |5x + 2| = &minus;3 has <strong>no solution</strong>.",
-        difficulty: "hard", category: "topic"
+        difficulty: "hard", category: "topic",
+        hints: ["Think about what values absolute value can possibly produce.", "Absolute value measures distance from zero &mdash; can a distance ever be negative?"]
       },
       {
         id: "d6q8", question: "Solve: 2 &le; |x + 1| &le; 6.",
@@ -851,6 +959,7 @@ export const DAYS_1_6 = {  day1: {
         correct: 0,
         explanation: "|x+1| &le; 6 gives &minus;7 &le; x &le; 5. |x+1| &ge; 2 gives x &le; &minus;3 or x &ge; 1. The intersection is <strong>&minus;7 &le; x &le; &minus;3 or 1 &le; x &le; 5</strong>.",
         difficulty: "hard", category: "topic",
+        hints: ["Break this into two separate conditions: |x+1| &ge; 2 AND |x+1| &le; 6, then find where both are true.", "Solve each absolute value inequality separately, then find the overlap (intersection) of the two solution sets."],
         graph: {"type":"numberLine","min":-9,"max":7,"step":1,"width":440,"height":60,"intervals":[{"from":-7,"to":-3,"fromOpen":false,"toOpen":false,"color":"#0ea5e9"},{"from":1,"to":5,"fromOpen":false,"toOpen":false,"color":"#0ea5e9"}],"caption":"−7 ≤ x ≤ −3 or 1 ≤ x ≤ 5"}
       },
       {
@@ -859,7 +968,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["x &lt; &minus;4","x &gt; &minus;4","x &lt; 4","x &gt; 4"],
         correct: 0,
         explanation: "Subtract 1: &minus;2x &gt; 8. Divide by &minus;2 (flip!): x &lt; <strong>&minus;4</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Isolate the variable term first by undoing the addition, then handle the negative coefficient.", "After subtracting 1, you will divide by a negative number &mdash; remember what that does to the inequality sign."]
       },
       {
         id: "d6q10", question: "A movie theater charges $9 per adult and $6 per child. If 15 people paid a total of $108, how many adults attended? (Review: Day 4)",
@@ -867,7 +977,8 @@ export const DAYS_1_6 = {  day1: {
         options: ["6","9","7","8"],
         correct: 0,
         explanation: "Let a = adults. 9a + 6(15 &minus; a) = 108. 9a + 90 &minus; 6a = 108. 3a = 18. a = <strong>6</strong>.",
-        difficulty: "medium", category: "review"
+        difficulty: "medium", category: "review",
+        hints: ["Let a = number of adults, then the number of children is 15 &minus; a.", "Write the total cost equation: 9a + 6(15 &minus; a) = 108, then distribute and solve."]
       }
     ]
   }

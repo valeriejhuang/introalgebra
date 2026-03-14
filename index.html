@@ -146,7 +146,7 @@ body {
   max-width: 860px;
 }
 
-/* ── Welcome Screen ─────────────────────────────── */
+/* ── Welcome Screen / Dashboard ──────────────────── */
 .welcome {
   text-align: center;
   padding: 60px 20px;
@@ -160,6 +160,57 @@ body {
   margin-bottom: 12px;
 }
 .welcome p { color: #718096; font-size: 1.05rem; max-width: 560px; margin: 0 auto 24px; }
+.dashboard-stats {
+  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin: 24px 0;
+}
+.dash-stat {
+  background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 12px;
+  padding: 16px 24px; min-width: 120px; text-align: center;
+}
+.dash-stat .stat-value {
+  font-size: 1.8rem; font-weight: 800;
+  background: linear-gradient(135deg, #0ea5e9, #0d9488);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.dash-stat .stat-label { font-size: 0.8rem; color: #718096; margin-top: 4px; }
+.dash-progress-bar {
+  width: 100%; max-width: 500px; margin: 0 auto 24px; height: 18px;
+  background: #e2e8f0; border-radius: 10px; overflow: hidden; position: relative;
+}
+.dash-progress-fill {
+  height: 100%; border-radius: 10px;
+  background: linear-gradient(90deg, #0ea5e9, #0d9488);
+  transition: width 0.5s ease;
+}
+.dash-progress-text {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; font-weight: 700; color: #fff; mix-blend-mode: difference;
+}
+.strength-grid {
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px;
+  max-width: 500px; margin: 16px auto 24px;
+}
+.strength-cell {
+  aspect-ratio: 1; border-radius: 6px; display: flex; align-items: center;
+  justify-content: center; font-size: 0.7rem; font-weight: 700; color: #fff;
+  cursor: pointer; transition: transform 0.15s;
+}
+.strength-cell:hover { transform: scale(1.15); }
+.strength-cell.not-started { background: #e2e8f0; color: #a0aec0; }
+.strength-cell.excellent { background: #48bb78; }
+.strength-cell.good { background: #68d391; }
+.strength-cell.needs-work { background: #ed8936; }
+.strength-cell.struggling { background: #f56565; }
+.strength-cell.no-quiz { background: #67e8f9; }
+.dash-legend {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+  font-size: 0.75rem; color: #718096; margin-bottom: 20px;
+}
+.dash-legend span { display: flex; align-items: center; gap: 4px; }
+.dash-legend .dot {
+  width: 10px; height: 10px; border-radius: 3px; display: inline-block;
+}
 .btn-primary {
   display: inline-block;
   padding: 12px 32px;
@@ -553,6 +604,427 @@ body {
   margin: 0;
 }
 
+/* ═══════════════════════════════════════════════════
+   GAMIFICATION: XP, Streaks, Achievements, Celebrations
+   ═══════════════════════════════════════════════════ */
+
+/* ── XP Bar in Header ─────────────────────────────── */
+.xp-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+}
+.xp-bar-wrap {
+  width: 100px;
+  height: 8px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.xp-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+.xp-level {
+  font-weight: 700;
+  color: #fbbf24;
+  font-size: 0.85rem;
+}
+.xp-text {
+  opacity: 0.9;
+  font-size: 0.78rem;
+}
+
+/* ── Quiz Streak Display ──────────────────────────── */
+.streak-display {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #f59e0b;
+  margin-left: 8px;
+}
+.streak-display.hot { color: #ef4444; }
+.streak-fire { font-size: 1.1rem; }
+.streak-count {
+  transition: transform 0.2s ease;
+}
+.streak-display.bump .streak-count {
+  animation: streakBump 0.3s ease;
+}
+@keyframes streakBump {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
+/* ── Score Float-up Animation ─────────────────────── */
+.xp-float {
+  position: fixed;
+  pointer-events: none;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fbbf24;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  z-index: 9999;
+  animation: floatUp 1.2s ease-out forwards;
+}
+@keyframes floatUp {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  70% { opacity: 1; transform: translateY(-60px) scale(1.2); }
+  100% { opacity: 0; transform: translateY(-90px) scale(0.8); }
+}
+
+/* ── Confetti Canvas ──────────────────────────────── */
+.confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* ── Achievement Popup ────────────────────────────── */
+.achievement-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #1a202c;
+  padding: 16px 24px;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  z-index: 10000;
+  min-width: 240px;
+  animation: achieveSlideIn 0.5s ease, achievePulse 0.4s ease 0.5s;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+.achievement-popup .achieve-icon {
+  font-size: 1.6rem;
+  text-align: center;
+}
+.achievement-popup .achieve-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 4px 0;
+}
+.achievement-popup .achieve-desc {
+  font-size: 0.82rem;
+  text-align: center;
+  opacity: 0.8;
+}
+.achievement-popup .achieve-xp {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 6px;
+  color: #7c2d12;
+}
+@keyframes achieveSlideIn {
+  from { transform: translateX(320px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes achievePulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+.achievement-popup.exit {
+  animation: achieveSlideOut 0.4s ease forwards;
+}
+@keyframes achieveSlideOut {
+  to { transform: translateX(320px); opacity: 0; }
+}
+
+/* ── Achievement Gallery ──────────────────────────── */
+.achievements-btn {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: background 0.2s;
+}
+.achievements-btn:hover {
+  background: rgba(255,255,255,0.25);
+}
+.achievements-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 9000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.achievements-overlay.open {
+  display: flex;
+}
+.achievements-panel {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 32px;
+  max-width: 520px;
+  width: 92%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  animation: achieveSlideIn 0.3s ease;
+}
+.achievements-panel h2 {
+  font-size: 1.25rem;
+  margin-bottom: 4px;
+  color: #2d3748;
+}
+.achievements-panel .achieve-subtitle {
+  font-size: 0.85rem;
+  color: #718096;
+  margin-bottom: 20px;
+}
+.achieve-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+.achieve-card {
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+.achieve-card.unlocked {
+  border-color: #fbbf24;
+  background: #fffbeb;
+}
+.achieve-card.locked {
+  opacity: 0.45;
+}
+.achieve-card .a-icon { font-size: 1.8rem; }
+.achieve-card .a-name { font-size: 0.88rem; font-weight: 700; color: #2d3748; margin: 6px 0 2px; }
+.achieve-card .a-desc { font-size: 0.75rem; color: #718096; }
+.achieve-card .a-xp { font-size: 0.78rem; font-weight: 700; color: #d97706; margin-top: 4px; }
+
+/* ── Results Card XP Bonus ────────────────────────── */
+.results-xp {
+  margin-top: 12px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #d97706;
+}
+.results-xp .xp-breakdown {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: #718096;
+  margin-top: 2px;
+}
+
+/* ── Daily Streak Badge ──────────────────────────── */
+.daily-streak-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  color: #92400e;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-top: 8px;
+}
+
+/* ── Step Reveal for Examples ─────────────────────── */
+.example-box ol.step-reveal li {
+  display: none;
+}
+.example-box ol.step-reveal li.revealed {
+  display: list-item;
+}
+.step-reveal-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #0ea5e9, #0d9488);
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.step-reveal-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(14,165,233,0.3);
+}
+.show-all-link {
+  display: inline-block;
+  margin-left: 12px;
+  font-size: 0.82rem;
+  color: #0ea5e9;
+  cursor: pointer;
+  border: none;
+  background: none;
+  text-decoration: underline;
+}
+
+/* ── Hint Button & Display ────────────────────────── */
+.hint-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+.hint-btn:hover { background: #fde68a; }
+.hint-btn:disabled { opacity: 0.5; cursor: default; }
+.hint-box {
+  background: #fefce8;
+  border-left: 4px solid #fbbf24;
+  padding: 12px 16px;
+  border-radius: 0 8px 8px 0;
+  margin-top: 10px;
+  font-size: 0.92rem;
+  color: #78350f;
+  animation: hintFadeIn 0.3s ease;
+}
+@keyframes hintFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Try-It Practice Panel ────────────────────────── */
+.try-it-panel {
+  background: linear-gradient(135deg, #ecfeff, #e0f2fe);
+  border: 2px solid #67e8f9;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+.try-it-panel h4 {
+  color: #0e7490;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+.try-it-panel .try-it-prompt {
+  font-size: 0.95rem;
+  color: #4a5568;
+  margin-bottom: 12px;
+}
+.try-it-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.try-it-input {
+  flex: 1;
+  max-width: 200px;
+  padding: 10px 14px;
+  border: 2px solid #67e8f9;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.try-it-input:focus { border-color: #0ea5e9; }
+.try-it-check {
+  background: linear-gradient(135deg, #0ea5e9, #0d9488);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.try-it-check:hover { transform: translateY(-1px); }
+.try-it-feedback {
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: none;
+}
+.try-it-feedback.correct {
+  display: block;
+  background: #f0fff4;
+  color: #22543d;
+  border: 1px solid #c6f6d5;
+}
+.try-it-feedback.incorrect {
+  display: block;
+  background: #fff5f5;
+  color: #742a2a;
+  border: 1px solid #fed7d7;
+}
+.try-it-option-btn {
+  padding: 10px 18px;
+  border: 2px solid #67e8f9;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.try-it-option-btn:hover:not(.disabled) { background: #ecfeff; border-color: #0ea5e9; }
+.try-it-option-btn.correct { background: #f0fff4; border-color: #48bb78; color: #22543d; }
+.try-it-option-btn.incorrect { background: #fff5f5; border-color: #f56565; color: #742a2a; }
+.try-it-option-btn.disabled { cursor: default; opacity: 0.7; }
+
+/* ── Type-Answer Quiz Input ──────────────────────── */
+.quiz-type-answer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 16px 0 8px;
+}
+.quiz-type-input {
+  flex: 1;
+  max-width: 240px;
+  padding: 12px 16px;
+  border: 2px solid #cbd5e0;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.quiz-type-input:focus { border-color: #0ea5e9; }
+.quiz-type-input.correct { border-color: #48bb78; background: #f0fff4; }
+.quiz-type-input.incorrect { border-color: #f56565; background: #fff5f5; }
+.quiz-type-input:disabled { background: #f7fafc; opacity: 0.8; }
+.quiz-correct-answer {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: #48bb78;
+  font-weight: 600;
+}
+
 .cheat-card.blue { border-top-color: #3b82f6; }
 .cheat-card.teal { border-top-color: #0d9488; }
 .cheat-card.green { border-top-color: #22c55e; }
@@ -677,9 +1149,15 @@ body {
     <h1>Intro to Algebra Crash Course</h1>
   </div>
   <div class="header-right">
+    <div class="xp-display" id="xpDisplay">
+      <span class="xp-level" id="xpLevel">Lv 1</span>
+      <div class="xp-bar-wrap"><div class="xp-bar-fill" id="xpBarFill" style="width:0%"></div></div>
+      <span class="xp-text" id="xpText">0 XP</span>
+    </div>
+    <button class="achievements-btn" onclick="openAchievements()">&#127942; Badges</button>
     <button class="mindmap-header-btn" onclick="openMindmapOverlay()">
       <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-      Mindmap &amp; Cheatsheet
+      Mindmap
     </button>
     <div class="progress-summary" id="progressSummary">0 / 30 days completed</div>
   </div>
@@ -698,6 +1176,11 @@ body {
     <button class="mindmap-overlay-close" onclick="closeMindmapOverlay()">&#10005; Close</button>
   </div>
   <div class="mindmap-overlay-body" id="mindmapOverlayBody"></div>
+</div>
+
+<!-- ── Achievements Overlay ──────────────────────── -->
+<div class="achievements-overlay" id="achievementsOverlay" onclick="if(event.target===this)closeAchievements()">
+  <div class="achievements-panel" id="achievementsPanel"></div>
 </div>
 
 <!-- ── App Layout ────────────────────────────────── -->
@@ -737,6 +1220,7 @@ for (let i = 27; i <= 30; i++) ALL_DAYS[i] = DAYS_27_30[`day${i}`];
 
 const TOTAL_DAYS = 30;
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
+const COURSE_ID = 'intro-algebra';
 
 // ═══════════════════════════════════════════════════
 // SVG Graph Helper Library
@@ -999,15 +1483,16 @@ let state = {
   quizIndex: 0,
   quizAnswers: {},
   quizSubmitted: {},
+  hintUsed: {},
+  practiceAnswered: {},
   progress: loadProgress()
 };
 
 function loadProgress() {
   try {
-    const saved = localStorage.getItem('intro-algebra-progress');
+    const saved = localStorage.getItem(`${COURSE_ID}-progress`);
     if (!saved) return initProgress();
     const p = JSON.parse(saved);
-    // Migrate: ensure all TOTAL_DAYS entries exist (handles expansion from fewer days)
     for (let i = 1; i <= TOTAL_DAYS; i++) {
       if (!p[`day${i}`]) p[`day${i}`] = { lessonRead: false, quizScore: null, quizCompleted: false };
     }
@@ -1020,8 +1505,242 @@ function initProgress() {
   return p;
 }
 function saveProgress() {
-  try { localStorage.setItem('intro-algebra-progress', JSON.stringify(state.progress)); } catch {}
+  try { localStorage.setItem(`${COURSE_ID}-progress`, JSON.stringify(state.progress)); } catch {}
 }
+
+// ═══════════════════════════════════════════════════
+// GAMIFICATION SYSTEM
+// ═══════════════════════════════════════════════════
+
+// ─── XP & Level Constants ─────────────────────────
+const XP_CORRECT_FIRST = 10;
+const XP_CORRECT_HINT = 5;
+const XP_LESSON_READ = 5;
+const XP_PERFECT_QUIZ = 50;
+const XP_STREAK_BONUS_5 = 15;
+const XP_STREAK_BONUS_10 = 30;
+const XP_PRACTICE = 5;
+
+function xpForLevel(lvl) { return 100 * lvl; }
+function calcLevel(totalXP) {
+  let lvl = 1, needed = 0;
+  while (needed + xpForLevel(lvl) <= totalXP) { needed += xpForLevel(lvl); lvl++; }
+  return { level: lvl, xpInLevel: totalXP - needed, xpNeeded: xpForLevel(lvl), totalXP };
+}
+
+// ─── Achievements Definitions ─────────────────────
+const ACHIEVEMENTS = [
+  { id: 'first_steps',   icon: '\u{1F31F}', name: 'First Steps',     desc: 'Complete your first quiz',                 condition: g => g.quizzesCompleted >= 1,  xp: 10 },
+  { id: 'hot_streak_5',  icon: '\u{1F525}', name: 'Hot Streak',      desc: '5 correct answers in a row',               condition: g => g.bestStreak >= 5,        xp: 20 },
+  { id: 'hot_streak_10', icon: '\u{2B50}',  name: 'On Fire!',        desc: '10 correct answers in a row',              condition: g => g.bestStreak >= 10,       xp: 40 },
+  { id: 'perfectionist', icon: '\u{1F4AF}', name: 'Perfectionist',   desc: 'Score 10/10 on any quiz',                  condition: g => g.perfectQuizzes >= 1,    xp: 30 },
+  { id: 'triple_perfect',icon: '\u{1F3AF}', name: 'Sharpshooter',    desc: 'Score 10/10 on 3 different quizzes',        condition: g => g.perfectQuizzes >= 3,    xp: 60 },
+  { id: 'halfway',       icon: '\u{1F6A9}', name: 'Halfway There',   desc: 'Complete 15 days',                         condition: g => g.quizzesCompleted >= 15, xp: 40 },
+  { id: 'course_done',   icon: '\u{1F3C6}', name: 'Course Complete', desc: 'Complete all 30 days',                     condition: g => g.quizzesCompleted >= 30, xp: 100 },
+  { id: 'bookworm',      icon: '\u{1F4DA}', name: 'Bookworm',        desc: 'Read 10 lessons',                          condition: g => g.lessonsRead >= 10,      xp: 15 },
+  { id: 'scholar',       icon: '\u{1F393}', name: 'Scholar',         desc: 'Read all 30 lessons',                      condition: g => g.lessonsRead >= 30,      xp: 50 },
+  { id: 'xp_hunter',     icon: '\u{1F48E}', name: 'XP Hunter',       desc: 'Earn 500 total XP',                        condition: g => g.totalXP >= 500,         xp: 25 },
+  { id: 'xp_master',     icon: '\u{1F451}', name: 'XP Master',       desc: 'Earn 2000 total XP',                       condition: g => g.totalXP >= 2000,        xp: 50 },
+  { id: 'daily_3',       icon: '\u{1F4C5}', name: 'Consistent',      desc: '3-day activity streak',                    condition: g => g.dailyStreak >= 3,       xp: 20 },
+  { id: 'daily_7',       icon: '\u{1F4AA}', name: 'Week Warrior',    desc: '7-day activity streak',                    condition: g => g.dailyStreak >= 7,       xp: 50 },
+];
+
+// ─── Gamification State (persisted separately) ────
+function loadGameState() {
+  try {
+    const saved = localStorage.getItem(`${COURSE_ID}-game`);
+    if (saved) return JSON.parse(saved);
+  } catch {}
+  return initGameState();
+}
+function initGameState() {
+  return {
+    totalXP: 0, quizzesCompleted: 0, perfectQuizzes: 0, lessonsRead: 0,
+    bestStreak: 0, currentStreak: 0, dailyStreak: 0, lastActiveDate: null,
+    unlockedAchievements: [], bestScores: {},
+  };
+}
+function saveGameState() {
+  try { localStorage.setItem(`${COURSE_ID}-game`, JSON.stringify(gameState)); } catch {}
+}
+
+let gameState = loadGameState();
+
+// ─── Daily Streak Tracker ─────────────────────────
+function updateDailyStreak() {
+  const today = new Date().toISOString().split('T')[0];
+  if (gameState.lastActiveDate === today) return;
+  const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+  if (gameState.lastActiveDate === yesterday) {
+    gameState.dailyStreak++;
+  } else if (gameState.lastActiveDate !== today) {
+    gameState.dailyStreak = 1;
+  }
+  gameState.lastActiveDate = today;
+  saveGameState();
+}
+
+// ─── XP Award Function ───────────────────────────
+function awardXP(amount, sourceEl) {
+  if (amount <= 0) return;
+  const oldXP = gameState.totalXP;
+  gameState.totalXP += amount;
+  saveGameState();
+  if (sourceEl) showXPFloat(amount, sourceEl);
+  const oldLevel = calcLevel(oldXP).level;
+  const newLevel = calcLevel(gameState.totalXP).level;
+  if (newLevel > oldLevel) {
+    setTimeout(() => showAchievementPopup({ icon: '\u{1F680}', name: `Level ${newLevel}!`, desc: 'You leveled up!', xp: 0 }), 600);
+  }
+  checkAchievements();
+  updateXPDisplay();
+}
+
+function showXPFloat(amount, el) {
+  const rect = el.getBoundingClientRect();
+  const div = document.createElement('div');
+  div.className = 'xp-float';
+  div.textContent = `+${amount} XP`;
+  div.style.left = `${rect.left + rect.width / 2 - 30}px`;
+  div.style.top = `${rect.top - 10}px`;
+  document.body.appendChild(div);
+  setTimeout(() => div.remove(), 1300);
+}
+
+// ─── XP Display Update ───────────────────────────
+function updateXPDisplay() {
+  const info = calcLevel(gameState.totalXP);
+  const lvlEl = document.getElementById('xpLevel');
+  const barEl = document.getElementById('xpBarFill');
+  const txtEl = document.getElementById('xpText');
+  if (lvlEl) lvlEl.textContent = `Lv ${info.level}`;
+  if (barEl) barEl.style.width = `${Math.round((info.xpInLevel / info.xpNeeded) * 100)}%`;
+  if (txtEl) txtEl.textContent = `${info.totalXP} XP`;
+}
+
+// ─── Achievement Checker ──────────────────────────
+function checkAchievements() {
+  ACHIEVEMENTS.forEach(a => {
+    if (gameState.unlockedAchievements.includes(a.id)) return;
+    if (a.condition(gameState)) {
+      gameState.unlockedAchievements.push(a.id);
+      gameState.totalXP += a.xp;
+      saveGameState();
+      updateXPDisplay();
+      setTimeout(() => showAchievementPopup(a), 400);
+    }
+  });
+}
+
+function showAchievementPopup(a) {
+  const popup = document.createElement('div');
+  popup.className = 'achievement-popup';
+  popup.innerHTML = `
+    <div class="achieve-icon">${a.icon}</div>
+    <div class="achieve-name">${a.name}</div>
+    <div class="achieve-desc">${a.desc}</div>
+    ${a.xp > 0 ? `<div class="achieve-xp">+${a.xp} XP</div>` : ''}`;
+  document.body.appendChild(popup);
+  setTimeout(() => { popup.classList.add('exit'); setTimeout(() => popup.remove(), 500); }, 3500);
+}
+
+// ─── Achievement Gallery ──────────────────────────
+window.openAchievements = function() {
+  const panel = document.getElementById('achievementsPanel');
+  const info = calcLevel(gameState.totalXP);
+  let html = `
+    <h2>&#127942; Achievements</h2>
+    <div class="achieve-subtitle">Level ${info.level} &bull; ${gameState.totalXP} XP &bull; ${gameState.unlockedAchievements.length}/${ACHIEVEMENTS.length} badges</div>
+    <div class="achieve-grid">`;
+  ACHIEVEMENTS.forEach(a => {
+    const unlocked = gameState.unlockedAchievements.includes(a.id);
+    html += `
+      <div class="achieve-card ${unlocked ? 'unlocked' : 'locked'}">
+        <div class="a-icon">${unlocked ? a.icon : '\u{1F512}'}</div>
+        <div class="a-name">${a.name}</div>
+        <div class="a-desc">${a.desc}</div>
+        <div class="a-xp">+${a.xp} XP</div>
+      </div>`;
+  });
+  html += `</div>
+    <div style="text-align:center;margin-top:20px;">
+      <button class="btn-secondary" onclick="closeAchievements()">Close</button>
+    </div>`;
+  panel.innerHTML = html;
+  document.getElementById('achievementsOverlay').classList.add('open');
+};
+window.closeAchievements = function() {
+  document.getElementById('achievementsOverlay').classList.remove('open');
+};
+
+// ─── Confetti Celebration ─────────────────────────
+function celebrateConfetti() {
+  const canvas = document.createElement('canvas');
+  canvas.className = 'confetti-canvas';
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  document.body.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const colors = ['#0ea5e9','#0d9488','#fbbf24','#ef4444','#10b981','#3b82f6','#f59e0b'];
+  const pieces = [];
+  for (let i = 0; i < 80; i++) {
+    pieces.push({
+      x: Math.random() * canvas.width,
+      y: -20 - Math.random() * 200,
+      vx: (Math.random() - 0.5) * 6,
+      vy: Math.random() * 4 + 2,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      size: Math.random() * 8 + 4,
+      rot: Math.random() * 360,
+      rotV: (Math.random() - 0.5) * 12,
+    });
+  }
+  let frame = 0;
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let active = 0;
+    pieces.forEach(p => {
+      p.x += p.vx; p.y += p.vy; p.vy += 0.12; p.rot += p.rotV;
+      if (p.y < canvas.height + 20) {
+        active++;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot * Math.PI / 180);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+        ctx.restore();
+      }
+    });
+    frame++;
+    if (active > 0 && frame < 300) requestAnimationFrame(animate);
+    else canvas.remove();
+  }
+  requestAnimationFrame(animate);
+}
+
+// ─── Quiz Streak Helpers ──────────────────────────
+function resetQuizStreak() {
+  gameState.currentStreak = 0;
+  saveGameState();
+}
+function incrementQuizStreak() {
+  gameState.currentStreak++;
+  if (gameState.currentStreak > gameState.bestStreak) {
+    gameState.bestStreak = gameState.currentStreak;
+  }
+  saveGameState();
+  if (gameState.currentStreak === 5) awardXP(XP_STREAK_BONUS_5, null);
+  if (gameState.currentStreak === 10) awardXP(XP_STREAK_BONUS_10, null);
+  checkAchievements();
+}
+function breakQuizStreak() {
+  gameState.currentStreak = 0;
+  saveGameState();
+}
+
+// ─── Initialize gamification on load ──────────────
+updateDailyStreak();
+updateXPDisplay();
 
 // ─── Sidebar Rendering ────────────────────────────
 const dayTitles = {};
@@ -1053,6 +1772,7 @@ function renderSidebar() {
   }
   const completed = Object.values(state.progress).filter(p => p.quizCompleted).length;
   document.getElementById('progressSummary').textContent = `${completed} / ${TOTAL_DAYS} days completed`;
+  updateXPDisplay();
 }
 
 // ─── Navigation ───────────────────────────────────
@@ -1062,8 +1782,17 @@ window.goToDay = function(day) {
   state.quizIndex = 0;
   state.quizAnswers = {};
   state.quizSubmitted = {};
+  state.hintUsed = {};
+  state.practiceAnswered = {};
+  const wasRead = state.progress[`day${day}`].lessonRead;
   state.progress[`day${day}`].lessonRead = true;
   saveProgress();
+  if (!wasRead) {
+    gameState.lessonsRead++;
+    awardXP(XP_LESSON_READ, null);
+    checkAchievements();
+  }
+  resetQuizStreak();
   renderSidebar();
   renderMain();
   closeSidebar();
@@ -1081,12 +1810,76 @@ window.switchTab = function(tab) {
 function renderMain() {
   const main = document.getElementById('mainContent');
   if (state.currentDay === 0) {
+    // ── Enhanced Progress Dashboard ──
+    const daysCompleted = Object.keys(state.progress).filter(k => state.progress[k].quizCompleted).length;
+    const lessonsRead = Object.keys(state.progress).filter(k => state.progress[k].lessonRead).length;
+    const pctComplete = Math.round((daysCompleted / TOTAL_DAYS) * 100);
+    const level = calcLevel(gameState.totalXP);
+
+    let continueDay = 1;
+    for (let d = 1; d <= TOTAL_DAYS; d++) {
+      const p = state.progress[`day${d}`];
+      if (!p.quizCompleted) { continueDay = d; break; }
+      if (d === TOTAL_DAYS) continueDay = TOTAL_DAYS;
+    }
+
+    const dayTopics = [
+      'Variables & PEMDAS','One-Step Eqs','Multi-Step Eqs','Word Problems','Inequalities',
+      'Absolute Value','Exponent Laws','Neg Exp & Sci Not','Polynomials Intro','Multiply Polys',
+      'Factor GCF','Factor Trinomials','Special Factoring','Quad by Factoring','Complete Square',
+      'Quad Formula','Complex Numbers','Graph Lines','Eqs of Lines','Systems of Eqs',
+      'Graph Quadratics','Quad Inequalities','Ratios & Variation','Radicals','Rational Expr',
+      'Functions','Composition & Inv','Exp & Logarithms','Sequences & Series','Transformations'
+    ];
+
+    let strengthHtml = '';
+    for (let d = 1; d <= TOTAL_DAYS; d++) {
+      const p = state.progress[`day${d}`];
+      const best = gameState.bestScores[`day${d}`] || 0;
+      const quizLen = ALL_DAYS[d] ? ALL_DAYS[d].quiz.length : 10;
+      const pct = best > 0 ? Math.round((best / quizLen) * 100) : 0;
+      let cls, title;
+      if (!p.lessonRead) { cls = 'not-started'; title = `Day ${d}: ${dayTopics[d-1]} - Not started`; }
+      else if (!p.quizCompleted) { cls = 'no-quiz'; title = `Day ${d}: ${dayTopics[d-1]} - Lesson read, no quiz`; }
+      else if (pct >= 90) { cls = 'excellent'; title = `Day ${d}: ${dayTopics[d-1]} - ${best}/${quizLen} (${pct}%)`; }
+      else if (pct >= 70) { cls = 'good'; title = `Day ${d}: ${dayTopics[d-1]} - ${best}/${quizLen} (${pct}%)`; }
+      else if (pct >= 50) { cls = 'needs-work'; title = `Day ${d}: ${dayTopics[d-1]} - ${best}/${quizLen} (${pct}%)`; }
+      else { cls = 'struggling'; title = `Day ${d}: ${dayTopics[d-1]} - ${best}/${quizLen} (${pct}%)`; }
+      strengthHtml += `<div class="strength-cell ${cls}" title="${title}" onclick="goToDay(${d})">${d}</div>`;
+    }
+
     main.innerHTML = `
       <div class="welcome" id="welcomeScreen">
         <h2>Welcome to Introduction to Algebra!</h2>
-        <p>A 30-day crash course covering the complete AoPS Introduction to Algebra &mdash; from variables and expressions through quadratics, complex numbers, functions, logarithms, sequences, and beyond. Designed for grades 7&ndash;8 with step-up quizzes and progress tracking.</p>
+        <p>A 30-day crash course covering the complete AoPS Introduction to Algebra &mdash; from variables and expressions through quadratics, complex numbers, functions, logarithms, sequences, and beyond.</p>
+
+        <div class="dashboard-stats">
+          <div class="dash-stat"><div class="stat-value">${daysCompleted}</div><div class="stat-label">Days Completed</div></div>
+          <div class="dash-stat"><div class="stat-value">Lv ${level.level}</div><div class="stat-label">${gameState.totalXP} XP</div></div>
+          <div class="dash-stat"><div class="stat-value">${gameState.bestStreak}</div><div class="stat-label">Best Streak</div></div>
+          <div class="dash-stat"><div class="stat-value">${gameState.unlockedAchievements.length}</div><div class="stat-label">Badges Earned</div></div>
+        </div>
+
+        <div class="dash-progress-bar">
+          <div class="dash-progress-fill" style="width:${pctComplete}%"></div>
+          <div class="dash-progress-text">${daysCompleted} / ${TOTAL_DAYS} days (${pctComplete}%)</div>
+        </div>
+
+        <h3 style="font-size:1rem;color:#4a5568;margin-bottom:4px;">Topic Strength Map</h3>
+        <div class="strength-grid">${strengthHtml}</div>
+        <div class="dash-legend">
+          <span><span class="dot" style="background:#e2e8f0;"></span> Not started</span>
+          <span><span class="dot" style="background:#67e8f9;"></span> Lesson only</span>
+          <span><span class="dot" style="background:#f56565;"></span> &lt;50%</span>
+          <span><span class="dot" style="background:#ed8936;"></span> 50-69%</span>
+          <span><span class="dot" style="background:#68d391;"></span> 70-89%</span>
+          <span><span class="dot" style="background:#48bb78;"></span> 90%+</span>
+        </div>
+
         <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-          <button class="btn-primary" onclick="goToDay(1)">Start Day 1</button>
+          <button class="btn-primary" onclick="goToDay(${continueDay})">${daysCompleted === 0 ? 'Start Day 1' : `Continue Day ${continueDay}`}</button>
+          <button class="btn-secondary" onclick="openMindmapOverlay()">View Mindmap</button>
+          <button class="btn-secondary" onclick="openAchievements()">View Badges</button>
         </div>
       </div>`;
     return;
@@ -1099,6 +1892,8 @@ function renderMain() {
       <button class="tab-btn ${state.currentTab === 'lesson' ? 'active' : ''}" onclick="switchTab('lesson')">Lesson</button>
       <button class="tab-btn ${state.currentTab === 'quiz' ? 'active' : ''}" onclick="switchTab('quiz')">Quiz${prog.quizCompleted ? ' (' + prog.quizScore + '/' + day.quiz.length + ')' : ''}</button>
     </div>`;
+
+  if (state.currentTab === 'mindmap') state.currentTab = 'lesson';
 
   if (state.currentTab === 'lesson') {
     html += renderLesson(day);
@@ -1154,24 +1949,29 @@ function renderLesson(day) {
       <p class="subtitle">${lesson.subtitle}</p>
     </div>`;
 
-  lesson.sections.forEach(sec => {
+  lesson.sections.forEach((sec, secIdx) => {
     html += `<div class="section"><h3>${sec.heading}</h3>`;
     sec.paragraphs.forEach(p => { html += `<p>${p}</p>`; });
-    // Render graphs if present
     if (sec.graphs) {
       sec.graphs.forEach(g => { html += renderGraph(g); });
     }
     if (sec.example) {
+      const exId = `ex-${state.currentDay}-${Math.random().toString(36).substr(2,6)}`;
       html += `
         <div class="example-box">
           <h4>${sec.example.title}</h4>
           <div class="problem">${sec.example.problem}</div>
-          <ol>${sec.example.steps.map(s => `<li>${s}</li>`).join('')}</ol>`;
-      // Graph inside an example box
+          <ol class="step-reveal" id="${exId}">${sec.example.steps.map(s => `<li>${s}</li>`).join('')}</ol>
+          <button class="step-reveal-btn" data-ex="${exId}" data-total="${sec.example.steps.length}" data-step="0" onclick="revealNextStep(this)">Show Step 1 of ${sec.example.steps.length}</button>
+          <button class="show-all-link" onclick="revealAllSteps('${exId}',this)">Show all steps</button>`;
       if (sec.example.graphs) {
         sec.example.graphs.forEach(g => { html += renderGraph(g); });
       }
       html += `</div>`;
+    }
+    // Try-It Practice Panels
+    if (sec.practice) {
+      html += renderPractice(sec.practice, state.currentDay, secIdx);
     }
     html += `</div>`;
   });
@@ -1181,6 +1981,17 @@ function renderLesson(day) {
       <button class="btn-primary" onclick="switchTab('quiz')">Take the Quiz &rarr;</button>
     </div>`;
   return html;
+}
+
+// ─── Quiz Answer Checking Helper ──────────────────
+function isQuizCorrect(q, userAns) {
+  if (q.type === 'type-answer') {
+    if (userAns === undefined || userAns === null) return false;
+    const normalize = s => String(s).replace(/\s+/g,'').replace(/,/g,'').toLowerCase();
+    const acceptList = (q.accept || [q.answer]).map(normalize);
+    return acceptList.includes(normalize(userAns));
+  }
+  return userAns === q.correct;
 }
 
 // ─── Quiz Renderer ────────────────────────────────
@@ -1196,7 +2007,7 @@ function renderQuiz(day) {
   if (allAnswered) {
     let score = 0;
     quiz.forEach(q => {
-      if (state.quizAnswers[q.id] === q.correct) score++;
+      if (isQuizCorrect(q, state.quizAnswers[q.id])) score++;
     });
     state.progress[`day${state.currentDay}`].quizScore = score;
     state.progress[`day${state.currentDay}`].quizCompleted = true;
@@ -1208,11 +2019,17 @@ function renderQuiz(day) {
   const q = quiz[state.quizIndex];
   const answered = state.quizSubmitted[q.id] === true;
   const selected = state.quizAnswers[q.id];
-  const isCorrect = selected === q.correct;
+  const isCorrect = isQuizCorrect(q, selected);
+
+  // Streak display
+  const streak = gameState.currentStreak;
+  const streakHtml = streak > 0
+    ? `<span class="streak-display${streak >= 5 ? ' hot' : ''}"><span class="streak-fire">${streak >= 5 ? '\u{1F525}' : '\u{26A1}'}</span><span class="streak-count">${streak}</span></span>`
+    : '';
 
   let html = `
     <div class="quiz-header">
-      <h2>Day ${state.currentDay} Quiz</h2>
+      <h2>Day ${state.currentDay} Quiz ${streakHtml}</h2>
       <p>Question ${state.quizIndex + 1} of ${quiz.length}</p>
     </div>
     <div class="quiz-progress-bar">
@@ -1225,26 +2042,50 @@ function renderQuiz(day) {
         ${q.category === 'review' ? '<span class="q-badge review">review</span>' : ''}
       </div>
       <div class="question-text">${q.question}</div>
-      ${q.graph ? renderGraph(q.graph) : ''}
-      <ul class="options-list">`;
+      ${q.graph ? renderGraph(q.graph) : ''}`;
 
-  q.options.forEach((opt, idx) => {
-    let cls = 'option-btn';
-    if (answered) {
-      cls += ' disabled';
-      if (idx === q.correct) cls += ' correct show-correct';
-      if (idx === selected && idx !== q.correct) cls += ' incorrect';
-    } else if (selected === idx) {
-      cls += ' selected';
+  if (q.type === 'type-answer') {
+    const typedVal = selected !== undefined ? selected : '';
+    html += `<div class="quiz-type-answer">
+      <input class="quiz-type-input${answered ? (isCorrect ? ' correct' : ' incorrect') : ''}"
+        id="typeInput-${q.id}" type="text" placeholder="Type your answer\u2026"
+        value="${typeof typedVal === 'string' ? typedVal.replace(/"/g, '&quot;') : typedVal}"
+        autocomplete="off" ${answered ? 'disabled' : ''}
+      >
+    </div>`;
+    if (answered && !isCorrect) {
+      html += `<div class="quiz-correct-answer">Correct answer: ${q.answer}</div>`;
     }
-    html += `
-        <li><button class="${cls}" data-qid="${q.id}" data-idx="${idx}">
-          <span class="option-letter">${LETTERS[idx]}</span>
-          <span>${opt}</span>
-        </button></li>`;
-  });
+  } else {
+    html += `<ul class="options-list">`;
+    q.options.forEach((opt, idx) => {
+      let cls = 'option-btn';
+      if (answered) {
+        cls += ' disabled';
+        if (idx === q.correct) cls += ' correct show-correct';
+        if (idx === selected && idx !== q.correct) cls += ' incorrect';
+      } else if (selected === idx) {
+        cls += ' selected';
+      }
+      html += `
+          <li><button class="${cls}" data-qid="${q.id}" data-idx="${idx}">
+            <span class="option-letter">${LETTERS[idx]}</span>
+            <span>${opt}</span>
+          </button></li>`;
+    });
+    html += `</ul>`;
+  }
 
-  html += `</ul>`;
+  // Hint system
+  if (!answered && q.hints && q.hints.length > 0) {
+    const hintLevel = state.hintUsed[q.id] || 0;
+    if (hintLevel < q.hints.length) {
+      html += `<button class="hint-btn" onclick="showHint('${q.id}',${hintLevel + 1})">&#128161; Show Hint ${hintLevel + 1}${hintLevel > 0 ? '' : ' (-5 XP)'}</button>`;
+    }
+    for (let h = 0; h < hintLevel; h++) {
+      html += `<div class="hint-box">&#128161; <strong>Hint ${h + 1}:</strong> ${q.hints[h]}</div>`;
+    }
+  }
 
   if (answered) {
     html += `<div class="explanation ${isCorrect ? '' : 'wrong'} visible">
@@ -1258,7 +2099,8 @@ function renderQuiz(day) {
     <button class="btn-secondary" ${state.quizIndex === 0 ? 'disabled' : ''} onclick="quizPrev()">Previous</button>
     <span style="font-size:0.85rem;color:#a0aec0;">${state.quizIndex + 1} / ${quiz.length}</span>`;
 
-  if (!answered && selected !== undefined) {
+  const hasAnswer = q.type === 'type-answer' ? !answered : (selected !== undefined && !answered);
+  if (hasAnswer) {
     html += `<button class="btn-primary" onclick="submitAnswer()">Check Answer</button>`;
   } else if (answered && state.quizIndex < quiz.length - 1) {
     html += `<button class="btn-primary" onclick="quizNext()">Next &rarr;</button>`;
@@ -1281,11 +2123,37 @@ function renderResults(score, quiz) {
   else if (pct >= 50) { tier = 'needs-work'; msg = 'Good effort! Review the lesson and try again.'; }
   else { tier = 'struggling'; msg = 'Keep practicing! Re-read the lesson and try the quiz again.'; }
 
+  // Track gamification stats (only once per quiz completion)
+  const dayKey = `day${state.currentDay}`;
+  const isNewCompletion = Object.keys(state.quizAnswers).length > 0 && !state._resultsShown;
+  if (isNewCompletion) {
+    state._resultsShown = true;
+    const prevBest = gameState.bestScores[dayKey] || 0;
+    if (score > prevBest) gameState.bestScores[dayKey] = score;
+    if (!prevBest) gameState.quizzesCompleted++;
+    if (score === quiz.length) {
+      gameState.perfectQuizzes++;
+      setTimeout(() => awardXP(XP_PERFECT_QUIZ, document.querySelector('.score-circle')), 500);
+      setTimeout(() => celebrateConfetti(), 300);
+    }
+    saveGameState();
+    checkAchievements();
+    updateXPDisplay();
+  }
+
+  const xpEarned = score * XP_CORRECT_FIRST + (score === quiz.length ? XP_PERFECT_QUIZ : 0);
+  const bestScore = gameState.bestScores[dayKey] || score;
+
   let html = `
     <div class="results-card">
       <div class="score-circle ${tier}">${score}/${quiz.length}</div>
       <h3>${pct}% &mdash; ${tier === 'excellent' ? 'Excellent!' : tier === 'good' ? 'Well Done!' : tier === 'needs-work' ? 'Almost There!' : 'Keep Going!'}</h3>
       <p>${msg}</p>
+      ${bestScore > score ? `<p style="font-size:0.85rem;color:#718096;margin-top:4px;">Your best: ${bestScore}/${quiz.length}</p>` : ''}
+      <div class="results-xp">
+        ${score === quiz.length ? '\u{1F389} ' : ''}+${xpEarned} XP earned
+        <div class="xp-breakdown">${score} correct &times; ${XP_CORRECT_FIRST} XP${score === quiz.length ? ` + ${XP_PERFECT_QUIZ} perfect bonus` : ''}</div>
+      </div>
       <div class="results-actions">
         <button class="btn-secondary" onclick="retakeQuiz()">Retake Quiz</button>
         <button class="btn-secondary" onclick="switchTab('lesson')">Review Lesson</button>
@@ -1295,11 +2163,24 @@ function renderResults(score, quiz) {
       </div>
     </div>`;
 
+  // Answer review
   html += `<div style="margin-top:32px;">
     <h3 style="font-size:1.15rem;margin-bottom:16px;color:#2d3748;">Answer Review</h3>`;
   quiz.forEach((q, i) => {
     const userAns = state.quizAnswers[q.id];
-    const correct = userAns === q.correct;
+    const correct = isQuizCorrect(q, userAns);
+    let answerHtml;
+    if (q.type === 'type-answer') {
+      answerHtml = userAns !== undefined && userAns !== null
+        ? `Your answer: <strong>${userAns}</strong>`
+        : '<em>Not answered</em>';
+      if (!correct) answerHtml += `<br>Correct answer: <strong>${q.answer}</strong>`;
+    } else {
+      answerHtml = userAns !== undefined
+        ? `Your answer: <strong>${LETTERS[userAns]}. ${q.options[userAns]}</strong>`
+        : '<em>Not answered</em>';
+      if (!correct) answerHtml += `<br>Correct answer: <strong>${LETTERS[q.correct]}. ${q.options[q.correct]}</strong>`;
+    }
     html += `
       <div class="question-card" style="margin-bottom:12px;padding:18px 22px;">
         <div class="question-meta">
@@ -1309,10 +2190,7 @@ function renderResults(score, quiz) {
         </div>
         <div class="question-text" style="font-size:0.98rem;margin-bottom:10px;">${q.question}</div>
         <div style="font-size:0.9rem;color:#4a5568;">
-          ${userAns !== undefined
-            ? `Your answer: <strong>${LETTERS[userAns]}. ${q.options[userAns]}</strong>`
-            : '<em>Not answered</em>'}
-          ${!correct ? `<br>Correct answer: <strong>${LETTERS[q.correct]}. ${q.options[q.correct]}</strong>` : ''}
+          ${answerHtml}
         </div>
         <div class="explanation visible" style="margin-top:10px;display:block;">
           ${q.explanation}
@@ -1320,6 +2198,25 @@ function renderResults(score, quiz) {
       </div>`;
   });
   html += `</div>`;
+
+  // Weak-topic review suggestions (if score < 70%)
+  if (pct < 70) {
+    const wrongQuestions = quiz.filter(q => !isQuizCorrect(q, state.quizAnswers[q.id]));
+    const wrongTopics = wrongQuestions.filter(q => q.category === 'topic').length;
+    const wrongReviews = wrongQuestions.filter(q => q.category === 'review').length;
+    html += `<div style="margin-top:24px;padding:20px;background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1px solid #fcd34d;border-radius:12px;">
+      <h3 style="font-size:1.05rem;color:#92400e;margin-bottom:8px;">Review Suggestions</h3>`;
+    if (wrongTopics > 0) {
+      html += `<p style="font-size:0.9rem;color:#78350f;margin-bottom:8px;">You missed <strong>${wrongTopics}</strong> topic question${wrongTopics > 1 ? 's' : ''} on today's material. Try re-reading the lesson and focusing on the worked examples.</p>`;
+      html += `<button class="btn-secondary" style="margin-right:8px;" onclick="switchTab('lesson')">Re-read Lesson</button>`;
+    }
+    if (wrongReviews > 0) {
+      html += `<p style="font-size:0.9rem;color:#78350f;margin-bottom:8px;">You missed <strong>${wrongReviews}</strong> review question${wrongReviews > 1 ? 's' : ''} from earlier days. Check the cheatsheet for quick refreshers!</p>`;
+      html += `<button class="btn-secondary" onclick="openMindmapOverlay()">Open Cheatsheet</button>`;
+    }
+    html += `</div>`;
+  }
+
   return html;
 }
 
@@ -1461,10 +2358,156 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
+// ─── Try-It Practice Panels ───────────────────────
+function renderPractice(practice, dayNum, secIdx) {
+  if (!practice || practice.length === 0) return '';
+  let html = '';
+  practice.forEach((p, pIdx) => {
+    const pid = `try-d${dayNum}-s${secIdx}-p${pIdx}`;
+    const answered = state.practiceAnswered[pid];
+    html += `<div class="try-it-panel" id="panel-${pid}">`;
+    html += `<h4>&#9998; Try It Yourself</h4>`;
+    html += `<div class="try-it-prompt">${p.prompt}</div>`;
+    if (p.type === 'type-answer') {
+      html += `<div class="try-it-input-row">`;
+      html += `<input class="try-it-input" id="input-${pid}" type="text" placeholder="Your answer\u2026" autocomplete="off" ${answered ? 'disabled' : ''}`;
+      if (answered) html += ` value="${answered.userAnswer || ''}"`;
+      html += `>`;
+      if (!answered) {
+        html += `<button class="try-it-check" onclick="checkPractice('${pid}')">Check</button>`;
+      }
+      html += `</div>`;
+    } else if (p.type === 'multiple-quick') {
+      html += `<div class="try-it-options" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;">`;
+      (p.options || []).forEach((opt, oIdx) => {
+        let cls = 'try-it-option-btn';
+        if (answered) {
+          if (oIdx === p.correct) cls += ' correct';
+          else if (oIdx === answered.selected && oIdx !== p.correct) cls += ' incorrect';
+          cls += ' disabled';
+        }
+        html += `<button class="${cls}" data-pid="${pid}" data-idx="${oIdx}" ${answered ? 'disabled' : ''} onclick="checkPracticeMulti('${pid}',${oIdx})">${opt}</button>`;
+      });
+      html += `</div>`;
+    }
+    if (answered) {
+      html += `<div class="try-it-feedback ${answered.correct ? 'correct' : 'incorrect'}">`;
+      html += answered.correct ? '&#10003; Correct!' : `&#10007; Not quite. ${p.explanation || ''}`;
+      html += `</div>`;
+    }
+    html += `</div>`;
+  });
+  return html;
+}
+
+// Practice answer checking — type-answer
+window.checkPractice = function(pid) {
+  const input = document.getElementById(`input-${pid}`);
+  if (!input) return;
+  const userAnswer = input.value.trim();
+  if (!userAnswer) return;
+  const parts = pid.match(/try-d(\d+)-s(\d+)-p(\d+)/);
+  if (!parts) return;
+  const dayNum = parseInt(parts[1]), secIdx = parseInt(parts[2]), pIdx = parseInt(parts[3]);
+  const day = ALL_DAYS[dayNum];
+  if (!day) return;
+  const sec = day.lesson.sections[secIdx];
+  if (!sec || !sec.practice || !sec.practice[pIdx]) return;
+  const p = sec.practice[pIdx];
+  const normalize = s => s.replace(/\s+/g,'').replace(/,/g,'').toLowerCase();
+  const acceptList = (p.accept || [p.answer]).map(normalize);
+  const isCorrect = acceptList.includes(normalize(userAnswer));
+  state.practiceAnswered[pid] = { correct: isCorrect, userAnswer };
+  if (isCorrect) awardXP(XP_PRACTICE, document.getElementById(`panel-${pid}`));
+  renderMain();
+};
+
+// Practice answer checking — multiple-quick
+window.checkPracticeMulti = function(pid, selectedIdx) {
+  const parts = pid.match(/try-d(\d+)-s(\d+)-p(\d+)/);
+  if (!parts) return;
+  const dayNum = parseInt(parts[1]), secIdx = parseInt(parts[2]), pIdx = parseInt(parts[3]);
+  const day = ALL_DAYS[dayNum];
+  if (!day) return;
+  const sec = day.lesson.sections[secIdx];
+  if (!sec || !sec.practice || !sec.practice[pIdx]) return;
+  const p = sec.practice[pIdx];
+  const isCorrect = selectedIdx === p.correct;
+  state.practiceAnswered[pid] = { correct: isCorrect, selected: selectedIdx };
+  if (isCorrect) awardXP(XP_PRACTICE, document.getElementById(`panel-${pid}`));
+  renderMain();
+};
+
+// ─── Step Reveal for Examples ──────────────────────
+window.revealNextStep = function(btn) {
+  const exId = btn.dataset.ex;
+  const total = parseInt(btn.dataset.total);
+  let step = parseInt(btn.dataset.step);
+  const ol = document.getElementById(exId);
+  if (!ol) return;
+  const items = ol.querySelectorAll('li');
+  if (step < total) {
+    items[step].classList.add('revealed');
+    step++;
+    btn.dataset.step = step;
+    if (step < total) {
+      btn.textContent = `Show Step ${step + 1} of ${total}`;
+    } else {
+      btn.textContent = 'All steps revealed!';
+      btn.disabled = true;
+      btn.style.opacity = '0.5';
+      const showAll = btn.nextElementSibling;
+      if (showAll) showAll.style.display = 'none';
+    }
+  }
+};
+window.revealAllSteps = function(exId, link) {
+  const ol = document.getElementById(exId);
+  if (!ol) return;
+  ol.querySelectorAll('li').forEach(li => li.classList.add('revealed'));
+  const btn = document.querySelector(`[data-ex="${exId}"]`);
+  if (btn) {
+    btn.textContent = 'All steps revealed!';
+    btn.disabled = true;
+    btn.style.opacity = '0.5';
+    btn.dataset.step = btn.dataset.total;
+  }
+  if (link) link.style.display = 'none';
+};
+
+// ─── Hint System ──────────────────────────────────
+window.showHint = function(qid, level) {
+  const q = ALL_DAYS[state.currentDay].quiz.find(q => q.id === qid);
+  if (!q || !q.hints || !q.hints[level - 1]) return;
+  state.hintUsed[qid] = Math.max(state.hintUsed[qid] || 0, level);
+  renderMain();
+};
+
 // ─── Quiz Actions ─────────────────────────────────
 window.submitAnswer = function() {
   const q = ALL_DAYS[state.currentDay].quiz[state.quizIndex];
+  if (q.type === 'type-answer') {
+    const input = document.getElementById(`typeInput-${q.id}`);
+    if (!input) return;
+    const val = input.value.trim();
+    if (!val) return;
+    state.quizAnswers[q.id] = val;
+  }
   state.quizSubmitted[q.id] = true;
+  const isCorrect = isQuizCorrect(q, state.quizAnswers[q.id]);
+  if (isCorrect) {
+    const usedHint = state.hintUsed && state.hintUsed[q.id];
+    const xpAmount = usedHint ? XP_CORRECT_HINT : XP_CORRECT_FIRST;
+    incrementQuizStreak();
+    setTimeout(() => {
+      const el = q.type === 'type-answer'
+        ? document.querySelector('.quiz-type-input')
+        : document.querySelector('.option-btn.correct');
+      awardXP(xpAmount, el || document.querySelector('.question-card'));
+    }, 100);
+  } else {
+    breakQuizStreak();
+  }
   renderMain();
 };
 
@@ -1496,9 +2539,11 @@ window.retakeQuiz = function() {
   state.quizIndex = 0;
   state.quizAnswers = {};
   state.quizSubmitted = {};
+  state.hintUsed = {};
   state.progress[`day${state.currentDay}`].quizCompleted = false;
   state.progress[`day${state.currentDay}`].quizScore = null;
   saveProgress();
+  resetQuizStreak();
   renderSidebar();
   renderMain();
   window.scrollTo(0, 0);
@@ -1514,6 +2559,15 @@ function attachQuizListeners(day) {
       renderMain();
     });
   });
+  document.querySelectorAll('.quiz-type-input:not(:disabled)').forEach(input => {
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        window.submitAnswer();
+      }
+    });
+    input.focus();
+  });
 }
 
 // ─── Sidebar Toggle (mobile) ──────────────────────
@@ -1525,6 +2579,10 @@ function closeSidebar() {
   document.getElementById('sidebar').classList.remove('open');
   document.getElementById('sidebarOverlay').classList.remove('open');
 }
+
+window.showFullMindmap = function() {
+  openMindmapOverlay();
+};
 
 // Also handle goToDay(0) for home
 const origGoToDay = window.goToDay;

@@ -107,6 +107,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["2x&sup2; + 1","(2x + 1)&sup2;","2x&sup2; + 2x + 1","4x&sup2; + 1"],
         correct: 0,
         explanation: "(f &compfn; g)(x) = f(g(x)) = f(x&sup2;) = 2(x&sup2;) + 1 = <strong>2x&sup2; + 1</strong>.",
+        hints: ["In composition f(g(x)), the inner function g is evaluated first — its output becomes the input for f.", "Start by finding g(x) = x², then substitute that entire expression wherever you see x in the formula for f."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -115,6 +116,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["24","8","12","14"],
         correct: 0,
         explanation: "First find g(2) = 2 + 3 = 5. Then f(5) = 5&sup2; &minus; 1 = 25 &minus; 1 = <strong>24</strong>.",
+        hints: ["With composition at a specific number, always evaluate the inner function at that number first.", "Compute g(2) first — that single number then becomes the input you plug into f."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -123,6 +125,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["f<sup>&minus;1</sup>(x) = (x + 6)/2","f<sup>&minus;1</sup>(x) = (x &minus; 6)/2","f<sup>&minus;1</sup>(x) = 2x + 6","f<sup>&minus;1</sup>(x) = &minus;2x + 6"],
         correct: 0,
         explanation: "Swap x and y: x = 2y &minus; 6. Solve: x + 6 = 2y, y = (x + 6)/2. So f<sup>&minus;1</sup>(x) = <strong>(x + 6)/2</strong>.",
+        hints: ["To find an inverse, write y = f(x), then swap x and y, and solve for y.", "After swapping, your equation is x = 2y − 6. The first step is to undo the subtraction by adding 6 to both sides."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -131,6 +134,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["9","17","11","10"],
         correct: 0,
         explanation: "Work inside-out: h(2) = 4, g(4) = 8, f(8) = 8 + 1 = <strong>9</strong>.",
+        hints: ["With nested compositions, always start from the innermost function and work outward one step at a time.", "The innermost piece is h(2) — evaluate that first, then feed the result into g, and finally into f."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -139,6 +143,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["f<sup>&minus;1</sup>(x) = (x &minus; 9)/3","f<sup>&minus;1</sup>(x) = 3x &minus; 9","f<sup>&minus;1</sup>(x) = (x + 9)/3","f<sup>&minus;1</sup>(x) = x/3 + 9"],
         correct: 0,
         explanation: "Swap x and y: x = 3y + 9. Solve: x &minus; 9 = 3y, y = (x &minus; 9)/3. Verify: f(f<sup>&minus;1</sup>(x)) = 3 &middot; (x &minus; 9)/3 + 9 = x &minus; 9 + 9 = x. &#10003;",
+        hints: ["The inverse undoes every operation in reverse order — f multiplies by 3 then adds 9, so the inverse must undo those steps backwards.", "After swapping x and y you get x = 3y + 9. Start by subtracting 9 from both sides to isolate the term with y."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -147,6 +152,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["&minus;3 &lt; x &lt; 3","x &lt; &minus;3 or x &gt; 3","x &lt; 3","x &gt; &minus;3"],
         correct: 0,
         explanation: "Factor: (x &minus; 3)(x + 3) &lt; 0. The product is negative between the roots. Solution: <strong>&minus;3 &lt; x &lt; 3</strong>.",
+        hints: ["This is a difference of squares — try factoring x² − 9 into two binomials first.", "Once you have (x − 3)(x + 3) < 0, think about where the product of two factors is negative — it happens between the two roots."],
         difficulty: "medium", category: "review"
       },
       {
@@ -223,12 +229,35 @@ export const DAYS_27_30 = {  day27: {
               "Use the product rule: log<sub>2</sub>(8) + log<sub>2</sub>(4) = log<sub>2</sub>(8 &times; 4) = log<sub>2</sub>(32).",
               "Now evaluate: 2 to what power equals 32? 2<sup>5</sup> = 32.",
               "So log<sub>2</sub>(8) + log<sub>2</sub>(4) = <strong>5</strong>.",
-              "Quick check: log<sub>2</sub>(8) = 3 and log<sub>2</sub>(4) = 2. Indeed 3 + 2 = 5. &#10003;"
-            ]
-          }
-        },
-        {
-          heading: "Compound Interest",
+               "Quick check: log<sub>2</sub>(8) = 3 and log<sub>2</sub>(4) = 2. Indeed 3 + 2 = 5. &#10003;"
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Use the product rule to simplify: log<sub>3</sub>(9) + log<sub>3</sub>(3) = log<sub>3</sub>(?).",
+               answer: "27",
+               accept: ["27"],
+               explanation: "Product rule: log<sub>3</sub>(9) + log<sub>3</sub>(3) = log<sub>3</sub>(9 &times; 3) = log<sub>3</sub>(27)."
+             },
+             {
+               type: "type-answer",
+               prompt: "Evaluate: log<sub>2</sub>(32).",
+               answer: "5",
+               accept: ["5"],
+               explanation: "2<sup>5</sup> = 32, so log<sub>2</sub>(32) = 5."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "Which property says log(a/b) = log(a) &minus; log(b)?",
+               options: ["Quotient Rule", "Product Rule", "Power Rule"],
+               correct: 0,
+               explanation: "The Quotient Rule for logarithms states that the log of a quotient equals the difference of the logs."
+             }
+           ]
+         },
+         {
+           heading: "Compound Interest",
           paragraphs: [
             "One of the most important real-world applications of exponential functions is <strong>compound interest</strong>. The formula is: <strong>A = P(1 + r/n)<sup>nt</sup></strong>, where A is the final amount, P is the principal (starting amount), r is the annual interest rate (as a decimal), n is the number of times interest is compounded per year, and t is the time in years.",
             "For example, if you deposit $1,000 in a savings account earning 6% annual interest compounded yearly, after 2 years you have A = 1000(1 + 0.06/1)<sup>1&times;2</sup> = 1000(1.06)&sup2; = 1000 &times; 1.1236 = $1,123.60. Notice you earn interest <em>on your interest</em> &mdash; that&rsquo;s why it&rsquo;s called <em>compound</em> interest.",
@@ -268,14 +297,16 @@ export const DAYS_27_30 = {  day27: {
         options: ["3","5","4","6"],
         correct: 0,
         explanation: "log<sub>3</sub>(9) = 2 and log<sub>3</sub>(3) = 1. So 2 + 1 = <strong>3</strong>. (Or use the product rule: log<sub>3</sub>(9 &times; 3) = log<sub>3</sub>(27) = 3.)",
+        hints: ["You can evaluate each logarithm separately — ask yourself '3 to what power gives 9?' and '3 to what power gives 3?'", "Alternatively, use the product rule: the sum of two logs with the same base equals the log of the product."],
         difficulty: "medium", category: "topic"
       },
       {
         id: "d28q5", question: "Solve: 3<sup>x</sup> = 81.",
-        type: "multiple-choice",
-        options: ["x = 4","x = 3","x = 27","x = 5"],
-        correct: 0,
+        type: "type-answer",
+        answer: "4",
+        accept: ["4", "x=4", "x = 4"],
         explanation: "Since 3<sup>4</sup> = 81, we have x = <strong>4</strong>.",
+        hints: ["To solve an exponential equation, try expressing the right side as a power of the same base.", "Write 81 as a power of 3 — start multiplying: 3 × 3 = 9, 9 × 3 = 27, 27 × 3 = …"],
         difficulty: "medium", category: "topic"
       },
       {
@@ -284,6 +315,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["$1,123.60","$1,120.00","$1,060.00","$1,236.00"],
         correct: 0,
         explanation: "A = 1000(1 + 0.06)<sup>2</sup> = 1000(1.06)&sup2; = 1000 &times; 1.1236 = <strong>$1,123.60</strong>.",
+        hints: ["Use the compound interest formula A = P(1 + r/n)^(nt), where compounding yearly means n = 1.", "Plug in P = 1000, r = 0.06, n = 1, t = 2 — your first step is computing (1.06)²."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -292,6 +324,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["3","5","7","8"],
         correct: 0,
         explanation: "Quotient rule: log<sub>2</sub>(32/4) = log<sub>2</sub>(8) = <strong>3</strong> (since 2<sup>3</sup> = 8).",
+        hints: ["When you subtract two logarithms with the same base, you can combine them using the quotient rule.", "Apply the quotient rule to get a single log: log₂(32) − log₂(4) = log₂(32 ÷ 4). Simplify the fraction first."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -300,6 +333,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["x = 81","x = 12","x = 64","x = 27"],
         correct: 0,
         explanation: "Rewrite in exponential form: 3<sup>4</sup> = x. So x = 81. Since 3<sup>4</sup> = 3 &times; 3 &times; 3 &times; 3 = <strong>81</strong>.",
+        hints: ["A logarithmic equation can always be rewritten in exponential form — log_b(x) = y means b^y = x.", "Convert log₃(x) = 4 to exponential form: the base is 3, the exponent is 4, so compute 3⁴."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -308,6 +342,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["9","10","7","11"],
         correct: 0,
         explanation: "First g(4) = 4 &minus; 1 = 3. Then f(3) = 2(3) + 3 = 6 + 3 = <strong>9</strong>.",
+        hints: ["(f ∘ g)(4) means f(g(4)) — always evaluate the inner function g at the given value first.", "Start by computing g(4), then take that result and substitute it into f."],
         difficulty: "medium", category: "review"
       },
       {
@@ -324,6 +359,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["7","12","64","81"],
         correct: 1,
         explanation: "Power rule: log<sub>b</sub>(m<sup>n</sup>) = n &middot; log<sub>b</sub>(m). So log<sub>3</sub>(27<sup>4</sup>) = 4 &middot; log<sub>3</sub>(27). Since 3<sup>3</sup> = 27, log<sub>3</sub>(27) = 3. Therefore 4 &times; 3 = <strong>12</strong>.",
+        hints: ["The power rule for logarithms lets you bring an exponent down in front as a multiplier.", "Use the power rule to rewrite log₃(27⁴) as 4 · log₃(27), then figure out what power of 3 gives 27."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -332,6 +368,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["1","2","3","4"],
         correct: 1,
         explanation: "Rewrite with base 2: 8 = 2<sup>3</sup> and 4 = 2&sup2;. So (2<sup>3</sup>)<sup>x</sup> = (2&sup2;)<sup>x+1</sup>, giving 2<sup>3x</sup> = 2<sup>2x+2</sup>. Set exponents equal: 3x = 2x + 2, so x = <strong>2</strong>. Check: 8&sup2; = 64 and 4<sup>3</sup> = 64. &#10003;",
+        hints: ["When both sides of an exponential equation can be written with the same base, rewrite them that way and compare exponents.", "Both 8 and 4 are powers of 2 — express each side as 2 raised to something, then set the exponents equal."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -340,6 +377,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["$2,480.00","$2,536.48","$2,560.00","$2,600.00"],
         correct: 1,
         explanation: "A = P(1 + r/n)<sup>nt</sup> = 2000(1 + 0.08/4)<sup>12</sup> = 2000(1.02)<sup>12</sup>. Computing (1.02)<sup>12</sup> &asymp; 1.26824, so A &asymp; <strong>$2,536.48</strong>.",
+        hints: ["Use the compound interest formula A = P(1 + r/n)^(nt). Quarterly compounding means n = 4.", "Compute the rate per period first: r/n = 0.08/4 = 0.02, and the total number of periods: nt = 4 × 3 = 12."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -348,6 +386,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["3<sup>5</sup> = 125","5<sup>3</sup> = 125","125<sup>3</sup> = 5","5<sup>125</sup> = 3"],
         correct: 1,
         explanation: "log<sub>b</sub>(x) = y means b<sup>y</sup> = x. Here b = 5, x = 125, y = 3, so the exponential form is <strong>5<sup>3</sup> = 125</strong>.",
+        hints: ["Remember the definition: log_b(x) = y is just another way of writing b^y = x.", "Identify the three parts: the base (subscript of log), the argument (inside the parentheses), and the result (right side of the equation)."],
         difficulty: "medium", category: "topic"
       }
     ]
@@ -467,10 +506,11 @@ export const DAYS_27_30 = {  day27: {
       },
       {
         id: "d29q4", question: "Find the 20th term of the arithmetic sequence 5, 8, 11, 14, &hellip;",
-        type: "multiple-choice",
-        options: ["62","65","59","57"],
-        correct: 0,
+        type: "type-answer",
+        answer: "62",
+        accept: ["62"],
         explanation: "a<sub>1</sub> = 5, d = 3. a<sub>20</sub> = 5 + (20 &minus; 1)(3) = 5 + 57 = <strong>62</strong>.",
+        hints: ["Use the explicit formula for arithmetic sequences: a_n = a₁ + (n − 1)d.", "First find the common difference d by subtracting consecutive terms (8 − 5), then plug a₁ = 5, d, and n = 20 into the formula."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -479,6 +519,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["155","145","160","135"],
         correct: 0,
         explanation: "a<sub>1</sub> = 2, d = 3. a<sub>10</sub> = 2 + 9(3) = 29. S<sub>10</sub> = 10(2 + 29)/2 = 10 &times; 31/2 = <strong>155</strong>.",
+        hints: ["The sum formula for an arithmetic series is S_n = n(a₁ + aₙ)/2 — you'll need both the first and last terms.", "Find the 10th term first using a₁₀ = a₁ + 9d, then plug a₁ and a₁₀ into the sum formula."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -487,6 +528,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["96","64","48","192"],
         correct: 0,
         explanation: "a<sub>6</sub> = 3 &middot; 2<sup>6&minus;1</sup> = 3 &middot; 2<sup>5</sup> = 3 &middot; 32 = <strong>96</strong>.",
+        hints: ["The explicit formula for a geometric sequence is aₙ = a₁ · r^(n−1).", "Plug in n = 6: the exponent on r is 6 − 1 = 5, so you need to compute 2⁵ first, then multiply by a₁."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -495,6 +537,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["484","364","500","244"],
         correct: 0,
         explanation: "a<sub>1</sub> = 4, r = 3, n = 5. S<sub>5</sub> = 4(1 &minus; 3<sup>5</sup>)/(1 &minus; 3) = 4(1 &minus; 243)/(&minus;2) = 4(&minus;242)/(&minus;2) = <strong>484</strong>.",
+        hints: ["Use the finite geometric series formula: S_n = a₁(1 − rⁿ) / (1 − r). First identify a₁, r, and n.", "Find the common ratio by dividing the second term by the first: 12 ÷ 4 gives you r, and count the terms to get n."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -503,6 +546,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["16","15","32","The series diverges"],
         correct: 0,
         explanation: "a<sub>1</sub> = 8, r = &frac12;. Since |r| &lt; 1, S = a<sub>1</sub>/(1 &minus; r) = 8/(1 &minus; &frac12;) = 8/(&frac12;) = <strong>16</strong>.",
+        hints: ["An infinite geometric series converges only when |r| < 1. Check whether that condition is met first.", "Find the common ratio r = 4/8, confirm |r| < 1, then apply the infinite sum formula S = a₁ / (1 − r)."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -519,6 +563,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["x = 5, y = 2","x = 4, y = 3","x = 3, y = 4","x = 7, y = 0"],
         correct: 0,
         explanation: "Add the equations: 2x = 10, so x = 5. Substitute: 5 + y = 7, so y = 2. Solution: <strong>x = 5, y = 2</strong>.",
+        hints: ["With elimination, look for a variable you can cancel by adding or subtracting the two equations.", "Adding the two equations eliminates y because +y and −y cancel — try adding them to solve for x first."],
         difficulty: "medium", category: "review"
       },
       {
@@ -527,6 +572,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["&frac34;","1","<sup>3</sup>&frasl;<sub>2</sub>","3"],
         correct: 2,
         explanation: "a<sub>6</sub> = a<sub>1</sub> &middot; r<sup>5</sup> = 48 &middot; (&frac12;)<sup>5</sup> = 48 &middot; <sup>1</sup>&frasl;<sub>32</sub> = <sup>48</sup>&frasl;<sub>32</sub> = <strong><sup>3</sup>&frasl;<sub>2</sub></strong>.",
+        hints: ["Use aₙ = a₁ · r^(n−1). For the 6th term, the exponent on r is 5.", "Compute (½)⁵ first — that gives you a fraction, then multiply it by 48 and simplify."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -535,6 +581,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["Diverges","24","27","30"],
         correct: 2,
         explanation: "r = 6/18 = &frac13;. Since |r| &lt; 1, it converges. S = a<sub>1</sub>/(1 &minus; r) = 18/(1 &minus; &frac13;) = 18/(&frac23;) = 18 &times; <sup>3</sup>&frasl;<sub>2</sub> = <strong>27</strong>.",
+        hints: ["First check convergence: find the common ratio r and verify |r| < 1.", "Divide the second term by the first to get r = 6/18. Since that's less than 1, the series converges — now use S = a₁/(1 − r)."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -543,6 +590,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["640","660","680","700"],
         correct: 2,
         explanation: "Arithmetic series: a<sub>1</sub> = 15, d = 2, n = 20. a<sub>20</sub> = 15 + 19(2) = 53. S<sub>20</sub> = 20(15 + 53)/2 = 20 &times; 34 = <strong>680 seats</strong>.",
+        hints: ["This is an arithmetic series problem — identify a₁ (seats in first row), d (increase per row), and n (number of rows).", "Find the number of seats in the last row using a₂₀ = a₁ + 19d, then use the sum formula S = n(a₁ + aₙ)/2."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -551,6 +599,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["11","12","13","14"],
         correct: 2,
         explanation: "67 = 7 + (n &minus; 1)(5). Solve: 60 = 5(n &minus; 1), so n &minus; 1 = 12, giving n = <strong>13</strong>. Check: a<sub>13</sub> = 7 + 12(5) = 67. &#10003;",
+        hints: ["Use the nth-term formula aₙ = a₁ + (n − 1)d and solve for n instead of aₙ.", "Set 67 = 7 + (n − 1)(5) and isolate (n − 1) — start by subtracting 7 from both sides."],
         difficulty: "medium", category: "topic"
       }
     ]
@@ -655,6 +704,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["y = (x &minus; 2)&sup2; + 3","y = (x + 2)&sup2; + 3","y = (x &minus; 3)&sup2; + 2","y = (x + 2)&sup2; &minus; 3"],
         correct: 0,
         explanation: "Shift right 2: replace x with (x &minus; 2). Shift up 3: add 3. Result: <strong>y = (x &minus; 2)&sup2; + 3</strong>.",
+        hints: ["Horizontal shifts work 'opposite' to what you might expect — shifting right h units means replacing x with (x − h).", "A vertical shift up by k units adds k outside the function. Apply the horizontal shift to x first, then add the vertical shift."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -663,6 +713,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["x = 7 or x = &minus;2","x = 7 or x = 2","x = &minus;7 or x = 2","x = 7"],
         correct: 0,
         explanation: "Two cases: 2x &minus; 5 = 9 gives 2x = 14, x = 7. 2x &minus; 5 = &minus;9 gives 2x = &minus;4, x = &minus;2. Solutions: <strong>x = 7 or x = &minus;2</strong>.",
+        hints: ["An absolute value equation |A| = B splits into two separate equations: A = B and A = −B.", "Write the two cases: 2x − 5 = 9 and 2x − 5 = −9. Solve each linear equation independently."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -671,6 +722,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["7","8","6","3"],
         correct: 0,
         explanation: "&lfloor;3.7&rfloor; = 3 (round down) and &lceil;3.7&rceil; = 4 (round up). So 3 + 4 = <strong>7</strong>.",
+        hints: ["The floor function rounds down to the nearest integer, and the ceiling function rounds up to the nearest integer.", "Evaluate each part separately: what integer is just below 3.7, and what integer is just above 3.7? Then add them."],
         difficulty: "medium", category: "topic"
       },
       {
@@ -679,14 +731,16 @@ export const DAYS_27_30 = {  day27: {
         options: ["Shift left 1, reflect over x-axis, shift up 4","Shift right 1, reflect over x-axis, shift up 4","Shift left 1, shift up 4, reflect over y-axis","Reflect over x-axis, shift right 1, shift down 4"],
         correct: 0,
         explanation: "(x + 1) means shift <strong>left 1</strong>. The negative sign means <strong>reflect over the x-axis</strong>. The + 4 means shift <strong>up 4</strong>.",
+        hints: ["Break the equation into pieces: what does (x + 1) do to x? What does the negative sign do? What does + 4 do?", "Remember that (x + 1) means (x − (−1)), so the horizontal shift is in the direction opposite to the sign you see."],
         difficulty: "hard", category: "topic"
       },
       {
         id: "d30q8", question: "Let f(x) = { x&sup2; &minus; 1, if x &lt; 2; 3x, if x &ge; 2 }. What is f(2) + f(&minus;1)?",
-        type: "multiple-choice",
-        options: ["6","5","8","3"],
-        correct: 0,
+        type: "type-answer",
+        answer: "6",
+        accept: ["6"],
         explanation: "f(2): since 2 &ge; 2, use 3x &rArr; f(2) = 6. f(&minus;1): since &minus;1 &lt; 2, use x&sup2; &minus; 1 &rArr; f(&minus;1) = 1 &minus; 1 = 0. Sum: 6 + 0 = <strong>6</strong>.",
+        hints: ["For each input, first decide which piece of the piecewise function applies by checking the condition.", "Evaluate f(2) and f(−1) separately: check whether each input is < 2 or ≥ 2 to pick the correct rule, then add the results."],
         difficulty: "hard", category: "topic"
       },
       {
@@ -695,6 +749,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["1,275","1,250","2,550","1,300"],
         correct: 0,
         explanation: "Arithmetic series: S<sub>50</sub> = 50(1 + 50)/2 = 50 &times; 51/2 = <strong>1,275</strong>.",
+        hints: ["This is an arithmetic series with a₁ = 1, aₙ = 50, and n = 50. Use the sum formula S = n(a₁ + aₙ)/2.", "Pair the first and last terms: 1 + 50 = 51. How many such pairs can you make from 50 terms?"],
         difficulty: "medium", category: "review"
       },
       {
@@ -703,6 +758,7 @@ export const DAYS_27_30 = {  day27: {
         options: ["x = 1 or x = 5","x = 2 or x = 3","x = &minus;1 or x = &minus;5","x = 6 or x = &minus;1"],
         correct: 0,
         explanation: "a = 1, b = &minus;6, c = 5. D = 36 &minus; 20 = 16. x = (6 &pm; 4)/2. So x = 10/2 = 5 or x = 2/2 = 1. Solutions: <strong>x = 1 or x = 5</strong>.",
+        hints: ["Identify a, b, and c from the standard form ax² + bx + c = 0, then plug them into the quadratic formula.", "Compute the discriminant b² − 4ac first — a perfect square under the radical means the roots will be nice integers."],
         difficulty: "medium", category: "review"
       }
     ]
