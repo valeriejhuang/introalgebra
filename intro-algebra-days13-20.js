@@ -17,12 +17,35 @@ export const DAYS_13_20 = {  day13: {
               "Look for a GCF first: 50x<sup>2</sup> and 18 are both divisible by 2. Factor it out: 2(25x<sup>2</sup> &minus; 9).",
               "Now examine 25x<sup>2</sup> &minus; 9. Is each term a perfect square? 25x<sup>2</sup> = (5x)<sup>2</sup> and 9 = (3)<sup>2</sup>. Yes!",
               "Apply the pattern: 25x<sup>2</sup> &minus; 9 = (5x + 3)(5x &minus; 3).",
-              "Final answer: <strong>2(5x + 3)(5x &minus; 3)</strong>."
-            ]
-          }
-        },
-        {
-          heading: "Perfect Square Trinomials",
+               "Final answer: <strong>2(5x + 3)(5x &minus; 3)</strong>."
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Factor: x<sup>2</sup> &minus; 49. Write the factored form.",
+               answer: "(x+7)(x-7)",
+               accept: ["(x+7)(x-7)", "(x + 7)(x − 7)", "(x-7)(x+7)", "(x − 7)(x + 7)"],
+               explanation: "Difference of squares: x<sup>2</sup> &minus; 49 = x<sup>2</sup> &minus; 7<sup>2</sup> = (x + 7)(x &minus; 7)."
+             },
+             {
+               type: "type-answer",
+               prompt: "Factor: 4x<sup>2</sup> &minus; 25. Write the factored form.",
+               answer: "(2x+5)(2x-5)",
+               accept: ["(2x+5)(2x-5)", "(2x + 5)(2x − 5)", "(2x-5)(2x+5)", "(2x − 5)(2x + 5)"],
+               explanation: "(2x)<sup>2</sup> &minus; 5<sup>2</sup> = (2x + 5)(2x &minus; 5)."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "Which expression is a difference of squares?",
+               options: ["x<sup>2</sup> &minus; 16", "x<sup>2</sup> + 16", "x<sup>2</sup> &minus; 15"],
+               correct: 0,
+               explanation: "x<sup>2</sup> &minus; 16 = x<sup>2</sup> &minus; 4<sup>2</sup> is a difference of two perfect squares."
+             }
+           ]
+         },
+         {
+           heading: "Perfect Square Trinomials",
           paragraphs: [
             "A <strong>perfect square trinomial</strong> is what you get when you square a binomial. There are two forms: a<sup>2</sup> + 2ab + b<sup>2</sup> = (a + b)<sup>2</sup> and a<sup>2</sup> &minus; 2ab + b<sup>2</sup> = (a &minus; b)<sup>2</sup>. The key fingerprint is that the middle term is <em>exactly</em> twice the product of the square roots of the first and last terms.",
             "Think of it like checking a password: if the first term is a perfect square, the last term is a perfect square, and the middle term equals 2 &times; (root of first) &times; (root of last), then you have a match! For example, x<sup>2</sup> + 10x + 25: the square root of x<sup>2</sup> is x, the square root of 25 is 5, and 2 &times; x &times; 5 = 10x. That matches the middle term, so x<sup>2</sup> + 10x + 25 = (x + 5)<sup>2</sup>.",
@@ -343,7 +366,8 @@ export const DAYS_13_20 = {  day13: {
             "So far you&rsquo;ve solved quadratics by factoring. <strong>Completing the square</strong> is a powerful new method that works even when factoring doesn&rsquo;t. It&rsquo;s also the technique used to <em>derive</em> the quadratic formula (which you&rsquo;ll meet in the next lesson). More importantly, it lets you rewrite any quadratic expression ax<sup>2</sup> + bx + c in the form a(x &minus; h)<sup>2</sup> + k, which reveals the vertex of the parabola at a glance.",
             "Think of it this way: factoring tells you where a parabola crosses the x-axis, but completing the square tells you where the parabola&rsquo;s <strong>turning point</strong> is &mdash; its highest or lowest value. That&rsquo;s incredibly useful in optimization problems (&ldquo;What is the maximum profit?&rdquo;) and in graphing.",
             "The core idea is simple: we want to turn an expression like x<sup>2</sup> + bx into a <strong>perfect square trinomial</strong> (x + something)<sup>2</sup> by adding just the right constant. Let&rsquo;s see how."
-          ]
+          ],
+          graphs: [{"type":"coordPlane","xMin":-2,"xMax":6,"yMin":-5,"yMax":8,"width":320,"height":300,"parabolas":[{"a":1,"b":-4,"c":3,"color":"#7c3aed","label":"y = x² − 4x + 3"}],"points":[{"x":2,"y":-1,"color":"#e53e3e","label":"vertex (2, −1)","labelPos":"br"},{"x":1,"y":0,"color":"#22c55e","label":"(1, 0)","labelPos":"tl"},{"x":3,"y":0,"color":"#22c55e","label":"(3, 0)","labelPos":"tr"}],"lines":[{"vertical":true,"x":2,"color":"#f59e0b","dashed":true}],"caption":"Factoring finds the x-intercepts; completing the square finds the vertex"}]
         },
         {
           heading: "The Method: Step by Step",
@@ -581,12 +605,35 @@ export const DAYS_13_20 = {  day13: {
               "Compute the discriminant: b<sup>2</sup> &minus; 4ac = (&minus;7)<sup>2</sup> &minus; 4(2)(3) = 49 &minus; 24 = 25.",
               "Apply the formula: x = (&minus;(&minus;7) &pm; &radic;25) / (2 &times; 2) = (7 &pm; 5) / 4.",
               "Find both solutions: x = (7 + 5)/4 = 12/4 = 3, and x = (7 &minus; 5)/4 = 2/4 = &frac12;.",
-              "Solutions: <strong>x = 3 or x = &frac12;</strong>."
-            ]
-          }
-        },
-        {
-          heading: "The Discriminant: Predicting Solutions",
+               "Solutions: <strong>x = 3 or x = &frac12;</strong>."
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Use the quadratic formula to solve x<sup>2</sup> &minus; 5x + 6 = 0. Write both solutions (smaller first).",
+               answer: "2, 3",
+               accept: ["2, 3", "2,3", "x=2, x=3", "2 and 3"],
+               explanation: "a=1, b=&minus;5, c=6. Discriminant: 25 &minus; 24 = 1. x = (5 &plusmn; 1)/2. So x = 3 or x = 2."
+             },
+             {
+               type: "type-answer",
+               prompt: "For 2x<sup>2</sup> + 3x &minus; 5 = 0, compute the discriminant (b<sup>2</sup> &minus; 4ac).",
+               answer: "49",
+               accept: ["49"],
+               explanation: "b<sup>2</sup> &minus; 4ac = 9 &minus; 4(2)(&minus;5) = 9 + 40 = 49."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "If the discriminant is negative, the quadratic has:",
+               options: ["No real solutions", "One real solution", "Two real solutions"],
+               correct: 0,
+               explanation: "A negative discriminant means the square root is imaginary, so there are no real solutions (only complex ones)."
+             }
+           ]
+         },
+         {
+           heading: "The Discriminant: Predicting Solutions",
           paragraphs: [
             "The expression under the square root, <strong>b<sup>2</sup> &minus; 4ac</strong>, is called the <strong>discriminant</strong> (we often call it D or &Delta;). It tells you how many real solutions the equation has <em>without</em> actually solving it. Think of it as a weather forecast for your equation.",
             "Here are the three cases: (1) If b<sup>2</sup> &minus; 4ac &gt; 0, the equation has <strong>two distinct real solutions</strong>. (2) If b<sup>2</sup> &minus; 4ac = 0, the equation has <strong>exactly one real solution</strong> (a repeated root). (3) If b<sup>2</sup> &minus; 4ac &lt; 0, the equation has <strong>no real solutions</strong> (you'd need imaginary numbers, which you'll learn later).",
@@ -754,7 +801,8 @@ export const DAYS_13_20 = {  day13: {
             "A <strong>complex number</strong> combines a real part and an imaginary part: <strong>a + bi</strong>, where a and b are real numbers. The number a is called the <strong>real part</strong> and b is called the <strong>imaginary part</strong>. For example, in 3 + 7i, the real part is 3 and the imaginary part is 7.",
             "Every real number is secretly a complex number with b = 0 (for instance, 5 = 5 + 0i). Every imaginary number has a = 0 (for instance, 3i = 0 + 3i). So complex numbers include both real and imaginary numbers as special cases &mdash; they&rsquo;re the big umbrella.",
             "Complex numbers can be visualized on the <strong>complex plane</strong> (also called the Argand diagram): the horizontal axis represents the real part and the vertical axis represents the imaginary part. The number 3 + 2i is plotted at the point (3, 2). This gives us a geometric way to think about these numbers."
-          ]
+          ],
+          graphs: [{"type":"coordPlane","xMin":-5,"xMax":5,"yMin":-5,"yMax":5,"width":320,"height":320,"points":[{"x":3,"y":2,"color":"#7c3aed","label":"3 + 2i","labelPos":"tr"},{"x":-2,"y":4,"color":"#0ea5e9","label":"−2 + 4i","labelPos":"tl"},{"x":0,"y":-3,"color":"#e53e3e","label":"−3i","labelPos":"bl"},{"x":4,"y":0,"color":"#22c55e","label":"4","labelPos":"br"}],"caption":"The complex plane: real axis (horizontal) and imaginary axis (vertical)"}]
         },
         {
           heading: "Arithmetic with Complex Numbers",
@@ -770,12 +818,35 @@ export const DAYS_13_20 = {  day13: {
               "FOIL: (1)(3) + (1)(&minus;2i) + (4i)(3) + (4i)(&minus;2i).",
               "Multiply: 3 &minus; 2i + 12i &minus; 8i<sup>2</sup>.",
               "Replace i<sup>2</sup> with &minus;1: 3 &minus; 2i + 12i &minus; 8(&minus;1) = 3 &minus; 2i + 12i + 8.",
-              "Combine like terms: (3 + 8) + (&minus;2 + 12)i = <strong>11 + 10i</strong>."
-            ]
-          }
-        },
-        {
-          heading: "Complex Conjugates & Division",
+               "Combine like terms: (3 + 8) + (&minus;2 + 12)i = <strong>11 + 10i</strong>."
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Simplify: (3 + 2i) + (5 &minus; 4i). Write the result as a + bi.",
+               answer: "8-2i",
+               accept: ["8-2i", "8 - 2i", "8 − 2i", "8−2i"],
+               explanation: "Combine reals: 3 + 5 = 8. Combine imaginaries: 2i &minus; 4i = &minus;2i. Result: 8 &minus; 2i."
+             },
+             {
+               type: "type-answer",
+               prompt: "What is i<sup>2</sup>?",
+               answer: "-1",
+               accept: ["-1", "−1"],
+               explanation: "By definition, i = &radic;(&minus;1), so i<sup>2</sup> = &minus;1."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "What is (2 + 3i)(2 &minus; 3i)?",
+               options: ["13", "4 &minus; 9i<sup>2</sup>", "&minus;5"],
+               correct: 0,
+               explanation: "This is a conjugate pair: (a + bi)(a &minus; bi) = a<sup>2</sup> + b<sup>2</sup> = 4 + 9 = 13."
+             }
+           ]
+         },
+         {
+           heading: "Complex Conjugates & Division",
           paragraphs: [
             "The <strong>complex conjugate</strong> of a + bi is <strong>a &minus; bi</strong> &mdash; you flip the sign of the imaginary part. For example, the conjugate of 3 + 5i is 3 &minus; 5i, and the conjugate of &minus;2 &minus; i is &minus;2 + i. The conjugate is often written with a bar: if z = a + bi, then z&#x0304; = a &minus; bi.",
             "Here&rsquo;s the magic: when you multiply a complex number by its conjugate, the imaginary parts cancel out! (a + bi)(a &minus; bi) = a<sup>2</sup> &minus; (bi)<sup>2</sup> = a<sup>2</sup> &minus; b<sup>2</sup>i<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup>, which is always a <em>real</em> number. This is the key to dividing complex numbers.",
@@ -942,11 +1013,34 @@ export const DAYS_13_20 = {  day13: {
               "Simplify: m = <strong>2</strong>.",
               "Interpretation: the line rises 2 units for every 1 unit it moves to the right."
             ],
-            graphs: [{"type":"coordPlane","xMin":-1,"xMax":8,"yMin":-1,"yMax":13,"width":320,"height":320,"lines":[{"m":2,"b":-1,"color":"#0ea5e9","label":"m = 2"}],"points":[{"x":2,"y":3,"color":"#e53e3e","label":"(2, 3)","labelPos":"bl"},{"x":6,"y":11,"color":"#e53e3e","label":"(6, 11)","labelPos":"tl"}],"caption":"Rise = 8, Run = 4, Slope = 8/4 = 2"}]
-          }
-        },
-        {
-          heading: "Slope-Intercept Form: y = mx + b",
+              graphs: [{"type":"coordPlane","xMin":-1,"xMax":8,"yMin":-1,"yMax":13,"width":320,"height":320,"lines":[{"m":2,"b":-1,"color":"#0ea5e9","label":"m = 2"}],"points":[{"x":2,"y":3,"color":"#e53e3e","label":"(2, 3)","labelPos":"bl"},{"x":6,"y":11,"color":"#e53e3e","label":"(6, 11)","labelPos":"tl"}],"caption":"Rise = 8, Run = 4, Slope = 8/4 = 2"}]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Find the slope of the line through (1, 3) and (4, 9).",
+               answer: "2",
+               accept: ["2", "m=2", "m = 2"],
+               explanation: "m = (9 &minus; 3)/(4 &minus; 1) = 6/3 = 2."
+             },
+             {
+               type: "type-answer",
+               prompt: "Find the slope of the line through (&minus;2, 5) and (4, &minus;1).",
+               answer: "-1",
+               accept: ["-1", "−1", "m=-1", "m = -1"],
+               explanation: "m = (&minus;1 &minus; 5)/(4 &minus; (&minus;2)) = &minus;6/6 = &minus;1."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "A horizontal line has a slope of:",
+               options: ["0", "Undefined", "1"],
+               correct: 0,
+               explanation: "Horizontal lines have zero rise, so slope = rise/run = 0/run = 0."
+             }
+           ]
+         },
+         {
+           heading: "Slope-Intercept Form: y = mx + b",
           paragraphs: [
             "The <strong>slope-intercept form</strong> of a linear equation is y = mx + b, where m is the slope and b is the <strong>y-intercept</strong> — the point where the line crosses the y-axis (at the coordinate (0, b)). This form is incredibly useful because you can read off the slope and y-intercept just by looking at the equation.",
             "For example, y = 3x &minus; 2 has slope 3 and y-intercept &minus;2 (the line crosses the y-axis at (0, &minus;2)). To graph it: plot the y-intercept (0, &minus;2), then use the slope (rise 3, run 1) to find another point: (1, 1). Draw a straight line through both points.",
@@ -1103,11 +1197,34 @@ export const DAYS_13_20 = {  day13: {
               "Add 1 to both sides: y = &minus;2x + 7.",
               "Final answer: <strong>y = &minus;2x + 7</strong>."
             ],
-            graphs: [{"type":"coordPlane","xMin":-1,"xMax":6,"yMin":-3,"yMax":9,"width":320,"height":320,"lines":[{"m":-2,"b":7,"color":"#0ea5e9","label":"y = −2x + 7"}],"points":[{"x":3,"y":1,"color":"#e53e3e","label":"(3, 1)","labelPos":"br"}],"caption":"Line passing through (3, 1) with slope −2"}]
-          }
-        },
-        {
-          heading: "Finding the Equation from Two Points",
+              graphs: [{"type":"coordPlane","xMin":-1,"xMax":6,"yMin":-3,"yMax":9,"width":320,"height":320,"lines":[{"m":-2,"b":7,"color":"#0ea5e9","label":"y = −2x + 7"}],"points":[{"x":3,"y":1,"color":"#e53e3e","label":"(3, 1)","labelPos":"br"}],"caption":"Line passing through (3, 1) with slope −2"}]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Write the equation of the line through (2, 3) with slope 4 in y = mx + b form.",
+               answer: "y=4x-5",
+               accept: ["y=4x-5", "y = 4x - 5", "y = 4x − 5", "y=4x−5"],
+               explanation: "Point-slope: y &minus; 3 = 4(x &minus; 2). Distribute: y &minus; 3 = 4x &minus; 8. Add 3: y = 4x &minus; 5."
+             },
+             {
+               type: "type-answer",
+               prompt: "What is the slope of a line parallel to y = 3x &minus; 7?",
+               answer: "3",
+               accept: ["3", "m=3", "m = 3"],
+               explanation: "Parallel lines have the same slope. The slope of y = 3x &minus; 7 is 3."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "In point-slope form y &minus; y<sub>1</sub> = m(x &minus; x<sub>1</sub>), what do you need?",
+               options: ["A point and the slope", "Two slopes", "Just the y-intercept"],
+               correct: 0,
+               explanation: "Point-slope form requires one point (x<sub>1</sub>, y<sub>1</sub>) and the slope m."
+             }
+           ]
+         },
+         {
+           heading: "Finding the Equation from Two Points",
           paragraphs: [
             "If you're given two points, you can find the equation of the line in two steps: <strong>Step 1:</strong> Compute the slope using m = (y<sub>2</sub> &minus; y<sub>1</sub>) / (x<sub>2</sub> &minus; x<sub>1</sub>). <strong>Step 2:</strong> Plug the slope and either point into point-slope form.",
             "For example, find the equation through (1, &minus;2) and (4, 7). First, the slope: m = (7 &minus; (&minus;2)) / (4 &minus; 1) = 9/3 = 3. Then plug into point-slope form using (1, &minus;2): y &minus; (&minus;2) = 3(x &minus; 1), which simplifies to y + 2 = 3x &minus; 3, so y = 3x &minus; 5.",
@@ -1285,7 +1402,8 @@ export const DAYS_13_20 = {  day13: {
               "Back-substitute: y = 2(2) + 1 = 5.",
               "Solution: <strong>(x, y) = (2, 5)</strong>. Check: 3(2) + 5 = 11. &#10003;"
             ],
-             graphs: [{"type":"coordPlane","xMin":-1,"xMax":6,"yMin":-1,"yMax":12,"width":320,"height":320,"lines":[{"m":2,"b":1,"color":"#0ea5e9","label":"y = 2x + 1"},{"m":-3,"b":11,"color":"#e53e3e","label":"3x + y = 11"}],"points":[{"x":2,"y":5,"color":"#7c3aed","label":"(2, 5)","labelPos":"tr"}],"caption":"The lines intersect at (2, 5)"}],
+              graphs: [{"type":"coordPlane","xMin":-1,"xMax":6,"yMin":-1,"yMax":12,"width":320,"height":320,"lines":[{"m":2,"b":1,"color":"#0ea5e9","label":"y = 2x + 1"},{"m":-3,"b":11,"color":"#e53e3e","label":"3x + y = 11"}],"points":[{"x":2,"y":5,"color":"#7c3aed","label":"(2, 5)","labelPos":"tr"}],"caption":"The lines intersect at (2, 5)"}]
+           },
            practice: [
              {
                type: "type-answer",
@@ -1309,7 +1427,6 @@ export const DAYS_13_20 = {  day13: {
                explanation: "Substitution starts by isolating one variable in one equation, then substituting that expression into the other equation."
              }
            ]
-           }
          },
          {
            heading: "The Elimination (Addition) Method",

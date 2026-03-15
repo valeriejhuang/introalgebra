@@ -10,6 +10,7 @@ export const DAYS_27_30 = {  day27: {
             "The set of all allowed inputs is called the <strong>domain</strong>, and the set of all possible outputs is called the <strong>range</strong>. For example, f(x) = &radic;x has domain x &ge; 0 (you can&rsquo;t take the square root of a negative number in the reals) and range y &ge; 0.",
             "How do you tell whether a graph represents a function? Use the <strong>vertical line test</strong>: if every vertical line you draw hits the graph in <em>at most one point</em>, it&rsquo;s a function. If any vertical line hits two or more points, it&rsquo;s <em>not</em> a function &mdash; that would mean one input gives two different outputs."
           ],
+          graphs: [{"type":"row","items":[{"type":"coordPlane","xMin":-4,"xMax":4,"yMin":-1,"yMax":8,"width":220,"height":220,"parabolas":[{"a":0.5,"b":0,"c":0,"color":"#22c55e","label":"y = ½x²"}],"lines":[{"vertical":true,"x":2,"color":"#f59e0b","dashed":true}],"caption":"Function ✓ — each x gives one y"},{"type":"coordPlane","xMin":-4,"xMax":4,"yMin":-4,"yMax":4,"width":220,"height":220,"points":[{"x":2,"y":0,"color":"#0ea5e9"},{"x":1.73,"y":1,"color":"#0ea5e9"},{"x":1.41,"y":1.41,"color":"#0ea5e9"},{"x":1,"y":1.73,"color":"#0ea5e9"},{"x":0,"y":2,"color":"#0ea5e9"},{"x":-1,"y":1.73,"color":"#0ea5e9"},{"x":-1.41,"y":1.41,"color":"#0ea5e9"},{"x":-1.73,"y":1,"color":"#0ea5e9"},{"x":-2,"y":0,"color":"#0ea5e9"},{"x":-1.73,"y":-1,"color":"#0ea5e9"},{"x":-1.41,"y":-1.41,"color":"#0ea5e9"},{"x":-1,"y":-1.73,"color":"#0ea5e9"},{"x":0,"y":-2,"color":"#0ea5e9"},{"x":1,"y":-1.73,"color":"#0ea5e9"},{"x":1.41,"y":-1.41,"color":"#0ea5e9"},{"x":1.73,"y":-1,"color":"#0ea5e9"}],"lines":[{"vertical":true,"x":1,"color":"#f59e0b","dashed":true}],"caption":"Not a function ✗ — x = 1 gives two y-values"}]}],
           example: {
             title: "Worked Example: Evaluating a Function",
             problem: "Let f(x) = 3x&sup2; &minus; 2x + 5. Find f(&minus;1).",
@@ -54,6 +55,7 @@ export const DAYS_27_30 = {  day27: {
             "To <strong>find the inverse</strong> of a function: (1) replace f(x) with y, (2) swap x and y, (3) solve for y. The result is f<sup>&minus;1</sup>(x). For example, if f(x) = 2x + 6, write y = 2x + 6, swap to get x = 2y + 6, solve: x &minus; 6 = 2y, so y = (x &minus; 6)/2. Therefore f<sup>&minus;1</sup>(x) = (x &minus; 6)/2.",
             "Important: the &ldquo;&minus;1&rdquo; in f<sup>&minus;1</sup> is <em>not</em> an exponent! It does <em>not</em> mean 1/f(x). It&rsquo;s special notation for the inverse function. Also, the graph of f<sup>&minus;1</sup> is the <strong>reflection</strong> of the graph of f across the line y = x."
           ],
+          graphs: [{"type":"coordPlane","xMin":-4,"xMax":8,"yMin":-4,"yMax":8,"width":340,"height":340,"lines":[{"m":2,"b":-1,"color":"#0ea5e9","label":"f(x) = 2x − 1"},{"m":0.5,"b":0.5,"color":"#e53e3e","label":"f⁻¹(x) = (x+1)/2"},{"m":1,"b":0,"color":"#a0aec0","dashed":true,"label":"y = x"}],"points":[{"x":1,"y":1,"color":"#7c3aed","label":"(1, 1)","labelPos":"bl"},{"x":3,"y":5,"color":"#0ea5e9","label":"(3, 5)","labelPos":"tl"},{"x":5,"y":3,"color":"#e53e3e","label":"(5, 3)","labelPos":"br"}],"caption":"f and f⁻¹ are reflections across the line y = x"}],
           example: {
             title: "Worked Example: Finding an Inverse",
             problem: "Find the inverse of f(x) = 5x &minus; 3.",
@@ -62,17 +64,41 @@ export const DAYS_27_30 = {  day27: {
               "Swap x and y: x = 5y &minus; 3.",
               "Solve for y: x + 3 = 5y, so y = (x + 3)/5.",
               "Therefore f<sup>&minus;1</sup>(x) = <strong>(x + 3)/5</strong>.",
-              "Verify: f(f<sup>&minus;1</sup>(x)) = 5 &middot; (x + 3)/5 &minus; 3 = (x + 3) &minus; 3 = x. &#10003;"
-            ]
-          }
-        },
-        {
-          heading: "When Does an Inverse Exist?",
+               "Verify: f(f<sup>&minus;1</sup>(x)) = 5 &middot; (x + 3)/5 &minus; 3 = (x + 3) &minus; 3 = x. &#10003;"
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Find the inverse of f(x) = 2x + 6. Write as f<sup>&minus;1</sup>(x) = ... (e.g. (x-6)/2).",
+               answer: "(x-6)/2",
+               accept: ["(x-6)/2", "(x − 6)/2", "(x-6)/2", "x/2-3", "x/2 - 3"],
+               explanation: "Swap: x = 2y + 6. Subtract 6: x &minus; 6 = 2y. Divide by 2: y = (x &minus; 6)/2."
+             },
+             {
+               type: "type-answer",
+               prompt: "If f(x) = x/3 + 1, find f<sup>&minus;1</sup>(5).",
+               answer: "12",
+               accept: ["12"],
+               explanation: "Inverse: swap and solve. x = y/3 + 1 &rArr; x &minus; 1 = y/3 &rArr; y = 3(x &minus; 1). f<sup>&minus;1</sup>(5) = 3(5 &minus; 1) = 12."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "To find the inverse of a function, the first step is:",
+               options: ["Replace f(x) with y, then swap x and y", "Take the reciprocal", "Negate the function"],
+               correct: 0,
+               explanation: "Write y = f(x), swap x and y, then solve for y to get the inverse."
+             }
+           ]
+         },
+         {
+           heading: "When Does an Inverse Exist?",
           paragraphs: [
             "Not every function has an inverse. For an inverse to exist, the function must be <strong>one-to-one</strong> &mdash; meaning each output corresponds to exactly one input. In other words, different inputs must always produce different outputs.",
             "The graphical test is the <strong>horizontal line test</strong>: if every horizontal line crosses the graph at most once, the function is one-to-one and has an inverse. For instance, f(x) = x&sup2; fails the horizontal line test because f(3) = 9 and f(&minus;3) = 9 &mdash; two different inputs give the same output.",
             "However, you can sometimes <strong>restrict the domain</strong> to make a function one-to-one. For f(x) = x&sup2;, if we only allow x &ge; 0, then it passes the horizontal line test and the inverse is f<sup>&minus;1</sup>(x) = &radic;x. This is why your calculator gives only the positive square root!"
-          ]
+          ],
+          graphs: [{"type":"row","items":[{"type":"coordPlane","xMin":-4,"xMax":4,"yMin":-2,"yMax":8,"width":240,"height":240,"parabolas":[{"a":1,"b":0,"c":0,"color":"#0ea5e9","label":"y = x²"}],"lines":[{"m":0,"b":4,"color":"#e53e3e","dashed":true,"label":"FAIL ✗"}],"caption":"y = x² fails: horizontal line y = 4 hits twice"},{"type":"coordPlane","xMin":-1,"xMax":5,"yMin":-2,"yMax":8,"width":240,"height":240,"parabolas":[{"a":1,"b":0,"c":0,"color":"#22c55e","label":"y = x² (x ≥ 0)"}],"lines":[{"m":0,"b":4,"color":"#e53e3e","dashed":true,"label":"PASS ✓"}],"points":[{"x":2,"y":4,"color":"#e53e3e","label":"(2, 4)","labelPos":"tr"}],"caption":"Restricted to x ≥ 0: passes the horizontal line test"}]}]
         }
       ]
     },
@@ -419,12 +445,35 @@ export const DAYS_27_30 = {  day27: {
               "Identify a<sub>1</sub> = 5 and d = 8 &minus; 5 = 3.",
               "Use the formula: a<sub>n</sub> = a<sub>1</sub> + (n &minus; 1)d.",
               "a<sub>20</sub> = 5 + (20 &minus; 1)(3) = 5 + 19 &times; 3 = 5 + 57.",
-              "a<sub>20</sub> = <strong>62</strong>."
-            ]
-          }
-        },
-        {
-          heading: "Arithmetic Series",
+               "a<sub>20</sub> = <strong>62</strong>."
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Find the 10th term of the arithmetic sequence: 3, 7, 11, 15, ...",
+               answer: "39",
+               accept: ["39"],
+               explanation: "a<sub>1</sub> = 3, d = 4. a<sub>10</sub> = 3 + (10 &minus; 1)(4) = 3 + 36 = 39."
+             },
+             {
+               type: "type-answer",
+               prompt: "What is the common difference of the sequence: 10, 7, 4, 1, ...?",
+               answer: "-3",
+               accept: ["-3", "−3", "d=-3", "d = -3"],
+               explanation: "d = 7 &minus; 10 = &minus;3."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "The formula for the nth term of an arithmetic sequence is:",
+               options: ["a<sub>n</sub> = a<sub>1</sub> + (n &minus; 1)d", "a<sub>n</sub> = a<sub>1</sub> &middot; r<sup>n&minus;1</sup>", "a<sub>n</sub> = n &middot; d"],
+               correct: 0,
+               explanation: "The arithmetic sequence formula is a<sub>n</sub> = a<sub>1</sub> + (n &minus; 1)d."
+             }
+           ]
+         },
+         {
+           heading: "Arithmetic Series",
           paragraphs: [
             "A <strong>series</strong> is the <em>sum</em> of the terms of a sequence. An <strong>arithmetic series</strong> is the sum of an arithmetic sequence. The sum of the first n terms is: <strong>S<sub>n</sub> = n(a<sub>1</sub> + a<sub>n</sub>)/2</strong>. Equivalently, S<sub>n</sub> = n/2 &middot; (2a<sub>1</sub> + (n &minus; 1)d). Both formulas give the same result &mdash; use whichever is more convenient.",
             "The idea behind this formula is beautifully simple and is often called <strong>Gauss&rsquo;s trick</strong>. Legend says young Gauss was asked to add 1 + 2 + 3 + &hellip; + 100. He paired the first and last terms: 1 + 100 = 101, 2 + 99 = 101, 3 + 98 = 101, and so on. There are 50 such pairs, so the sum is 50 &times; 101 = 5,050.",
@@ -625,17 +674,41 @@ export const DAYS_27_30 = {  day27: {
               "The (x &minus; 2) inside means: shift <strong>right 2 units</strong>.",
               "The negative sign in front means: <strong>reflect across the x-axis</strong> (flip the parabola upside down).",
               "The + 5 at the end means: shift <strong>up 5 units</strong>.",
-              "Summary: right 2, reflect over x-axis, up 5. The vertex moves from (0, 0) to <strong>(2, 5)</strong>."
-            ]
-          }
-        },
-        {
-          heading: "Absolute Value Functions",
+               "Summary: right 2, reflect over x-axis, up 5. The vertex moves from (0, 0) to <strong>(2, 5)</strong>."
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "The graph of y = (x &minus; 3)<sup>2</sup> is the graph of y = x<sup>2</sup> shifted how many units to the right?",
+               answer: "3",
+               accept: ["3", "3 units"],
+               explanation: "Replacing x with (x &minus; 3) shifts the graph 3 units to the right."
+             },
+             {
+               type: "type-answer",
+               prompt: "What is the vertex of y = (x + 1)<sup>2</sup> &minus; 4? Write as (x, y).",
+               answer: "(-1, -4)",
+               accept: ["(-1, -4)", "(-1,-4)", "(&minus;1, &minus;4)"],
+               explanation: "The graph is shifted left 1 (from x + 1) and down 4 (from &minus;4). Vertex: (&minus;1, &minus;4)."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "The graph of y = &minus;f(x) is a reflection of y = f(x) across:",
+               options: ["The x-axis", "The y-axis", "The origin"],
+               correct: 0,
+               explanation: "Negating the output reflects the graph across the x-axis (flips it vertically)."
+             }
+           ]
+         },
+         {
+           heading: "Absolute Value Functions",
           paragraphs: [
             "The <strong>absolute value function</strong> f(x) = |x| produces a characteristic <strong>V-shape</strong> with its vertex at the origin. For x &ge; 0 the graph is the line y = x; for x &lt; 0 it&rsquo;s y = &minus;x. Transformations apply the same way: y = |x &minus; h| + k shifts the V to vertex (h, k), and y = a|x| stretches or compresses it.",
             "Solving absolute value equations: <strong>|expression| = a</strong> (with a &ge; 0) splits into two cases: expression = a or expression = &minus;a. For example, |2x &minus; 5| = 9 gives 2x &minus; 5 = 9 (so x = 7) or 2x &minus; 5 = &minus;9 (so x = &minus;2).",
             "Absolute value inequalities follow the rules from Day 6: <strong>|expression| &lt; a</strong> becomes &minus;a &lt; expression &lt; a (AND compound), and <strong>|expression| &gt; a</strong> becomes expression &lt; &minus;a OR expression &gt; a (OR compound). The graph of y = |f(x)| takes any part of f(x) that dips below the x-axis and reflects it upward."
-          ]
+          ],
+          graphs: [{"type":"row","items":[{"type":"coordPlane","xMin":-5,"xMax":5,"yMin":-1,"yMax":6,"width":240,"height":220,"lines":[{"m":-1,"b":0,"color":"#0ea5e9","xMin":-5,"xMax":0},{"m":1,"b":0,"color":"#0ea5e9","xMax":5,"xMin":0}],"points":[{"x":0,"y":0,"color":"#0ea5e9","label":"vertex","labelPos":"br"}],"caption":"y = |x| — basic V-shape"},{"type":"coordPlane","xMin":-2,"xMax":8,"yMin":-1,"yMax":6,"width":240,"height":220,"lines":[{"m":-1,"b":3,"color":"#7c3aed","xMin":-2,"xMax":3},{"m":1,"b":-3,"color":"#7c3aed","xMin":3,"xMax":8}],"points":[{"x":3,"y":0,"color":"#7c3aed","label":"(3, 0)","labelPos":"br"}],"caption":"y = |x − 3| — shifted right 3"}]}]
         },
         {
           heading: "Piecewise Defined Functions",
@@ -652,7 +725,8 @@ export const DAYS_27_30 = {  day27: {
               "For f(2): since 2 &ge; 2, use the second rule. f(2) = 3(2) = <strong>6</strong>.",
               "Note: at the boundary x = 2, we use the &ge; rule (second piece), which gives a filled dot at (2, 6).",
               "The first piece approaching x = 2 from the left gives 2&sup2; &minus; 1 = 3, so there is an open dot at (2, 3)."
-            ]
+            ],
+            graphs: [{"type":"coordPlane","xMin":-3,"xMax":5,"yMin":-2,"yMax":8,"width":340,"height":300,"parabolas":[{"a":1,"b":0,"c":-1,"color":"#0ea5e9","label":"x² − 1 (x < 2)"}],"lines":[{"m":3,"b":0,"color":"#e53e3e","label":"3x (x ≥ 2)","xMin":2,"xMax":5}],"points":[{"x":2,"y":6,"color":"#e53e3e","label":"(2, 6) closed","labelPos":"tl"},{"x":-1,"y":0,"color":"#0ea5e9"},{"x":0,"y":-1,"color":"#0ea5e9"},{"x":1,"y":0,"color":"#0ea5e9"}],"caption":"Piecewise: f(x) = x² − 1 if x < 2, f(x) = 3x if x ≥ 2"}]
           }
         },
         {
@@ -661,7 +735,8 @@ export const DAYS_27_30 = {  day27: {
             "The <strong>floor function</strong> &lfloor;x&rfloor; (also called the <strong>greatest integer function</strong>) gives the largest integer that is less than or equal to x. For example, &lfloor;3.7&rfloor; = 3, &lfloor;5&rfloor; = 5, and &lfloor;&minus;1.2&rfloor; = &minus;2 (not &minus;1, because &minus;2 &le; &minus;1.2 but &minus;1 &gt; &minus;1.2).",
             "The <strong>ceiling function</strong> &lceil;x&rceil; gives the smallest integer that is greater than or equal to x. So &lceil;3.7&rceil; = 4, &lceil;5&rceil; = 5, and &lceil;&minus;1.2&rceil; = &minus;1. The ceiling always rounds up (toward positive infinity), while the floor always rounds down (toward negative infinity).",
             "The graph of the floor function looks like a <strong>step function</strong> or staircase &mdash; it&rsquo;s constant on each interval [n, n+1) and then jumps up by 1 at each integer. Step functions appear in real life wherever values change in discrete jumps: postage rates, tax brackets, parking garage fees, and so on."
-          ]
+          ],
+          graphs: [{"type":"coordPlane","xMin":-3,"xMax":4,"yMin":-4,"yMax":4,"width":340,"height":300,"lines":[{"m":0,"b":-3,"color":"#0ea5e9","xMin":-3,"xMax":-2},{"m":0,"b":-2,"color":"#0ea5e9","xMin":-2,"xMax":-1},{"m":0,"b":-1,"color":"#0ea5e9","xMin":-1,"xMax":0},{"m":0,"b":0,"color":"#0ea5e9","xMin":0,"xMax":1},{"m":0,"b":1,"color":"#0ea5e9","xMin":1,"xMax":2},{"m":0,"b":2,"color":"#0ea5e9","xMin":2,"xMax":3},{"m":0,"b":3,"color":"#0ea5e9","xMin":3,"xMax":4}],"points":[{"x":-3,"y":-3,"color":"#0ea5e9"},{"x":-2,"y":-2,"color":"#0ea5e9"},{"x":-1,"y":-1,"color":"#0ea5e9"},{"x":0,"y":0,"color":"#0ea5e9"},{"x":1,"y":1,"color":"#0ea5e9"},{"x":2,"y":2,"color":"#0ea5e9"},{"x":3,"y":3,"color":"#0ea5e9"}],"caption":"Floor function ⌊x⌋: staircase with closed left endpoints, jumping at each integer"}]
         },
         {
           heading: "Course Finale: The Big Picture",

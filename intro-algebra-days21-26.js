@@ -35,17 +35,41 @@ export const DAYS_21_26 = {  day21: {
               "Method: use x = &minus;b/(2a). Here a = 2, b = 8.",
               "x = &minus;8 / (2 &times; 2) = &minus;8/4 = &minus;2.",
               "Find y: y = 2(&minus;2)<sup>2</sup> + 8(&minus;2) + 5 = 8 &minus; 16 + 5 = &minus;3.",
-              "Vertex: <strong>(&minus;2, &minus;3)</strong>. The axis of symmetry is x = &minus;2."
-            ]
-          }
-        },
-        {
-          heading: "Intercepts and Key Features",
+               "Vertex: <strong>(&minus;2, &minus;3)</strong>. The axis of symmetry is x = &minus;2."
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Find the x-coordinate of the vertex of y = x<sup>2</sup> &minus; 6x + 5.",
+               answer: "3",
+               accept: ["3", "x=3", "x = 3"],
+               explanation: "x = &minus;b/(2a) = &minus;(&minus;6)/(2&middot;1) = 6/2 = 3."
+             },
+             {
+               type: "type-answer",
+               prompt: "Find the vertex of y = x<sup>2</sup> + 4x + 1. Write as (x, y).",
+               answer: "(-2, -3)",
+               accept: ["(-2, -3)", "(-2,-3)", "(&minus;2, &minus;3)"],
+               explanation: "x = &minus;4/2 = &minus;2. y = (&minus;2)<sup>2</sup> + 4(&minus;2) + 1 = 4 &minus; 8 + 1 = &minus;3. Vertex: (&minus;2, &minus;3)."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "If a > 0 in y = ax<sup>2</sup> + bx + c, the parabola opens:",
+               options: ["Upward", "Downward", "To the right"],
+               correct: 0,
+               explanation: "When a > 0, the parabola opens upward (U-shape). When a < 0, it opens downward."
+             }
+           ]
+         },
+         {
+           heading: "Intercepts and Key Features",
           paragraphs: [
             "To fully graph a quadratic, find these key features: <strong>vertex</strong> (use completing the square or x = &minus;b/(2a)), <strong>axis of symmetry</strong> (x = h), <strong>direction of opening</strong> (sign of a), <strong>y-intercept</strong> (set x = 0, so y = c), and <strong>x-intercepts</strong> (set y = 0 and solve the quadratic equation).",
             "The <strong>y-intercept</strong> is the easiest to find: just plug in x = 0, giving y = a(0)<sup>2</sup> + b(0) + c = c. So the constant term c in standard form <em>is</em> the y-intercept. For <strong>x-intercepts</strong>, set y = 0 and solve ax<sup>2</sup> + bx + c = 0 by factoring, completing the square, or the quadratic formula.",
             "The <strong>domain</strong> of any quadratic function is all real numbers (&minus;&infin;, &infin;). The <strong>range</strong> depends on whether the parabola opens up or down: if a &gt; 0, the range is [k, &infin;) (y is at least k); if a &lt; 0, the range is (&minus;&infin;, k] (y is at most k). A quadratic may have 0, 1, or 2 x-intercepts, depending on the discriminant."
-          ]
+          ],
+          graphs: [{"type":"coordPlane","xMin":-2,"xMax":6,"yMin":-5,"yMax":5,"width":340,"height":320,"parabolas":[{"a":1,"b":-4,"c":0,"color":"#7c3aed","label":"y = x² − 4x"}],"lines":[{"vertical":true,"x":2,"color":"#f59e0b","dashed":true,"label":"x = 2"}],"points":[{"x":2,"y":-4,"color":"#e53e3e","label":"vertex (2, −4)","labelPos":"br"},{"x":0,"y":0,"color":"#22c55e","label":"(0, 0)","labelPos":"tl"},{"x":4,"y":0,"color":"#22c55e","label":"(4, 0)","labelPos":"tr"}],"caption":"Key features: vertex, axis of symmetry (dashed), x-intercepts, y-intercept"}]
         },
         {
           heading: "Circles: x&sup2; + y&sup2; = r&sup2;",
@@ -53,7 +77,8 @@ export const DAYS_21_26 = {  day21: {
             "While studying graphs, it&rsquo;s important to recognize a related curve: the <strong>circle</strong>. The equation <strong>x<sup>2</sup> + y<sup>2</sup> = r<sup>2</sup></strong> describes a circle centered at the origin with radius r. For example, x<sup>2</sup> + y<sup>2</sup> = 25 is a circle with radius 5.",
             "How do you tell a circle from a parabola? In a circle equation, <em>both</em> x and y are squared with the <em>same</em> coefficient. In a parabola equation, only <em>one</em> variable is squared. So x<sup>2</sup> + y<sup>2</sup> = 9 is a circle, but y = x<sup>2</sup> + 9 is a parabola.",
             "A circle is <strong>not a function</strong> (it fails the vertical line test), but we can study its equation. More generally, (x &minus; h)<sup>2</sup> + (y &minus; k)<sup>2</sup> = r<sup>2</sup> is a circle centered at (h, k) with radius r. You&rsquo;ll use completing the square to convert expanded circle equations back to this form."
-          ]
+          ],
+          graphs: [{"type":"row","items":[{"type":"coordPlane","xMin":-4,"xMax":4,"yMin":-4,"yMax":4,"width":260,"height":260,"points":[{"x":3,"y":0,"color":"#0ea5e9"},{"x":2.9,"y":0.77,"color":"#0ea5e9"},{"x":2.6,"y":1.5,"color":"#0ea5e9"},{"x":2.12,"y":2.12,"color":"#0ea5e9"},{"x":1.5,"y":2.6,"color":"#0ea5e9"},{"x":0.77,"y":2.9,"color":"#0ea5e9"},{"x":0,"y":3,"color":"#0ea5e9"},{"x":-0.77,"y":2.9,"color":"#0ea5e9"},{"x":-1.5,"y":2.6,"color":"#0ea5e9"},{"x":-2.12,"y":2.12,"color":"#0ea5e9"},{"x":-2.6,"y":1.5,"color":"#0ea5e9"},{"x":-2.9,"y":0.77,"color":"#0ea5e9"},{"x":-3,"y":0,"color":"#0ea5e9"},{"x":-2.9,"y":-0.77,"color":"#0ea5e9"},{"x":-2.6,"y":-1.5,"color":"#0ea5e9"},{"x":-2.12,"y":-2.12,"color":"#0ea5e9"},{"x":-1.5,"y":-2.6,"color":"#0ea5e9"},{"x":-0.77,"y":-2.9,"color":"#0ea5e9"},{"x":0,"y":-3,"color":"#0ea5e9"},{"x":0.77,"y":-2.9,"color":"#0ea5e9"},{"x":1.5,"y":-2.6,"color":"#0ea5e9"},{"x":2.12,"y":-2.12,"color":"#0ea5e9"},{"x":2.6,"y":-1.5,"color":"#0ea5e9"},{"x":2.9,"y":-0.77,"color":"#0ea5e9"},{"x":0,"y":0,"color":"#e53e3e","label":"center"}],"caption":"Circle: x² + y² = 9 (r = 3)"},{"type":"coordPlane","xMin":-4,"xMax":4,"yMin":-2,"yMax":10,"width":260,"height":260,"parabolas":[{"a":1,"b":0,"c":0,"color":"#7c3aed","label":"y = x²"}],"caption":"Parabola: only y is squared"}]}]
         }
       ]
     },
@@ -181,11 +206,34 @@ export const DAYS_21_26 = {  day21: {
               "Test intervals: x = &minus;5 gives (&minus;1)(&minus;7) = 7 &gt; 0, x = 0 gives (4)(&minus;2) = &minus;8 &lt; 0, x = 3 gives (7)(1) = 7 &gt; 0.",
               "The expression is &le; 0 in the middle interval. Solution: <strong>&minus;4 &le; x &le; 2</strong>, or [&minus;4, 2]."
             ],
-            graphs: [{"type":"numberLine","min":-7,"max":5,"step":1,"width":480,"height":70,"points":[{"x":-4,"open":false,"color":"#e53e3e","label":"−4"},{"x":2,"open":false,"color":"#e53e3e","label":"2"}],"intervals":[{"from":-4,"to":2,"fromOpen":false,"toOpen":false,"color":"rgba(14,165,233,0.2)"}],"caption":"Solution: −4 ≤ x ≤ 2"}]
-          }
-        },
-        {
-          heading: "Inequalities with Rational Expressions",
+              graphs: [{"type":"numberLine","min":-7,"max":5,"step":1,"width":480,"height":70,"points":[{"x":-4,"open":false,"color":"#e53e3e","label":"−4"},{"x":2,"open":false,"color":"#e53e3e","label":"2"}],"intervals":[{"from":-4,"to":2,"fromOpen":false,"toOpen":false,"color":"rgba(14,165,233,0.2)"}],"caption":"Solution: −4 ≤ x ≤ 2"}]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Solve x<sup>2</sup> &minus; 9 &lt; 0. Write the solution as an interval (e.g. -3<x<3).",
+               answer: "-3<x<3",
+               accept: ["-3<x<3", "-3 < x < 3", "(-3, 3)", "−3 < x < 3"],
+               explanation: "Factor: (x + 3)(x &minus; 3) &lt; 0. Roots: x = &minus;3, x = 3. Test middle: the expression is negative between &minus;3 and 3."
+             },
+             {
+               type: "type-answer",
+               prompt: "For x<sup>2</sup> &minus; 4x &minus; 5 &le; 0, what are the critical points? (smaller first, separated by comma)",
+               answer: "-1, 5",
+               accept: ["-1, 5", "-1,5", "−1, 5"],
+               explanation: "Factor: (x &minus; 5)(x + 1) = 0. Roots: x = &minus;1 and x = 5."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "To solve a quadratic inequality, the first step after getting 0 on one side is:",
+               options: ["Factor the quadratic", "Divide by x", "Square both sides"],
+               correct: 0,
+               explanation: "Factor to find the critical points (roots), then use sign analysis on the intervals."
+             }
+           ]
+         },
+         {
+           heading: "Inequalities with Rational Expressions",
           paragraphs: [
             "The same sign-analysis technique works for <strong>rational inequalities</strong> (inequalities with fractions containing variables). For example, (x + 1)/(x &minus; 2) &gt; 0. The key difference: you must find <em>all</em> <strong>critical points</strong>, which include both <strong>zeros</strong> (where the numerator = 0) and <strong>undefined values</strong> (where the denominator = 0).",
             "For (x + 1)/(x &minus; 2) &gt; 0: the numerator is zero at x = &minus;1, and the expression is undefined at x = 2. Mark both on a number line. Test: x = &minus;2 gives (&minus;1)/(&minus;4) = + &gt; 0 ✓, x = 0 gives (1)/(&minus;2) = &minus; ✗, x = 3 gives (4)/(1) = + &gt; 0 ✓. Solution: x &lt; &minus;1 or x &gt; 2.",
@@ -215,7 +263,8 @@ export const DAYS_21_26 = {  day21: {
               "Area A = w(60 &minus; 2w) = 60w &minus; 2w<sup>2</sup> = &minus;2w<sup>2</sup> + 60w.",
               "This is a downward parabola (a = &minus;2 &lt; 0). Maximum at w = &minus;b/(2a) = &minus;60/(2(&minus;2)) = 60/4 = 15.",
               "Dimensions: width = 15 m, length = 60 &minus; 2(15) = 30 m. Maximum area = 15 &times; 30 = <strong>450 m<sup>2</sup></strong>."
-            ]
+            ],
+            graphs: [{"type":"coordPlane","xMin":-2,"xMax":32,"yMin":-50,"yMax":500,"width":340,"height":280,"gridStep":5,"parabolas":[{"a":-2,"b":60,"c":0,"color":"#e53e3e","label":"A = −2w² + 60w"}],"points":[{"x":15,"y":450,"color":"#7c3aed","label":"max (15, 450)","labelPos":"tr"},{"x":0,"y":0,"color":"#22c55e","label":"(0, 0)","labelPos":"br"},{"x":30,"y":0,"color":"#22c55e","label":"(30, 0)","labelPos":"bl"}],"caption":"Area vs. width: maximum area of 450 m² at width = 15 m"}]
           }
         }
       ]
@@ -521,12 +570,35 @@ export const DAYS_21_26 = {  day21: {
               "Find the largest perfect square that divides 200: 100 &times; 2 = 200.",
               "Apply the product rule: &radic;200 = &radic;(100 &times; 2) = &radic;100 &middot; &radic;2.",
               "&radic;100 = 10.",
-              "Result: <strong>10&radic;2</strong>."
-            ]
-          }
-        },
-        {
-          heading: "Adding, Subtracting & Multiplying Radicals",
+               "Result: <strong>10&radic;2</strong>."
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Simplify &radic;50. Write in simplified radical form (e.g. 5sqrt2).",
+               answer: "5sqrt2",
+               accept: ["5sqrt2", "5√2", "5&radic;2", "5 sqrt 2"],
+               explanation: "&radic;50 = &radic;(25 &times; 2) = &radic;25 &times; &radic;2 = 5&radic;2."
+             },
+             {
+               type: "type-answer",
+               prompt: "Simplify &radic;72.",
+               answer: "6sqrt2",
+               accept: ["6sqrt2", "6√2", "6&radic;2"],
+               explanation: "&radic;72 = &radic;(36 &times; 2) = 6&radic;2."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "Which is the simplified form of &radic;48?",
+               options: ["4&radic;3", "2&radic;12", "6&radic;2"],
+               correct: 0,
+               explanation: "&radic;48 = &radic;(16 &times; 3) = 4&radic;3."
+             }
+           ]
+         },
+         {
+           heading: "Adding, Subtracting & Multiplying Radicals",
           paragraphs: [
             "You can only add or subtract radicals that have the <strong>same radicand</strong> (like radicals). Think of it like combining like terms: 3&radic;5 + 7&radic;5 = 10&radic;5, just as 3x + 7x = 10x. But 3&radic;5 + 2&radic;3 cannot be combined further.",
             "Sometimes you need to simplify first before you can combine. For example: &radic;12 + &radic;27 = 2&radic;3 + 3&radic;3 = 5&radic;3. Both radicals simplify to multiples of &radic;3, so they become like terms.",
@@ -548,7 +620,8 @@ export const DAYS_21_26 = {  day21: {
             "In math, we prefer not to leave a radical in the denominator of a fraction. To <strong>rationalize the denominator</strong>, multiply both the numerator and denominator by the radical. For example: 5/&radic;3 = (5 &middot; &radic;3) / (&radic;3 &middot; &radic;3) = 5&radic;3/3.",
             "This works because &radic;3 &middot; &radic;3 = 3 (a whole number), clearing the radical from the bottom. The value of the fraction hasn&rsquo;t changed &mdash; we just multiplied by &radic;3/&radic;3 = 1.",
             "The <strong>Pythagorean theorem</strong> connects radicals to geometry: in a right triangle with legs a and b and hypotenuse c, a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup>. To find a missing side, you take a square root. If a = 3 and b = 4, then c = &radic;(9 + 16) = &radic;25 = 5."
-          ]
+          ],
+          graphs: [{"type":"triangle","width":200,"height":170,"vertices":[[20,150],[180,150],[180,20]],"labels":[{"text":"A","dx":-12,"dy":0},{"text":"B","dx":12,"dy":0},{"text":"C","dx":12,"dy":-10}],"sides":[{"label":"c = 5","dx":0,"dy":15},{"label":"b = 4","dx":14,"dy":0},{"label":"a = 3","dx":-14,"dy":-5}],"rightAngle":1,"color":"#0ea5e9","caption":"a² + b² = c² → 9 + 16 = 25"}]
         }
       ]
     },
@@ -835,6 +908,7 @@ export const DAYS_21_26 = {  day21: {
             "For rational expressions, remember to exclude x-values that make the denominator zero. For f(x) = 1/(x &minus; 4), the domain is all real numbers except x = 4. We combine what we learned about radicals and rational expressions to find domains.",
             "The <strong>vertical line test</strong> is a quick visual check: if any vertical line crosses a graph more than once, the graph does <em>not</em> represent a function. A circle fails the vertical line test (each x-value in the interior gives two y-values), but a parabola opening up or down passes it."
           ],
+          graphs: [{"type":"row","items":[{"type":"coordPlane","xMin":-4,"xMax":4,"yMin":-4,"yMax":4,"width":240,"height":240,"points":[{"x":2,"y":0,"color":"#0ea5e9"},{"x":1.73,"y":1,"color":"#0ea5e9"},{"x":1.41,"y":1.41,"color":"#0ea5e9"},{"x":1,"y":1.73,"color":"#0ea5e9"},{"x":0,"y":2,"color":"#0ea5e9"},{"x":-1,"y":1.73,"color":"#0ea5e9"},{"x":-1.41,"y":1.41,"color":"#0ea5e9"},{"x":-1.73,"y":1,"color":"#0ea5e9"},{"x":-2,"y":0,"color":"#0ea5e9"},{"x":-1.73,"y":-1,"color":"#0ea5e9"},{"x":-1.41,"y":-1.41,"color":"#0ea5e9"},{"x":-1,"y":-1.73,"color":"#0ea5e9"},{"x":0,"y":-2,"color":"#0ea5e9"},{"x":1,"y":-1.73,"color":"#0ea5e9"},{"x":1.41,"y":-1.41,"color":"#0ea5e9"},{"x":1.73,"y":-1,"color":"#0ea5e9"}],"lines":[{"vertical":true,"x":1,"color":"#e53e3e","dashed":true,"label":"FAIL ✗"}],"caption":"Circle: vertical line hits TWO points — not a function"},{"type":"coordPlane","xMin":-4,"xMax":4,"yMin":-1,"yMax":8,"width":240,"height":240,"parabolas":[{"a":0.5,"b":0,"c":0,"color":"#22c55e","label":"y = ½x²"}],"lines":[{"vertical":true,"x":1.5,"color":"#e53e3e","dashed":true,"label":"PASS ✓"}],"caption":"Parabola: vertical line hits ONE point — is a function"}]}],
           example: {
             title: "Worked Example: Finding Domain",
             problem: "Find the domain of f(x) = 5/(x + 2).",
@@ -859,12 +933,35 @@ export const DAYS_21_26 = {  day21: {
               "Substitute x = &minus;1: g(&minus;1) = 3(&minus;1)<sup>2</sup> &minus; 5(&minus;1) + 2.",
               "Compute (&minus;1)<sup>2</sup> = 1, so 3(1) = 3.",
               "Compute &minus;5(&minus;1) = 5.",
-              "Add: 3 + 5 + 2 = <strong>10</strong>."
-            ]
-          }
-        },
-        {
-          heading: "Course Summary: Your Algebra Journey",
+               "Add: 3 + 5 + 2 = <strong>10</strong>."
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "If f(x) = 2x + 1, find f(4).",
+               answer: "9",
+               accept: ["9", "f(4)=9", "f(4) = 9"],
+               explanation: "f(4) = 2(4) + 1 = 8 + 1 = 9."
+             },
+             {
+               type: "type-answer",
+               prompt: "If g(x) = x<sup>2</sup> &minus; 3, find g(&minus;2).",
+               answer: "1",
+               accept: ["1", "g(-2)=1", "g(-2) = 1"],
+               explanation: "g(&minus;2) = (&minus;2)<sup>2</sup> &minus; 3 = 4 &minus; 3 = 1."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "If f(x) = x + 5, what is f(0)?",
+               options: ["5", "0", "x + 5"],
+               correct: 0,
+               explanation: "f(0) = 0 + 5 = 5. Substitute x = 0 into the function."
+             }
+           ]
+         },
+         {
+           heading: "Course Summary: Your Algebra Journey",
           paragraphs: [
             "Congratulations &mdash; you&rsquo;ve completed a whirlwind tour of introductory algebra! Let&rsquo;s see how everything connects. We started with <strong>variables and expressions</strong> (Day 1) and the <strong>properties of real numbers</strong> (Day 2) that form algebra&rsquo;s foundation. Then we learned to solve <strong>one-step and two-step equations</strong> (Day 3), <strong>multi-step equations</strong> (Day 4), <strong>inequalities</strong> (Day 5), and <strong>absolute value</strong> (Day 6).",
             "We powered up with <strong>exponents</strong> (Days 7&ndash;8) and explored <strong>polynomials</strong> (Days 9&ndash;10), learned to <strong>factor</strong> them (Days 11&ndash;12), and solved <strong>quadratic equations</strong> (Days 13&ndash;14). We studied <strong>word problems and applications</strong> (Day 15), then moved to <strong>graphing lines</strong> (Day 16) and <strong>writing linear equations</strong> (Day 17).",

@@ -23,12 +23,35 @@ export const DAYS_7_12 = {  day7: {
             problem: "Simplify: x<sup>3</sup> &middot; x<sup>5</sup> &middot; x<sup>2</sup>.",
             steps: [
               "All bases are x, so add the exponents: 3 + 5 + 2 = 10.",
-              "Result: <strong>x<sup>10</sup></strong>."
-            ]
-          }
-        },
-        {
-          heading: "Power Rule & Power of a Product",
+               "Result: <strong>x<sup>10</sup></strong>."
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Simplify: x<sup>4</sup> &middot; x<sup>7</sup>. Write the exponent only.",
+               answer: "11",
+               accept: ["11", "x^11"],
+               explanation: "Product rule: add exponents. 4 + 7 = 11. Result: x<sup>11</sup>."
+             },
+             {
+               type: "type-answer",
+               prompt: "Simplify: y<sup>9</sup> &divide; y<sup>3</sup>. Write the exponent only.",
+               answer: "6",
+               accept: ["6", "y^6"],
+               explanation: "Quotient rule: subtract exponents. 9 &minus; 3 = 6. Result: y<sup>6</sup>."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "What is x<sup>0</sup> (when x &ne; 0)?",
+               options: ["1", "0", "x"],
+               correct: 0,
+               explanation: "Any nonzero base raised to the zero power equals 1."
+             }
+           ]
+         },
+         {
+           heading: "Power Rule & Power of a Product",
           paragraphs: [
             "<strong>Power Rule:</strong> Raising a power to another power &mdash; <strong>multiply</strong> the exponents: (x<sup>a</sup>)<sup>b</sup> = x<sup>ab</sup>.",
             "<strong>Power of a Product:</strong> (xy)<sup>n</sup> = x<sup>n</sup>y<sup>n</sup>. Distribute the exponent to each factor.",
@@ -162,12 +185,35 @@ export const DAYS_7_12 = {  day7: {
             steps: [
               "x<sup>&minus;2</sup> in the numerator moves to the denominator as x<sup>2</sup>.",
               "y<sup>&minus;4</sup> in the denominator moves to the numerator as y<sup>4</sup>.",
-              "Result: <strong>3y<sup>4</sup> / x<sup>2</sup></strong>."
-            ]
-          }
-        },
-        {
-          heading: "Simplifying with Mixed Exponents",
+               "Result: <strong>3y<sup>4</sup> / x<sup>2</sup></strong>."
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Rewrite 5<sup>&minus;2</sup> as a fraction.",
+               answer: "1/25",
+               accept: ["1/25", "0.04"],
+               explanation: "5<sup>&minus;2</sup> = 1/5<sup>2</sup> = 1/25."
+             },
+             {
+               type: "type-answer",
+               prompt: "Write 0.00045 in scientific notation (e.g. 4.5e-4).",
+               answer: "4.5e-4",
+               accept: ["4.5e-4", "4.5 x 10^-4", "4.5×10^-4", "4.5 × 10^−4"],
+               explanation: "Move the decimal 4 places right: 4.5 &times; 10<sup>&minus;4</sup>."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "What does x<sup>&minus;3</sup> equal?",
+               options: ["1/x<sup>3</sup>", "&minus;x<sup>3</sup>", "x<sup>3</sup>"],
+               correct: 0,
+               explanation: "A negative exponent means reciprocal: x<sup>&minus;3</sup> = 1/x<sup>3</sup>."
+             }
+           ]
+         },
+         {
+           heading: "Simplifying with Mixed Exponents",
           paragraphs: [
             "All the exponent laws from Day 7 still apply with negative exponents. Product rule: x<sup>&minus;2</sup> &middot; x<sup>5</sup> = x<sup>3</sup>.",
             "Power rule: (x<sup>&minus;3</sup>)<sup>2</sup> = x<sup>&minus;6</sup> = 1/x<sup>6</sup>.",
@@ -326,12 +372,35 @@ export const DAYS_7_12 = {  day7: {
             steps: [
               "Group like terms: (5a<sup>2</sup> &minus; 2a<sup>2</sup>) + (&minus;3a + 6a) + (7 &minus; 1).",
               "Combine: 3a<sup>2</sup> + 3a + 6.",
-              "Result: <strong>3a<sup>2</sup> + 3a + 6</strong>."
-            ]
-          }
-        },
-        {
-          heading: "Subtracting Polynomials",
+               "Result: <strong>3a<sup>2</sup> + 3a + 6</strong>."
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Add: (2x<sup>2</sup> + 3x) + (4x<sup>2</sup> &minus; x). Write the result.",
+               answer: "6x^2+2x",
+               accept: ["6x^2+2x", "6x^2 + 2x", "6x² + 2x", "6x²+2x"],
+               explanation: "Combine like terms: (2x&sup2; + 4x&sup2;) + (3x &minus; x) = 6x&sup2; + 2x."
+             },
+             {
+               type: "type-answer",
+               prompt: "What is the degree of the polynomial 7x<sup>3</sup> &minus; 2x + 5?",
+               answer: "3",
+               accept: ["3"],
+               explanation: "The degree is the highest exponent: x<sup>3</sup> has exponent 3."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "A polynomial with exactly 3 terms is called a:",
+               options: ["Trinomial", "Binomial", "Monomial"],
+               correct: 0,
+               explanation: "Mono = 1 term, Bi = 2 terms, Tri = 3 terms."
+             }
+           ]
+         },
+         {
+           heading: "Subtracting Polynomials",
           paragraphs: [
             "Subtracting a polynomial means <strong>adding its opposite</strong> &mdash; distribute the negative sign (multiply every term in the second polynomial by &minus;1), then combine like terms.",
             "Example: (4x<sup>2</sup> + x) &minus; (2x<sup>2</sup> &minus; 3x + 5) = 4x<sup>2</sup> + x &minus; 2x<sup>2</sup> + 3x &minus; 5 = <strong>2x<sup>2</sup> + 4x &minus; 5</strong>.",
@@ -630,12 +699,35 @@ export const DAYS_7_12 = {  day7: {
               "GCF of coefficients: GCF(18, 12, 6) = 6.",
               "Smallest power of a: a<sup>1</sup>. Smallest power of b: b<sup>1</sup>. So GCF = 6ab.",
               "Divide each term: 18a<sup>3</sup>b/(6ab) = 3a<sup>2</sup>, &minus;12a<sup>2</sup>b<sup>2</sup>/(6ab) = &minus;2ab, 6ab/(6ab) = 1.",
-              "Result: <strong>6ab(3a<sup>2</sup> &minus; 2ab + 1)</strong>."
-            ]
-          }
-        },
-        {
-          heading: "Factoring by Grouping",
+               "Result: <strong>6ab(3a<sup>2</sup> &minus; 2ab + 1)</strong>."
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Factor out the GCF: 12x<sup>3</sup> + 8x<sup>2</sup>. Write the GCF.",
+               answer: "4x^2",
+               accept: ["4x^2", "4x²", "4x&sup2;"],
+               explanation: "GCF of 12 and 8 is 4. GCF of x<sup>3</sup> and x<sup>2</sup> is x<sup>2</sup>. So GCF = 4x<sup>2</sup>."
+             },
+             {
+               type: "type-answer",
+               prompt: "Factor completely: 15y &minus; 10. Write the factored form.",
+               answer: "5(3y-2)",
+               accept: ["5(3y-2)", "5(3y − 2)", "5(3y&minus;2)"],
+               explanation: "GCF is 5. Factor: 5(3y &minus; 2)."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "What is the GCF of 6x<sup>2</sup>y and 9xy<sup>2</sup>?",
+               options: ["3xy", "6xy", "3x<sup>2</sup>y<sup>2</sup>"],
+               correct: 0,
+               explanation: "GCF of 6 and 9 is 3. Lowest power of x is x<sup>1</sup>, of y is y<sup>1</sup>. GCF = 3xy."
+             }
+           ]
+         },
+         {
+           heading: "Factoring by Grouping",
           paragraphs: [
             "When a polynomial has <strong>4 terms</strong> with no common factor across all terms, try <strong>grouping</strong>: split into two pairs, factor the GCF from each pair, then factor out the common binomial.",
             "Example: x<sup>3</sup> + 3x<sup>2</sup> + 2x + 6. Group: (x<sup>3</sup> + 3x<sup>2</sup>) + (2x + 6). Factor each: x<sup>2</sup>(x + 3) + 2(x + 3). Common binomial: (x + 3). Result: <strong>(x + 3)(x<sup>2</sup> + 2)</strong>.",
@@ -771,12 +863,35 @@ export const DAYS_7_12 = {  day7: {
               "Find two numbers that multiply to 6 and add to &minus;5.",
               "Since c is positive and b is negative, both numbers are negative.",
               "Factors of 6: 1&times;6, 2&times;3. The pair &minus;2 and &minus;3 multiply to 6 and add to &minus;5.",
-              "Result: <strong>(x &minus; 2)(x &minus; 3)</strong>."
-            ]
-          }
-        },
-        {
-          heading: "Signs Guide",
+               "Result: <strong>(x &minus; 2)(x &minus; 3)</strong>."
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Factor: x<sup>2</sup> + 7x + 12. Write the factored form.",
+               answer: "(x+3)(x+4)",
+               accept: ["(x+3)(x+4)", "(x + 3)(x + 4)", "(x+4)(x+3)", "(x + 4)(x + 3)"],
+               explanation: "Find two numbers that multiply to 12 and add to 7: 3 and 4. Factor: (x + 3)(x + 4)."
+             },
+             {
+               type: "type-answer",
+               prompt: "Factor: x<sup>2</sup> &minus; x &minus; 6. Write the factored form.",
+               answer: "(x-3)(x+2)",
+               accept: ["(x-3)(x+2)", "(x − 3)(x + 2)", "(x+2)(x-3)", "(x + 2)(x − 3)"],
+               explanation: "Need two numbers that multiply to &minus;6 and add to &minus;1: &minus;3 and 2. Factor: (x &minus; 3)(x + 2)."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "To factor x<sup>2</sup> + bx + c, you need two numbers that:",
+               options: ["Multiply to c and add to b", "Multiply to b and add to c", "Both equal b"],
+               correct: 0,
+               explanation: "You find two numbers whose product is c and whose sum is b."
+             }
+           ]
+         },
+         {
+           heading: "Signs Guide",
           paragraphs: [
             "The signs in the trinomial tell you about the signs in the factors:",
             "<strong>c positive, b positive</strong>: both numbers positive. (x + p)(x + q). <strong>c positive, b negative</strong>: both numbers negative. (x &minus; p)(x &minus; q).",

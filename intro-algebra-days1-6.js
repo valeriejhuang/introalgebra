@@ -225,12 +225,35 @@ export const DAYS_1_6 = {  day1: {
               "x is multiplied by &minus;4. Divide both sides by &minus;4.",
               "&minus;4x &divide; (&minus;4) = 28 &divide; (&minus;4).",
               "x = <strong>&minus;7</strong>.",
-              "Check: &minus;4(&minus;7) = 28. &#10003;"
-            ]
-          }
-        },
-        {
-          heading: "Equations with Fractions",
+               "Check: &minus;4(&minus;7) = 28. &#10003;"
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Solve: 7x = 42.",
+               answer: "6",
+               accept: ["6", "x=6", "x = 6"],
+               explanation: "Divide both sides by 7: x = 42 &divide; 7 = 6."
+             },
+             {
+               type: "type-answer",
+               prompt: "Solve: x/4 = 9.",
+               answer: "36",
+               accept: ["36", "x=36", "x = 36"],
+               explanation: "Multiply both sides by 4: x = 9 &times; 4 = 36."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "To solve 5x = &minus;30, you should:",
+               options: ["Divide both sides by 5", "Subtract 5 from both sides", "Add 30 to both sides"],
+               correct: 0,
+               explanation: "Since x is multiplied by 5, divide both sides by 5 to isolate x: x = &minus;6."
+             }
+           ]
+         },
+         {
+           heading: "Equations with Fractions",
           paragraphs: [
             "When you see x/5 = 3, multiply both sides by 5 to isolate x: x = 15.",
             "If the equation is (2/3)x = 10, multiply both sides by the <strong>reciprocal</strong> 3/2: x = 10 &times; 3/2 = 15.",
@@ -519,12 +542,35 @@ export const DAYS_1_6 = {  day1: {
               "Let b = brother&rsquo;s age.",
               "\"5 years older than twice his age\" &rArr; 2b + 5 = 29.",
               "Subtract 5: 2b = 24. Divide by 2: b = 12.",
-              "Check: 2(12) + 5 = 29. &#10003; Her brother is <strong>12 years old</strong>."
-            ]
-          }
-        },
-        {
-          heading: "Number Problems",
+               "Check: 2(12) + 5 = 29. &#10003; Her brother is <strong>12 years old</strong>."
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "A number tripled minus 4 equals 20. What is the number?",
+               answer: "8",
+               accept: ["8", "x=8", "x = 8"],
+               explanation: "Let x = the number. 3x &minus; 4 = 20. Add 4: 3x = 24. Divide by 3: x = 8."
+             },
+             {
+               type: "type-answer",
+               prompt: "Sam is 3 years older than twice Mia's age. Sam is 17. How old is Mia?",
+               answer: "7",
+               accept: ["7"],
+               explanation: "Let m = Mia's age. 2m + 3 = 17. Subtract 3: 2m = 14. Divide by 2: m = 7."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "What is the first step in solving a word problem?",
+               options: ["Define the variable", "Write the answer", "Graph the equation"],
+               correct: 0,
+               explanation: "Always start by defining what your variable represents (e.g., let x = the unknown quantity)."
+             }
+           ]
+         },
+         {
+           heading: "Number Problems",
           paragraphs: [
             "Number problems describe relationships between unknown numbers. Common phrases: &ldquo;the sum of two consecutive integers,&rdquo; &ldquo;one number is 4 more than another.&rdquo;",
             "<strong>Consecutive integers</strong> are written as n, n + 1, n + 2, &hellip; Consecutive <em>even</em> or <em>odd</em> integers use a gap of 2: n, n + 2, n + 4.",
@@ -679,7 +725,8 @@ export const DAYS_1_6 = {  day1: {
               "x &ge; &minus;5.",
               "Solution set: all numbers greater than or equal to &minus;5. On a number line: filled circle at &minus;5 with arrow pointing right."
             ],
-             graphs: [{"type":"numberLine","min":-8,"max":4,"step":1,"width":480,"height":70,"intervals":[{"from":-5,"toInf":true,"fromOpen":false,"color":"#0d9488"}],"caption":"x ≥ −5: filled circle at −5, arrow pointing right"}],
+              graphs: [{"type":"numberLine","min":-8,"max":4,"step":1,"width":480,"height":70,"intervals":[{"from":-5,"toInf":true,"fromOpen":false,"color":"#0d9488"}],"caption":"x ≥ −5: filled circle at −5, arrow pointing right"}]
+           },
            practice: [
              {
                type: "type-answer",
@@ -703,7 +750,6 @@ export const DAYS_1_6 = {  day1: {
                explanation: "Dividing (or multiplying) both sides by a negative number flips the inequality sign."
              }
            ]
-           }
          },
          {
            heading: "Multi-Step Inequalities",
@@ -711,8 +757,9 @@ export const DAYS_1_6 = {  day1: {
             "Multi-step inequalities work the same as multi-step equations. Distribute, combine like terms, then isolate the variable. Just remember the sign-flip rule.",
             "Example: 2(x + 3) &minus; 5 &lt; 9. Distribute: 2x + 6 &minus; 5 &lt; 9. Simplify: 2x + 1 &lt; 9. Subtract 1: 2x &lt; 8. Divide by 2: x &lt; 4.",
             "With variables on both sides: 5x &minus; 3 &gt; 2x + 9 &rArr; 3x &gt; 12 &rArr; x &gt; 4."
-          ]
-        },
+           ],
+           graphs: [{"type":"row","items":[{"type":"numberLine","min":-2,"max":8,"step":1,"width":340,"height":70,"intervals":[{"to":4,"fromInf":true,"toOpen":true,"color":"#3b82f6"}],"caption":"x < 4 (open circle at 4, shade left)"},{"type":"numberLine","min":-2,"max":8,"step":1,"width":340,"height":70,"intervals":[{"from":4,"toInf":true,"fromOpen":true,"color":"#e53e3e"}],"caption":"x > 4 (open circle at 4, shade right)"}]}]
+         },
         {
           heading: "Writing Solutions in Interval Notation",
           paragraphs: [
@@ -870,12 +917,35 @@ export const DAYS_1_6 = {  day1: {
               "Set up two cases: 2x + 5 = 11 or 2x + 5 = &minus;11.",
               "Case 1: 2x = 6, so x = 3.",
               "Case 2: 2x = &minus;16, so x = &minus;8.",
-              "Solutions: x = <strong>3</strong> or x = <strong>&minus;8</strong>. Check both in the original equation."
-            ]
-          }
-        },
-        {
-          heading: "Absolute Value Inequalities",
+               "Solutions: x = <strong>3</strong> or x = <strong>&minus;8</strong>. Check both in the original equation."
+             ]
+           },
+           practice: [
+             {
+               type: "type-answer",
+               prompt: "Solve |x &minus; 1| = 5. Write both solutions separated by a comma (smaller first).",
+               answer: "-4, 6",
+               accept: ["-4, 6", "-4,6", "x=-4, x=6", "-4 and 6"],
+               explanation: "Case 1: x &minus; 1 = 5, so x = 6. Case 2: x &minus; 1 = &minus;5, so x = &minus;4."
+             },
+             {
+               type: "type-answer",
+               prompt: "Solve |2x| = 10. What is the positive solution?",
+               answer: "5",
+               accept: ["5", "x=5", "x = 5"],
+               explanation: "Case 1: 2x = 10, so x = 5. Case 2: 2x = &minus;10, so x = &minus;5. The positive solution is 5."
+             },
+             {
+               type: "multiple-quick",
+               prompt: "How many solutions does |x + 3| = &minus;2 have?",
+               options: ["None", "One", "Two"],
+               correct: 0,
+               explanation: "Absolute value is always &ge; 0, so it can never equal a negative number. No solution."
+             }
+           ]
+         },
+         {
+           heading: "Absolute Value Inequalities",
           paragraphs: [
             "For <strong>|expression| &lt; k</strong>: this means the expression is within k units of 0. Rewrite as a compound AND: &minus;k &lt; expression &lt; k.",
             "For <strong>|expression| &gt; k</strong>: the expression is more than k units from 0. Rewrite as compound OR: expression &lt; &minus;k OR expression &gt; k.",
