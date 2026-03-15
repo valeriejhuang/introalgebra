@@ -138,12 +138,49 @@ body {
 }
 .day-item.completed .day-info .day-status { color: #48bb78; }
 
+/* ── Sidebar Collapse Toggle ────────────────────── */
+.sidebar-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 6px 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #e2e8f0;
+  cursor: pointer;
+  color: #718096;
+  font-size: 0.78rem;
+  font-weight: 600;
+  gap: 4px;
+  transition: color .15s, background .15s;
+}
+.sidebar-toggle:hover { background: #f7fafc; color: #4a5568; }
+.sidebar-toggle svg { width: 16px; height: 16px; transition: transform .2s; }
+@media (min-width: 769px) {
+  .sidebar-toggle { display: flex; }
+  .sidebar { transition: width .25s ease, min-width .25s ease, padding .25s ease; }
+  .app-layout.sidebar-collapsed .sidebar {
+    width: 0; min-width: 0; padding: 0; overflow: hidden; border-right: none;
+  }
+  .app-layout.sidebar-collapsed .sidebar-toggle {
+    position: fixed; left: 0; top: 56px; z-index: 91;
+    width: 32px; height: 32px; border-radius: 0 6px 6px 0;
+    background: #fff; border: 1px solid #e2e8f0; border-left: none;
+    box-shadow: 2px 0 6px rgba(0,0,0,.08);
+    padding: 0;
+  }
+  .app-layout.sidebar-collapsed .sidebar-toggle svg { transform: rotate(180deg); }
+  .app-layout.sidebar-collapsed .main-content { max-width: 960px; }
+}
+
 /* ── Main Content ───────────────────────────────── */
 .main-content {
   flex: 1;
   overflow-y: auto;
   padding: 32px 40px;
   max-width: 860px;
+  transition: max-width .25s ease;
 }
 
 /* ── Welcome Screen / Dashboard ──────────────────── */
@@ -1188,6 +1225,10 @@ body {
 
   <!-- Sidebar -->
   <nav class="sidebar" id="sidebar">
+    <button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebarCollapse()" aria-label="Collapse sidebar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      <span class="sidebar-toggle-label">Collapse</span>
+    </button>
     <h2>Course Map</h2>
     <ul class="day-list" id="dayList"></ul>
   </nav>
@@ -2578,6 +2619,21 @@ window.toggleSidebar = function() {
 function closeSidebar() {
   document.getElementById('sidebar').classList.remove('open');
   document.getElementById('sidebarOverlay').classList.remove('open');
+}
+
+// ─── Sidebar Collapse (desktop) ───────────────────
+window.toggleSidebarCollapse = function() {
+  const layout = document.querySelector('.app-layout');
+  const collapsed = layout.classList.toggle('sidebar-collapsed');
+  const label = document.querySelector('.sidebar-toggle-label');
+  if (label) label.textContent = collapsed ? '' : 'Collapse';
+  localStorage.setItem('intro-algebra-sidebar-collapsed', collapsed ? '1' : '');
+};
+// Restore collapsed state on load
+if (localStorage.getItem('intro-algebra-sidebar-collapsed') === '1') {
+  document.querySelector('.app-layout').classList.add('sidebar-collapsed');
+  const label = document.querySelector('.sidebar-toggle-label');
+  if (label) label.textContent = '';
 }
 
 window.showFullMindmap = function() {
